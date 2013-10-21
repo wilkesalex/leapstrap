@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leap Cursor Library - Basic Selector</title>
+    <link rel="stylesheet" type="text/css" href="../build/css/leap-manager.css">
+    <style type="text/css">
+        #buttons {
+            margin-bottom: 20px;
+            display:block;
+        }
+
+        .button {
+            color:white;
+            display:inline-block;
+            padding:30px;
+            background-color: lightpink;
+            transition-duration: 1s;
+        }
+
+        .button.hover {
+            background-color: orangered;
+        }
+
+        a {
+            display:inline-block;
+            color:black;
+            padding:10px;
+            background-color: lightblue;
+            margin-bottom: 20px;
+            transition-duration: 1s;
+        }
+
+        a:hover, a.hover {
+            background-color: steelblue;
+        }
+
+        ul {
+            padding: 0px;
+            display: block;
+            height:70px;
+        }
+
+        ul li {
+            list-style-type: none;
+            font-size: 3em;
+            margin-right: 10px;
+            display: inline;
+            padding:20px;
+            background-color: yellowgreen
+        }
+
+        ul li:hover, ul li.hover {
+            background-color: olivedrab;
+            transition-duration: 1s;
+        }
+
+        #output {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript" src="../build/js/leap-manager.min.js"></script>
+    <script type="text/javascript" src="../lib/js/leap.min.js"></script>
+</head>
+<body>
+
+    <div id="buttons">
+        <div class="button">Click Me</div>
+        <div class="button">Click Me</div>
+        <div class="button">Click Me</div>
+        <div class="button">Click Me</div>
+        <div class="button">Click Me</div>
+    </div>
+
+    <a href="#"> I am a test Anchor Tag</a>
+
+    <ul>
+        <li>These are all</li>
+        <li>Interactive</li>
+        <li>So click away!</li>
+    </ul>
+
+    <div id="output"></div>
+    <script type="text/javascript">
+        var buttons = document.querySelectorAll(".button, a, ul li");
+        var output  = document.querySelector("#output");
+        var count   = 0;
+
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function(e){
+                output.innerHTML += count + ": Button Clicked</br>";
+                count++;
+            });
+        };
+
+        LeapManager.init({
+            maxCursors:5,
+            interactiveSelector:".button, a, ul li"
+        });
+    </script>
+</body>
+</html>

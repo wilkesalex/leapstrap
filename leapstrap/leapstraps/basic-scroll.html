@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leap Cursor Library - Basic Scrolling</title>
+    <link rel="stylesheet" type="text/css" href="../build/css/leap-manager.css">
+    <style type="text/css">
+        .button {
+            color:white;
+            display:inline-block;
+            padding:30px;
+            background-color: lightpink;
+            transition-duration: 1s;
+        }
+
+        .button.hover {
+            background-color: orangered;
+        }
+
+        html, body {
+            width:100%;
+            padding: 0px;
+            margin:0px;
+        }
+
+        #wrapper {
+            height:3000px;
+            background-color: lightgreen;
+        }
+
+        .container {
+            float: left;
+            margin: 20px;
+            padding: 40px;
+            background-color: blue;
+            opacity: .5;
+            overflow: auto
+        }
+
+        .horizontal {
+            width: 300px;
+        }
+
+        .horizontal-content {
+            height: 100px;
+            width: 600px;
+            background-color: red;
+            overflow: hidden;
+        }
+
+         .vertical {
+            height: 500px;
+        }
+
+        .vertical-content {
+            height: 900px;
+            width: 600px;
+            background-color: red;
+            overflow: hidden;
+        }
+    </style>
+    <script type="text/javascript" src="../build/js/leap-manager.min.js"></script>
+    <script type="text/javascript" src="../lib/js/leap.min.js"></script>
+</head>
+<body class="leap-interactive" leap-disable-tap="true">
+
+<div id="wrapper">
+    <div class="container horizontal leap-interactive" leap-disable-tap="true">
+        <div class="horizontal-content">Bacon ipsum dolor sit amet doner t-bone shankle brisket ribeye salami. Shankle tail ham chuck swine doner meatloaf kielbasa pig. Ham hock meatball flank pork belly shoulder sausage. Ribeye tenderloin ham pork chop spare ribs ham hock. Biltong pancetta pastrami, andouille ball tip fatback ham rump. Ground round kielbasa capicola pastrami shank brisket jowl meatloaf cow. Shankle beef biltong hamburger pork belly corned beef, tri-tip t-bone pig turkey short ribs filet mignon ball tip jerky brisket.</div>
+    </div>
+
+     <div class="container vertical leap-interactive" leap-disable-tap="true">
+        <div class="vertical-content">Bacon ipsum dolor sit amet doner t-bone shankle brisket ribeye salami. Shankle tail ham chuck swine doner meatloaf kielbasa pig. Ham hock meatball flank pork belly shoulder sausage. Ribeye tenderloin ham pork chop spare ribs ham hock. Biltong pancetta pastrami, andouille ball tip fatback ham rump. Ground round kielbasa capicola pastrami shank brisket jowl meatloaf cow. Shankle beef biltong hamburger pork belly corned beef, tri-tip t-bone pig turkey short ribs filet mignon ball tip jerky brisket.
+
+Swine boudin bacon, andouille hamburger short loin tongue drumstick jerky sirloin spare ribs pancetta. Corned beef ball tip tail strip steak. Cow fatback short loin doner ground round sirloin chuck turducken corned beef prosciutto t-bone. Chuck t-bone spare ribs beef ribs filet mignon strip steak. Pastrami pork loin brisket hamburger, turducken short ribs bresaola t-bone ball tip corned beef. Fatback shoulder filet mignon cow, short ribs strip steak turducken pancetta drumstick venison. Shank turkey sausage tenderloin venison spare ribs ham filet mignon.
+
+Pancetta tenderloin shankle meatloaf pork, pork belly bacon filet mignon jerky brisket. Strip steak meatball sirloin shoulder. Pancetta salami boudin pork turducken hamburger short ribs, pork chop andouille pastrami prosciutto doner shoulder turkey. Tongue hamburger tri-tip, fatback shank chicken tail short ribs spare ribs short loin ground round capicola brisket pork chop. Hamburger frankfurter beef ribs tongue boudin sausage pancetta meatball, pork chop bacon jerky kielbasa cow.
+
+Swine fatback tail t-bone venison pig biltong pork chop pancetta salami rump. Bacon pork pancetta frankfurter pork belly flank sirloin ball tip prosciutto short ribs. Boudin salami ball tip turducken jerky fatback leberkas bacon chuck pig ground round strip steak. Ribeye turducken doner shankle tenderloin beef beef ribs corned beef. Corned beef leberkas sirloin, short ribs salami chuck pork chop turducken. Shankle flank spare ribs tri-tip turkey. Short ribs strip steak pork loin, cow pork belly pastrami filet mignon turkey.
+
+Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swine beef t-bone shankle short loin frankfurter corned beef sausage meatball. Beef sausage capicola drumstick bresaola tail bacon chuck chicken ham hock pork pork belly ground round venison. Salami turkey meatball, tri-tip ham drumstick short loin chuck brisket beef bacon.</div>
+    </div>
+    
+    <div class="output"></div>
+    <script type="text/javascript">
+        LeapManager.init({
+            maxCursors:2,
+            enableTouchScrolling: false,
+            enableScrollbarScrolling: true,
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+---
+layout: default
+title: Basic Attributes
+slug: basic-attributes
+lead: "An overview of Bootstrap, how to download and use, basic templates and examples, and more."
+base_url: "/"
+---
+
+
+  <!-- Getting started
+  ================================================== -->
+<style type="text/css">
+        .button {
+            color:white;
+            display:inline-block;
+            padding:30px;
+            background-color: lightpink;
+            transition-duration: 1s;
+        }
+
+        .button.hover {
+            background-color: orangered !important;
+        }
+
+        .section {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom:1px solid black;
+        }
+
+        .section:nth-child(odd) .button {
+            background-color: powderblue;
+        }
+
+        .section.attractors .button{
+            margin: 0px;
+            margin-left: 0px;
+            margin-right: 60px;
+            padding:50px;
+
+        }
+    </style>
+    <div class="section">
+        <h1>Click Delay</h1>
+        <div class="button leap-interactive" leap-click-delay="1000">1s Delay</div>
+        <div class="button leap-interactive" leap-click-delay="3000">3s Delay</div>
+        <div class="button leap-interactive" leap-click-delay="5000">5s Delay</div>
+    </div>
+
+    <div class="section">
+        <h1>Multitap</h1>
+        <div class="button leap-interactive" leap-enable-multitap="true" leap-click-delay="1000">I multitap!</div>
+    </div>
+    
+    <div class="section">
+        <h1>Event Supression</h1>
+        <div class="button leap-interactive" leap-disable-tap="true">I do not Tap</div>
+        <div class="button leap-interactive" leap-disable-tap="true" leap-disable-hover="true">I do not Tap or Hover</div>
+    </div>
+
+    <div class="section attractors">
+        <h1>Attractors</h1>
+        <div class="button leap-interactive" leap-attractor="true">0px X/Y</div>
+        <div class="button leap-interactive" leap-attractor-x-padding="10">10px X</div>
+        <div class="button leap-interactive" leap-attractor-y-padding="10">10px Y</div>
+        <div class="button leap-interactive" leap-attractor-x-padding="30" leap-attractor-y-padding="30">30px X/Y</div>
+    </div>
+
+    <div class="output"></div>
+    <script type="text/javascript">
+        var buttons = document.querySelectorAll("div.button");
+        var output  = document.querySelector("div.output");
+        var count   = 0;
+
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function(e){
+                output.innerHTML += count + ": Button Clicked</br>";
+                count++;
+            });
+        };
+
+      
+    </script>

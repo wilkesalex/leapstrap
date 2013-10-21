@@ -1,0 +1,80 @@
+.leap-cursor {
+  position: absolute;
+  transition-property: background-color; }
+
+.leap-pointable-cursor {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 3px solid crimson;
+  opacity: .9;
+  border-right: 3px solid rgba(0, 0, 0, 0);
+  border-left: 3px solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  box-shadow: 0 0 15px darkred;
+  margin: 0 auto; }
+  .leap-pointable-cursor:after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid crimson;
+    opacity: .9;
+    border-left: 2px solid rgba(0, 0, 0, 0);
+    border-right: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    box-shadow: 0 0 15px darkred;
+    width: 10px;
+    height: 10px;
+    margin: 0 auto;
+    position: absolute;
+    top: 3px;
+    left: 3px; }
+
+.leap-pointable-virtual-scroller-cursor {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 3px solid deeppink;
+  opacity: .9;
+  border-right: 3px solid rgba(0, 0, 0, 0);
+  border-left: 3px solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  box-shadow: 0 0 15px hotpink;
+  margin: 0 auto; }
+  .leap-pointable-virtual-scroller-cursor:after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid deeppink;
+    opacity: .9;
+    border-left: 2px solid rgba(0, 0, 0, 0);
+    border-right: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    box-shadow: 0 0 15px hotpink;
+    width: 10px;
+    height: 10px;
+    margin: 0 auto;
+    position: absolute;
+    top: 3px;
+    left: 3px; }
+
+.leap-pointable-cursor.cursor-down {
+  width: 60px;
+  height: 60px; }
+  .leap-pointable-cursor.cursor-down:after {
+    background-color: deeppink;
+    opacity: .2;
+    width: 20px;
+    height: 20px; }
+
+.leap-mouse-cursor {
+  width: 10px;
+  height: 10px;
+  background-color: blue; }
+
+.leap-cursor.active-timer {
+  background-color: black;
+  box-shadow: 0 0 15px black;
+  border: 3px solid black; }
+  .leap-cursor.active-timer:after {
+    background-color: black;
+    box-shadow: 0 0 15px black;
+    border: 2px solid black; }

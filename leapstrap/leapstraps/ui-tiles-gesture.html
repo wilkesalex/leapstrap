@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leap Cursor Library - UI Tiles - Swipe</title>
+    <link rel="stylesheet" type="text/css" href="../build/css/leap-manager.css">
+    <style type="text/css">
+        html, body, #wrapper, .section {
+            height:100%;
+            margin:0px;
+            text-align: center;
+        }
+
+        #wrapper {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        #scroller {
+            display: -webkit-box;
+            height: 100%;
+            position: relative;
+            left:0%;
+            transition-duration: 1s;
+        }
+
+        .row {
+            display: -webkit-box;
+        }
+
+        .tile {
+            display: -webkit-box;
+            padding: 175px;
+            margin: 10px;
+            background-color: sandybrown;
+            border: 1px solid black;
+        }
+
+        .section {
+            display: -webkit-box;
+            -webkit-box-align:center;
+            -webkit-box-orient: vertical;
+            -webkit-box-pack: center;
+            width:100%;
+        }
+
+        .instructions {
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            top:10px;
+            font-size: 3em;
+            opacity: .5;
+        }
+        #indicator {
+            position:fixed;
+            bottom:50px;
+            width: 100%;
+            text-align: center;
+        }
+        #indicator li {
+            list-style-type: none;
+            display: inline-block;
+            background-color: crimson;
+            width:20px;
+            height:20px;
+            border-radius: 10px;
+            margin: 10px;
+            opacity: .1;
+            transition-duration:1s;
+        }
+
+        #indicator li.active {
+            opacity: .75;
+        }
+    </style>
+    <script type="text/javascript" src="../build/js/leap-manager.min.js"></script>
+    <script type="text/javascript" src="../lib/js/leap.min.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="scroller">
+            <div class="section">
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+            </div> 
+
+            <div class="section">
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+            </div> 
+
+            <div class="section">
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul id="indicator"></ul>
+
+    <h1 class='instructions'>Swipe Left or Right to Navigate</h1>
+
+    <script type="text/javascript">
+        var currentSection = 0;
+        var sections = document.querySelectorAll(".section")
+        var totalSections = sections.length - 1;
+        
+        var tiles = document.querySelectorAll("div.tile");
+        
+        var scroller = document.querySelector("#scroller");
+        var indicator = document.querySelector("#indicator");
+
+        for (var i = 0; i < tiles.length; i++) {
+            var color = [
+                Math.round(Math.random()*255),
+                Math.round(Math.random()*255),
+                Math.round(Math.random()*255), 
+                Math.max(Math.random(), .3)
+            ];
+            tiles[i].style.backgroundColor = "rgba(" + color.join(",") + ")";
+        };
+
+
+        for (i = 0; i < sections.length; i++) {
+            var div = document.createElement('li');
+            div.sectionID = i;
+            indicator.appendChild(div);
+            if(i==0) div.className += " active";
+        };
+
+
+        var navigateToCurrentSection = function() {
+            scroller.style.left = -(currentSection * 100) + "%";
+
+            var dots = document.querySelectorAll("#indicator li");
+            for (var i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+                if(currentSection == dots[i].sectionID) dots[i].className += " active";
+            };
+        }
+
+        LeapManager.init({
+            maxCursors:1,
+            interactiveSelector: "#navbar li, .tile",
+            gestureScope:this,
+            gestureCallback:function(e){
+                if(e.type === "swipe" && e.state === "stop") {
+                    if(e.direction[0] > 0) {
+                        currentSection--;
+                        if(currentSection <0) currentSection = 0;
+                    }else{
+                        currentSection++;
+                        if(currentSection >totalSections) currentSection = totalSections;
+
+                    }
+                    navigateToCurrentSection();
+                }
+
+            }
+        });
+    </script>
+</body>
+</html> 

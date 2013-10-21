@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leap Cursor Library - UI Tiles - Multitap</title>
+    <link rel="stylesheet" type="text/css" href="../build/css/leap-manager.css">
+    <style type="text/css">
+        html, body, #wrapper, .section {
+            height:100%;
+            margin:0px;
+        }
+
+        #wrapper {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        #scroller {
+            display: -webkit-box;
+            height: 100%;
+            position: relative;
+            left:0%;
+            transition-duration: 2s;
+        }
+
+        .row {
+            display: -webkit-box;
+        }
+
+        .tile {
+            display: -webkit-box;
+            padding: 175px;
+            margin: 10px;
+            background-color: sandybrown;
+            border: 1px solid black;
+        }
+
+        .section {
+            display: -webkit-box;
+            -webkit-box-align:center;
+            -webkit-box-orient: vertical;
+            -webkit-box-pack: center;
+            width:100%;
+        }
+
+        .button {
+            height:100%;
+            width:2%;
+            min-width: 20px;
+            background-color: lightsteelblue;
+            position: fixed;
+            padding:20px;
+            top:0px;
+            opacity: .5;
+            display: -webkit-box;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+            font-size:5em;
+            color: rgba(0,0,0,.4);
+             transition-duration: 1s;
+        }
+
+        .button:hover, .button.hover {
+            color: rgba(200,0,0,1);
+        }
+
+        .button.left {
+            left:0px;
+        }
+
+        .button.right {
+            right:0px;
+        }
+
+        .button.inactive {
+            opacity: .1;
+        }
+
+        .button.inactive:hover, .button.inactive.hover {
+            color: rgba(0,0,0,.4);
+        }
+
+    </style>
+    <script type="text/javascript" src="../build/js/leap-manager.min.js"></script>
+    <script type="text/javascript" src="../lib/js/leap.min.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="scroller">
+            <div class="section">
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+            </div> 
+
+            <div class="section">
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+            </div> 
+
+            <div class="section">
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+                <div class="row">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class='button left' leap-enable-multitap="true">></div>
+        <div class='button right' leap-enable-multitap="true"><</div>
+
+    </div>
+
+    <script type="text/javascript">
+        var currentSection = 0;
+        var totalSections = document.querySelectorAll(".section").length - 1;
+        var scroller = document.querySelector("#scroller");
+        var buttons = document.querySelectorAll("div.button");
+        var tiles = document.querySelectorAll("div.tile");
+        var leftButton = document.querySelector(".button.left");
+        var rightButton = document.querySelector(".button.right");
+
+        var updateButtons = function() {
+            if (currentSection  === 0) {
+                rightButton.className += " inactive";
+                rightButton.className = rightButton.className.replace(" leap-interactive", "");
+            } else {
+                rightButton.className = rightButton.className.replace(" inactive", "");
+                if(rightButton.className.indexOf("leap-interactive") < 0) rightButton.className += " leap-interactive";
+            }
+
+
+            if (currentSection === totalSections) {
+                leftButton.className += " inactive";
+                leftButton.className = leftButton.className.replace(" leap-interactive", "");
+            } else {
+                leftButton.className = leftButton.className.replace(" inactive", "");
+                if(leftButton.className.indexOf("leap-interactive") < 0) leftButton.className += " leap-interactive";
+            }
+        }
+        
+        var navigateLeft = function(){
+            currentSection++;
+            if(currentSection > totalSections) currentSection = totalSections;
+            scroller.style.left = -(currentSection * 100) + "%";
+        }
+
+        var navgateRight = function(){
+            currentSection--;
+            if(currentSection < 0) currentSection = 0;
+            scroller.style.left = -(currentSection * 100) + "%";
+        }
+
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function(e){
+                if(e.target.className.indexOf("left")>=0) {
+                    navigateLeft();
+                }else{
+                    navgateRight();
+                }
+                updateButtons();
+            });
+        };
+
+        for (i = 0; i < tiles.length; i++) {
+            var color = [
+                Math.round(Math.random()*255),
+                Math.round(Math.random()*255),
+                Math.round(Math.random()*255), 
+                Math.max(Math.random(), .3)
+            ];
+            tiles[i].style.backgroundColor = "rgba(" + color.join(",") + ")";
+        };
+
+        LeapManager.init({
+            maxCursors:1,
+            interactiveSelector: ".tile"
+        });
+
+        updateButtons();
+    </script>
+</body>
+</html>
