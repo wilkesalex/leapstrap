@@ -27,12 +27,6 @@ module.exports = function(grunt) {
       },
       gruntfile: {
         src: 'Gruntfile.js'
-      },
-      src: {
-        src: ['js/*.js']
-      },
-      test: {
-        src: ['js/tests/unit/*.js']
       }
     },
 
@@ -65,6 +59,12 @@ module.exports = function(grunt) {
 
         ],
         dest: 'dist/js/leapstrap.js'
+      },
+        jquery: {
+        src: [
+          'js/jquery.js'
+        ],
+        dest: 'dist/js/jquery.js'
       }
     },
 
@@ -135,7 +135,7 @@ module.exports = function(grunt) {
       options: {
         inject: 'js/tests/unit/phantom.js'
       },
-      files: ['js/tests/*.html']
+     
     },
 
     connect: {

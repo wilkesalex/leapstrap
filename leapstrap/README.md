@@ -1,6 +1,6 @@
 # [Leapstrap](http://getbootstrap.com) [![Build Status](https://secure.travis-ci.org/twbs/bootstrap.png)](http://travis-ci.org/twbs/bootstrap) [![devDependency Status](https://david-dm.org/twbs/bootstrap/dev-status.png)](https://david-dm.org/twbs/bootstrap#info=devDependencies)
 
-Leapstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Alex Wilkes](http://twitter.com/mdo).
+Leapstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Alex Wilkes](http://twitter.com/mdo). It is based on Twitter Bootstrap, LeapJS and Leap Cursor Library.
 
 To get started, check out <http://getbootstrap.com>!
 
@@ -12,7 +12,6 @@ Three quick start options are available:
 
 * [Download the latest release](https://github.com/twbs/bootstrap/releases/tag/v3.0.0).
 * Clone the repo: `git clone https://github.com/twbs/bootstrap.git`.
-* Install with [Bower](http://bower.io): `bower install bootstrap`.
 
 Read the [Getting Started page](http://getbootstrap.com/getting-started/) for information on the framework contents, templates and examples, and more.
 
@@ -113,24 +112,18 @@ More over, if your pull request contains JavaScript patches or features, you mus
 
 Editor preferences are available in the [editor config](.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
 
-With v3.1, we're moving from the Apache 2 to the MIT license for the Bootstrap code (not the docs). Please see the [contributing guidelines](https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md) for more information.
-
 
 ## Community
 
 Keep track of development and community news.
 
-* Follow [@twbootstrap on Twitter](http://twitter.com/twbootstrap).
-* Read and subscribe to [The Official Bootstrap Blog](http://blog.getbootstrap.com).
-* Have a question that's not a feature request or bug report? [Ask on the mailing list.](http://groups.google.com/group/twitter-bootstrap)
-* Chat with fellow Bootstrappers in IRC. On the `irc.freenode.net` server, in the `##twitter-bootstrap` channel.
-
+* Follow [@Leapstrap on Twitter](https://twitter.com/Leapstrap).
 
 
 
 ## Versioning
 
-For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Bootstrap will be maintained under the Semantic Versioning guidelines as much as possible.
+For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Leapstrap will be maintained under the Semantic Versioning guidelines as much as possible.
 
 Releases will be numbered with the following format:
 
@@ -146,20 +139,19 @@ For more information on SemVer, please visit <http://semver.org/>.
 
 
 
-## Authors
+## Contributors
 
-**Mark Otto**
+**Twitter Bootstrap**
++ <http://getbootstrap.com/>
 
-+ <http://twitter.com/mdo>
-+ <http://github.com/mdo>
+**Leap JS**
++ <http://js.leapmotion.com/>
 
-**Jacob Thornton**
-
-+ <http://twitter.com/fat>
-+ <http://github.com/fat>
+**leap-cursor-library**
++ <https://github.com/aphex/leap-cursor-library.js>
 
 
 
 ## Copyright and license
 
-Copyright 2013 Twitter, Inc under [the Apache 2.0 license](LICENSE).
+Copyright 2013 Alex Wilkes under [the Apache 2.0 license](LICENSE).

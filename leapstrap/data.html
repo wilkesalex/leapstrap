@@ -1,0 +1,59 @@
+---
+layout: default
+title: Data
+slug: data
+lead: "Learn about the history of Bootstrap, meet the core team, and check out the ever-growing community resources."
+base_url: "../"
+---
+
+
+<!-- History
+================================================== -->
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="history">Data</h1>
+  </div>
+  <p class="lead">Originally created by a designer and a developer at Twitter, Bootstrap has become one of the most popular front-end frameworks and open source projects in the world.</p>
+  <div id="out"></div>
+    <div id="log"></div>
+</div>
+
+ <script>
+      var pausedFrame = null;
+      var latestFrame = null;
+      window.onkeypress = function(e) {
+        if (e.charCode == 32) {
+          if (pausedFrame == null) {
+            pausedFrame = latestFrame;
+          } else {
+            pausedFrame = null;
+          }
+        }
+      };
+      var controller = new Leap.Controller({enableGestures: true});
+      controller.loop(function(frame) {
+        latestFrame = frame;
+        document.getElementById('out').innerHTML = (pausedFrame ? "<p><b>PAUSED</b></p>" : "") + "<div>"+(pausedFrame || latestFrame).dump()+"</div>";
+      });
+      controller.on('ready', function() {
+          console.log("ready");
+      });
+      controller.on('connect', function() {
+          console.log("connect");
+      });
+      controller.on('disconnect', function() {
+          console.log("disconnect");
+      });
+      controller.on('focus', function() {
+          console.log("focus");
+      });
+      controller.on('blur', function() {
+          console.log("blur");
+      });
+      controller.on('deviceConnected', function() {
+          console.log("deviceConnected");
+      });
+      controller.on('deviceDisconnected', function() {
+          console.log("deviceDisconnected");
+      });
+    </script>

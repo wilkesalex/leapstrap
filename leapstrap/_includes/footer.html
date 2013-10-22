@@ -1,9 +1,7 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="{{ page.base_url }}dist/js/bootstrap.js"></script>
-<script src="{{ page.base_url }}dist/js/leapstrap.js"></script>
+
 <script src="{{ page.base_url }}docs-assets/js/holder.js"></script>
 <script src="{{ page.base_url }}docs-assets/js/application.js"></script>
 
@@ -20,8 +18,10 @@
         LeapManager.init({
             interactiveSelector:"a",
             enableMetaGestures: false,
-            maxCursors:1
-        });
+            maxCursors:{% if page.maxCursors %}{{ page.maxCursors }}{% else %}1{% endif %},
+            enableHoverTap: true,
+            enablePressDown: true
+            });
     
 </script>
 <!-- Analytics
