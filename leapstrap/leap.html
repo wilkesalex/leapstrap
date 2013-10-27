@@ -404,6 +404,52 @@ base_url: "../"
   ================================================== -->
   <div class="bs-docs-section">
     <div class="page-header">
+      <h1 id="meta-gestures">Meta Gestures</h1>
+    </div>
+    
+    
+    <p>You can enable Meta gestures, like Page Back and Page Forward, if you enable the default on-page Meta actions.</p>
+   <div class="bs-example bs-example-popover">
+      <div class="popover right">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Swipe Left</h3>
+        <div class="popover-content">
+          <p>Browser should go page back.</p>
+        </div>
+      </div>
+
+      <div class="popover left">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Swipe Right</h3>
+        <div class="popover-content">
+          <p>Browser should go page forward.</p>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+  {% highlight js %}
+	enableMetaGestures: true,
+	enableDefaultMetaGestureActions: true
+{% endhighlight %}
+   {% highlight html %}
+<script>
+LeapManager.init({
+	interactiveSelector: "a",
+	maxCursors:3,
+	enableMetaGestures: true,
+	enableDefaultMetaGestureActions: true
+});
+</script>
+{% endhighlight %} 
+   
+
+</div>
+
+  <!-- Basics system
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
       <h1 id="scrolling">Scrolling</h1>
     </div>
     
