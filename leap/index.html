@@ -109,29 +109,32 @@
             <ul class="nav bs-sidenav">
               
                 <li>
-  <a href="#basics">Basics</a>
+  <a class="leap-interactive" href="#basics">Basics</a>
   <ul class="nav">
-  <li><a href="#basics-click">Click</a></li>
-    <li><a href="#basics-click-delay">Click Delay</a></li>
-    <li><a href="#basics-multitap">Multitap</a></li>
-    <li><a href="#basics-event-suppression">Event Suppression</a></li>
-    <li><a href="#basics-attractors">Attractors</a></li>
+  <li><a class="leap-interactive" href="#basics-click">Click</a></li>
+    <li><a class="leap-interactive" href="#basics-click-delay">Click Delay</a></li>
+    <li><a class="leap-interactive" href="#basics-multitap">Multitap</a></li>
+    <li><a class="leap-interactive" href="#basics-event-suppression">Event Suppression</a></li>
+    <li><a class="leap-interactive" href="#basics-attractors">Attractors</a></li>
    
   </ul>
 </li>
 <li>
-  <a href="#hands">Hand Gestures</a>
+  <a class="leap-interactive" href="#hands">Hand Gestures</a>
   
 </li>
 <li>
-  <a href="#scrolling">Scrolling</a>
+  <a class="leap-interactive" href="#scrolling">Scrolling</a>
   
 </li>
 <li>
-  <a href="#initialising">Initialising Leap</a>
+  <a class="leap-interactive" href="#initialising">Initialising Leap</a>
   
 </li>
-
+<li>
+  <a class="leap-interactive" href="#leap-options">Leap Options</a>
+  
+</li>
               
             </ul>
           </div>
@@ -145,7 +148,7 @@
     </div>
    
   <h3 id="basics-click">Leap Click</h3>
-    <p>Just add the class <code>leap-interactive</code> to make it interactive</p>
+    <p>Just give your element a class of <code>leap-interactive</code> to make it interactive.</p>
     <div class="bs-example">
         <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
         <button type="button" class="leap-click btn btn-primary btn-lg btn-block leap-interactive">I can be clicked</button>
@@ -158,12 +161,12 @@
      <script type="text/javascript">
         var buttons = document.querySelectorAll("button.leap-click");
         var outputoutput_leap_click  = document.querySelector("div.output-leap-click");
-        var count   = 0;
+        var count1   = 0;
 
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener("click", function(e){
-                outputoutput_leap_click.innerHTML += count + ": Button Clicked</br>";
-                count++;
+                outputoutput_leap_click.innerHTML += count1 + ": Button Clicked<br/>";
+                count1++;
             });
         };
 
@@ -185,7 +188,7 @@
         <tbody>
          <tr>
            <td>class="leap-interactive"</td>
-           <td>css class</td>
+           <td>element class</td>
            <td></td>
            <td>activate leap interaction on this element</td>
          </tr>
@@ -208,20 +211,20 @@
      <script type="text/javascript">
         var buttons = document.querySelectorAll("button.leap-delay");
         var outputoutput_leap_d  = document.querySelector("div.output-leap-delay");
-        var count   = 0;
+        var count2   = 0;
 
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener("click", function(e){
-                outputoutput_leap_d.innerHTML += count + ": Button Clicked</br>";
-                count++;
+                outputoutput_leap_d.innerHTML += count2 + ": Button Clicked</br>";
+                count2++;
             });
         };
 
        
     </script>   
-  <div class="highlight"><pre><code class="css"><span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;btn leap-interactive&quot;</span> <span class="nt">leap-click-delay</span><span class="o">=</span><span class="s2">&quot;1000&quot;</span><span class="o">&gt;</span><span class="nt">Click</span> <span class="nt">Delay</span><span class="o">:</span> <span class="nt">1</span> <span class="nt">second</span> <span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;btn leap-interactive&quot;</span> <span class="nt">leap-click-delay</span><span class="o">=</span><span class="s2">&quot;3000&quot;</span><span class="o">&gt;</span><span class="nt">Click</span> <span class="nt">Delay</span><span class="o">:</span> <span class="nt">3</span> <span class="nt">second</span> <span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;btn leap-interactive&quot;</span> <span class="nt">leap-click-delay</span><span class="o">=</span><span class="s2">&quot;5000&quot;</span><span class="o">&gt;</span><span class="nt">Click</span> <span class="nt">Delay</span><span class="o">:</span> <span class="nt">5</span> <span class="nt">second</span> <span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
+  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-click-delay=</span><span class="s">&quot;1000&quot;</span><span class="nt">&gt;</span>Click Delay: 1 second <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-click-delay=</span><span class="s">&quot;3000&quot;</span><span class="nt">&gt;</span>Click Delay: 3 second <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-click-delay=</span><span class="s">&quot;5000&quot;</span><span class="nt">&gt;</span>Click Delay: 5 second <span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
 <h4>Options</h4>
 <div class="table-responsive">
@@ -260,18 +263,18 @@
      <script type="text/javascript">
         var buttons = document.querySelectorAll("button.leap-mtap");
         var outputoutput_leap_mt  = document.querySelector("div.output-leap-multitap");
-        var count   = 0;
+        var count3   = 0;
 
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener("click", function(e){
-                outputoutput_leap_mt.innerHTML += count + ": Button Clicked</br>";
-                count++;
+                outputoutput_leap_mt.innerHTML += count3 + ": Button Clicked</br>";
+                count3++;
             });
         };
 
        
     </script>   
-        <div class="highlight"><pre><code class="css"><span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;btn leap-interactive&quot;</span> <span class="nt">leap-enable-multitap</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span><span class="nt">Allow</span> <span class="nt">Multitap</span><span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
+        <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-enable-multitap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Allow Multitap<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
 <h4>Options</h4>
 <div class="table-responsive">
@@ -305,8 +308,8 @@
         <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive" leap-disable-tap="true" leap-disable-hover="true">Can't tap or hover me</button>
         
       </div>      </div>
-        <div class="highlight"><pre><code class="css"><span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;btn leap-interactive&quot;</span> <span class="nt">leap-disable-tap</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span><span class="nt">Can</span><span class="s1">&#39;t tap me&lt;/button&gt;</span>
-<span class="s1">&lt;button type=&quot;button&quot; class=&quot;btn leap-interactive&quot; leap-disable-tap=&quot;true&quot; leap-disable-hover=&quot;true&quot;&gt;Can&#39;</span><span class="nt">t</span> <span class="nt">tap</span> <span class="nt">or</span> <span class="nt">hover</span> <span class="nt">me</span><span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
+        <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Can&#39;t tap me<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span> <span class="na">leap-disable-hover=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Can&#39;t tap or hover me<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
 <h4>Options</h4>
 <div class="table-responsive">
@@ -323,13 +326,13 @@
          <tr>
            <td>leap-disable-tap</td>
            <td>boolean</td>
-           <td>true</td>
+           <td>false</td>
            <td>don't allow leap tap</td>
          </tr>
-<tr>
+		 <tr>
            <td>leap-disable-hover</td>
            <td>boolean</td>
-           <td>true</td>
+           <td>false</td>
            <td>don't allow leap hover</td>
          </tr>
         </tbody>
@@ -345,10 +348,10 @@
         <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive" leap-attractor-x-padding="30" leap-attractor-y-padding="30">30px wide+tall</button>
       </div>    
         </div>
-        <div class="highlight"><pre><code class="css"><span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;btn leap-interactive&quot;</span> <span class="nt">leap-attractor</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span><span class="nt">Standard</span> <span class="nt">Attraction</span><span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;btn leap-interactive&quot;</span> <span class="nt">leap-attractor-x-padding</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="o">&gt;</span><span class="nt">10px</span> <span class="nt">wide</span><span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;btn leap-interactive&quot;</span> <span class="nt">leap-attractor-y-padding</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="o">&gt;</span><span class="nt">10px</span> <span class="nt">tall</span><span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;btn leap-interactive&quot;</span> <span class="nt">leap-attractor-x-padding</span><span class="o">=</span><span class="s2">&quot;30&quot;</span> <span class="nt">leap-attractor-y-padding</span><span class="o">=</span><span class="s2">&quot;30&quot;</span><span class="o">&gt;</span><span class="nt">30px</span> <span class="nt">wide</span><span class="o">+</span><span class="nt">tall</span><span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
+        <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-attractor=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Standard Attraction<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-attractor-x-padding=</span><span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>10px wide<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-attractor-y-padding=</span><span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>10px tall<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-attractor-x-padding=</span><span class="s">&quot;30&quot;</span> <span class="na">leap-attractor-y-padding=</span><span class="s">&quot;30&quot;</span><span class="nt">&gt;</span>30px wide+tall<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
 <h4>Options</h4>
 <div class="table-responsive">
@@ -371,14 +374,14 @@
            <tr>
            <td>leap-attractor-x-padding</td>
            <td>number</td>
-           <td></td>
-           <td>add horizontal attractor padding px</td>
+           <td>0</td>
+           <td>add horizontal attractor padding (in px)</td>
          </tr>
            <tr>
            <td>leap-attractor-y-padding</td>
            <td>number</td>
-           <td></td>
-           <td>add vertical attractor padding px</td>
+           <td>0</td>
+           <td>add vertical attractor padding px (in px)</td>
          </tr>
 
         </tbody>
@@ -407,7 +410,7 @@
     <pre>
      <div class="outputbs1"></div>
     </pre>   
-  <div class="highlight"><pre><code class="css"><span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;catcher btn leap-interactive&quot;</span><span class="o">&gt;</span><span class="nt">Make</span> <span class="nt">a</span> <span class="nt">circle</span> <span class="nt">on</span> <span class="nt">me</span><span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
+  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;catcher btn leap-interactive&quot;</span><span class="nt">&gt;</span>Make a circle on me<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
     <h3 id="grid-intro">Tap gesture</h3>
     <p>Tap your finger on this element </p>
@@ -420,7 +423,7 @@
      <pre>
      <div class="outputbs2"></div>
     </pre>   
-  <div class="highlight"><pre><code class="css"><span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;tapper btn leap-interactive&quot;</span><span class="o">&gt;</span><span class="nt">Make</span> <span class="nt">a</span> <span class="nt">tap</span> <span class="nt">on</span> <span class="nt">me</span><span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
+  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;tapper btn leap-interactive&quot;</span><span class="nt">&gt;</span>Make a tap on me<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
   <div class="highlight"><pre><code class="js">        <span class="kd">var</span> <span class="nx">circleAreas</span>     <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;div.catcher&quot;</span><span class="p">);</span>
         <span class="kd">var</span> <span class="nx">tapAreas</span>        <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;div.tapper&quot;</span><span class="p">);</span>
@@ -498,7 +501,7 @@
     <pre>
      <div class="outputbs3"></div>
     </pre>   
-  <div class="highlight"><pre><code class="css"><span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;catcher btn leap-interactive&quot;</span><span class="o">&gt;</span><span class="nt">Make</span> <span class="nt">a</span> <span class="nt">circle</span> <span class="nt">on</span> <span class="nt">me</span><span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
+  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;catcher btn leap-interactive&quot;</span><span class="nt">&gt;</span>Make a circle on me<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
     
      <script type="text/javascript">
@@ -539,7 +542,7 @@ Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swin
        </div>
       </div>
     </div>  
-  <div class="highlight"><pre><code class="css"><span class="o">&lt;</span><span class="nt">button</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;catcher btn leap-interactive&quot;</span><span class="o">&gt;</span><span class="nt">Make</span> <span class="nt">a</span> <span class="nt">circle</span> <span class="nt">on</span> <span class="nt">me</span><span class="o">&lt;/</span><span class="nt">button</span><span class="o">&gt;</span>
+  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;catcher btn leap-interactive&quot;</span><span class="nt">&gt;</span>Make a circle on me<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
     
    
@@ -552,22 +555,34 @@ Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swin
     <div class="page-header">
       <h1 id="initialising">Initialising Leap</h1>
     </div>
-      <p>There are two methods of using Leapstrap. You can build your project (i.e. a website or a web application) on top of Leapstrap or you can integrate Leapstrap into an existing project. If you'd like to use Leapstrap as a basis for your project see below.<br/><strong>If you've already got Bootstrap 3</strong>, or if you've already got an existing project to "add" Leapstrap too, <a href="">see further below</a>.</p>
-
-
+      <p>
+     Use the built-in LeapManager to get started with Leap on your page. Each page needs to use LeapManager to initialise Leap. You just include some Javascript, typically defining the maximum amount of fingers you want the page to use.
+      </p>
 <h3>LeapManager.init()</h3>
-    <p>Leapstrap requires just 2 lines of CSS, 2 lines of JS and some script - automagically, Leapstrap detects all anchor (e.g. hyperlinks) and makes them leap-interactive (see <a href="#">glossary</a>). That means users can "press" hyperlinks with their fingers. We've included our CDN links so you can try it out now. </p>
+   <div class="bs-callout bs-callout-danger">
+      <h4>Use <b>interactiveSelector</b> wisely</h4>
+      <p>We show <code>interactiveSelector: "a"</code> in our examples, but you shouldn't use it. It typically makes Leap slower, especially if you've got lots of links on the page (dropdown menus, navigation, options etc). Leapstrap will apply Leap interaction to any element with a class of <code>leap-interactive</code> - you should use that instead if you can.</p>
+    </div>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;script&gt;</span>
+<span class="nx">LeapManager</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+	<span class="nx">interactiveSelector</span><span class="o">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+	<span class="nx">maxCursors</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+
 <div class="highlight"><pre><code class="js"><span class="nx">LeapManager</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
 	<span class="nx">interactiveSelector</span><span class="o">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
 	<span class="nx">enableMetaGestures</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 	<span class="nx">enableDefaultMetaGestureActions</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-	<span class="nx">maxCursors</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span>
+	<span class="nx">maxCursors</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span>
 	<span class="nx">enableHoverTap</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 	<span class="nx">enablePressDown</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 	<span class="nx">enableTouchScrolling</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
 	<span class="nx">enableScrollbarScrolling</span><span class="o">:</span> <span class="kc">true</span>
 <span class="p">});</span>
 </code></pre></div>
+
 <h4>Options</h4>
 <div class="table-responsive">
       <table class="table table-bordered table-striped">
@@ -582,154 +597,150 @@ Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swin
         <tbody>
           <tr>
            <td>interactiveSelector</td>
-           <td>boolean</td>
-           <td>false</td>
-           <td><i><strong>Not recommended</strong> for production use due to slow speed.</i> Allow element to be tapped by leap more than once</td>
+           <td>string</td>
+           <td>-</td>
+           <td><i><strong>Not recommended</strong> for production use due to slow performance.</i><br/> Automatically set element types to be leap-interactive. Comma separated list of element types, classes or ids. <code>interactiveSelector: "a, .btn, input, #myLeapBtn",</code></td>
          </tr>
          <tr>
            <td>enableMetaGestures</td>
            <td>boolean</td>
-           <td>false</td>
-           <td>allow element to be tapped by leap more than once</td>
+           <td></td>
+           <td></td>
          </tr>
  <tr>
            <td>enableDefaultMetaGestureActions</td>
            <td>boolean</td>
-           <td>false</td>
-           <td>allow element to be tapped by leap more than once</td>
+           <td></td>
+           <td></td>
          </tr>
           <tr>
            <td>maxCursors</td>
-           <td>boolean</td>
-           <td>false</td>
-           <td>allow element to be tapped by leap more than once</td>
+           <td>number</td>
+           <td>-</td>
+           <td></td>
          </tr>
           <tr>
            <td>enableHoverTap</td>
            <td>boolean</td>
-           <td>false</td>
-           <td>allow element to be tapped by leap more than once</td>
+           <td></td>
+           <td></td>
          </tr>
           <tr>
            <td>enablePressDown</td>
            <td>boolean</td>
-           <td>false</td>
-           <td>allow element to be tapped by leap more than once</td>
+           <td></td>
+           <td></td>
          </tr>
            <tr>
            <td>enableTouchScrolling</td>
            <td>boolean</td>
-           <td>false</td>
-           <td>allow element to be tapped by leap more than once</td>
+           <td></td>
+           <td></td>
          </tr>
            <tr>
            <td>enableScrollbarScrolling</td>
            <td>boolean</td>
-           <td>false</td>
-           <td>allow element to be tapped by leap more than once</td>
+           <td></td>
+           <td></td>
          </tr>
         </tbody>
       </table>
       </div>
-    <h3 id="download-additional">Download it</h3>
-    <div class="bs-docs-dl-options">
-      <h4>
-        <a href="https://github.com/wilkesalex/leapstrap/archive/leapstrap.0.1b.zip" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download source']);">Download Leapstrap.zip</a>
-      </h4>
-      <p>Download the entire repository zipped. You will be interested in the <strong>/dist/ folder</strong> (as that contains a ready-to-use version of Leapstrap).</p>
-      <h4>
-        <a href="https://github.com/wilkesalex/leapstrap" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'GitHub project']);">Clone or fork via GitHub</a>
-      </h4>
-      <p>Use git to clone or fork the Leapstrap project.</p>
-
-      <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git clone https://github.com/wilkesalex/leapstrap
-</code></pre></div>
-    </div>
     
-    
+  </div>
 
-    <h3 id="download-cdn">Build it</h3>
-    <p>The folks over at <a href="http://www.maxcdn.com/">MaxCDN</a> graciously provide CDN support for Leapstrap's CSS and JavaScript. Just use these <a href="http://www.bootstrapcdn.com/">Leapstrap CDN</a> links.</p>
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>npm install
-<span class="nv">$ </span>grunt
-</code></pre></div>
  
 
-    <div class="bs-callout bs-callout-warning" id="callout-less-compilation">
-      <h4>Visit our Github project</h4>
-      <p>If you work with Leapstrap's uncompiled source code, you need to compile the LESS files to produce usable CSS files. For compiling LESS files into CSS, we only officially support>, which is Twitter's CSS hinter based on <a href="https://github.com/wilkesalex/leapstrap">Leapstrap @ Github</a>.</p>
-    </div>
-  </div>
-
-  <!-- Existing Project
+<!-- Setup
   ================================================== -->
   <div class="bs-docs-section">
     <div class="page-header">
-      <h1 id="integrate">Integrate Leapstrap (Already use Bootstrap 3?)</h1>
+      <h1 id="leap-options">Leap Options</h1>
     </div>
-   <p>Leapstrap is built independently of Bootstrap. Therefore you can just include the Leapstrap assets, <strong>together with <em>your</em> existing Bootstrap assets</strong>. You should be using a clean version of Bootstrap (see Customizing Bootstrap on BS guide).</p>
+     
 
- <div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Include the CSS --&gt;</span>
-<span class="c">&lt;!-- Your Bootstrap CSS goes here, then you add Leapstrap --&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;HOSTEDleapstrap.css&quot;</span> <span class="nt">/&gt;</span>
 
-<span class="c">&lt;!-- Include the JS, ***Use your own jQuery!*** --&gt;</span>
-<span class="c">&lt;!-- Your Bootstrap JS goes here, then you add Leapstrap --&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;HOSTEDbootstrap.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;HOSTEDleapstrap.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-
-<span class="c">&lt;!-- Init Leap, Set all &quot;a&quot; interactive, use 1 Leap cursor/finger --&gt;</span>
-<span class="nt">&lt;script&gt;</span><span class="nx">LeapManager</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span><span class="nx">interactiveSelector</span><span class="o">:</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="nx">maxCursors</span><span class="o">:</span><span class="mi">1</span><span class="p">});</span><span class="nt">&lt;/script&gt;</span>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;a</span>
+<span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span>
+<span class="na">leap-click-delay=</span><span class="s">&quot;5000&quot;</span>
+<span class="na">leap-enable-multitap=</span><span class="s">&quot;true&quot;</span>
+<span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span>
+<span class="na">leap-disable-hover=</span><span class="s">&quot;true&quot;</span>
+<span class="na">leap-attractor=</span><span class="s">&quot;true&quot;</span>
+<span class="na">leap-attractor-x-padding=</span><span class="s">&quot;10&quot;</span>
+<span class="na">leap-attractor-y-padding=</span><span class="s">&quot;10&quot;</span>
+<span class="na">href=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+Your text
+<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+ <tr>
+           <td>class="leap-interactive"</td>
+           <td>element class</td>
+           <td></td>
+           <td>activate leap interaction on this element</td>
+         </tr>
+         <tr>
+           <td>leap-click-delay</td>
+           <td>number</td>
+           <td>1000</td>
+           <td>time to wait until activate click on element (in ms)</td>
+         </tr>
+          <tr>
+           <td>leap-enable-multitap</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>allow element to be tapped by leap more than once</td>
+         </tr>
+           <tr>
+           <td>leap-disable-tap</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>don't allow leap tap</td>
+         </tr>
+		 <tr>
+           <td>leap-disable-hover</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>don't allow leap hover</td>
+         </tr>
+           <tr>
+           <td>leap-attractor</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>activate standard attractor</td>
+         </tr>
+           <tr>
+           <td>leap-attractor-x-padding</td>
+           <td>number</td>
+           <td>0</td>
+           <td>add horizontal attractor padding (in px)</td>
+         </tr>
+           <tr>
+           <td>leap-attractor-y-padding</td>
+           <td>number</td>
+           <td>0</td>
+           <td>add vertical attractor padding px (in px)</td>
+         </tr>
 
-    <p>This is the most basic form of Leapstrap: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (<code>bootstrap.*</code>), as well as compiled and minified CSS and JS (<code>bootstrap.min.*</code>). Fonts from Glyphicons are included, as is the optional Leapstrap theme.</p>
-    <div class="bs-callout bs-callout-danger" id="jquery-required">
-      <h4>I've already got Bootstrap 3</h4>
-      <p>Please note that <strong>all JavaScript plugins require jQuery</strong> to be included, as shown in the <a href="#template">starter template</a>. <a href="https://github.com/wilkesalex/leapstrap/blob/v1.0.0/bower.json">Consult our <code>bower.json</code></a> to see which versions of jQuery are supported.</p>
-    </div>
+        </tbody>
+      </table>
+      </div>
+    
   </div>
 
-  <!-- File structure
-  ================================================== -->
-  <div class="bs-docs-section">
-    <div class="page-header">
-      <h1 id="whats-included">What's included</h1>
-    </div>
-    <p class="lead">Within the download you'll find the following directories and files, logically grouping common resources and providing both compiled and minified variations.</p>
-    <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) Leapstrap. You'll see something like this:</p>
-
-<!-- NOTE: This info is intentionally duplicated in the README.
-Copy any changes made here over to the README too. -->
-<div class="highlight"><pre><code class="bash">bootstrap/
-├── css/
-│   ├── bootstrap.css
-│   ├── bootstrap.min.css
-│   ├── bootstrap-theme.css
-│   └── bootstrap-theme.min.css
-│   ├── leapstrap.css
-│   └── leapstrap.min.css
-├── js/
-│   ├── bootstrap.js
-│   └── bootstrap.min.js
-│   ├── leapstrap.js
-│   └── leapstrap.min.js
-└── fonts/
-    ├── glyphicons-halflings-regular.eot
-    ├── glyphicons-halflings-regular.svg
-    ├── glyphicons-halflings-regular.ttf
-    └── glyphicons-halflings-regular.woff
-</code></pre></div>
-
-    <p>This is the most basic form of Leapstrap: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (<code>bootstrap.*</code>), as well as compiled and minified CSS and JS (<code>bootstrap.min.*</code>). Fonts from Glyphicons are included, as is the optional Leapstrap theme.</p>
-    <div class="bs-callout bs-callout-danger" id="jquery-required">
-      <h4>jQuery required</h4>
-      <p>Please note that <strong>all JavaScript plugins require jQuery</strong> to be included, as shown in the <a href="#template">starter template</a>. <a href="https://github.com/wilkesalex/leapstrap/blob/v1.0.0/bower.json">Consult our <code>bower.json</code></a> to see which versions of jQuery are supported.</p>
-    </div>
-  </div>
-
-
-
+ 
 
  
         </div>
@@ -741,8 +752,7 @@ Copy any changes made here over to the README too. -->
     ================================================== -->
      <footer class="bs-footer" role="contentinfo">
       <div class="container">
-        <!-- 
-<div class="bs-social">
+        <div class="bs-social">
   <ul class="bs-social-buttons">
     <li>
       <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
@@ -761,20 +771,14 @@ Copy any changes made here over to the README too. -->
  
   </ul>
 </div>
- -->
 
 
-        <p>Maintained by <a class="leap-interactive" href="http://twitter.com/deskofwilkes" target="_blank">Alex Wilkes</a>.</p>
-        <p>Code licensed under <a class="leap-interactive" href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a class="leap-interactive" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+
+        <p>Maintained by <a class="leap-interactive" href="http://alex-wilkes.com" target="_blank">Alex Wilkes</a>.</p>
+
         <ul class="footer-links">
           <li>Currently v1.0.0</li>
           <li class="muted">&middot;</li>
-          <li><a class="leap-interactive" href="https://www.twitter.com/leapstrap">Get help on Twitter</a></li>
-          <li class="muted">&middot;</li>
-          <li><a class="leap-interactive" href="https://github.com/wilkesalex/leapstrap/issues?state=open">Issues</a></li>
-          <li class="muted">&middot;</li>
-          <li><a class="leap-interactive" href="https://github.com/wilkesalex/leapstrap/releases">Releases</a></li>
-           <li class="muted">&middot;</li>
           <li><a class="leap-interactive" href="http://www.amazon.co.uk/gp/product/B00C66Z9ZC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00C66Z9ZC&linkCode=as2&tag=eosmnet-21">Buy Leap Controller</a><img src="http://ir-uk.amazon-adsystem.com/e/ir?t=eosmnet-21&l=as2&o=2&a=B00C66Z9ZC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
           
         </ul>
