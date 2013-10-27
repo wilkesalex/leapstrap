@@ -124,6 +124,10 @@
   
 </li>
 <li>
+  <a class="leap-interactive" href="#meta-gestures">Meta Gestures</a>
+  
+</li>
+<li>
   <a class="leap-interactive" href="#scrolling">Scrolling</a>
   
 </li>
@@ -515,6 +519,50 @@
         
     </script>
 
+
+</div>
+
+  <!-- Basics system
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="meta-gestures">Meta Gestures</h1>
+    </div>
+    
+    
+    <p>You can enable Meta gestures, like Page Back and Page Forward, if you enable the default on-page Meta actions.</p>
+   <div class="bs-example bs-example-popover">
+      <div class="popover right">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Swipe Left</h3>
+        <div class="popover-content">
+          <p>Browser should go page back.</p>
+        </div>
+      </div>
+
+      <div class="popover left">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Swipe Right</h3>
+        <div class="popover-content">
+          <p>Browser should go page forward.</p>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+  <div class="highlight"><pre><code class="js">	<span class="nx">enableMetaGestures</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="nx">enableDefaultMetaGestureActions</span><span class="o">:</span> <span class="kc">true</span>
+</code></pre></div>
+   <div class="highlight"><pre><code class="html"><span class="nt">&lt;script&gt;</span>
+<span class="nx">LeapManager</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+	<span class="nx">interactiveSelector</span><span class="o">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+	<span class="nx">maxCursors</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span>
+	<span class="nx">enableMetaGestures</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="nx">enableDefaultMetaGestureActions</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div> 
+   
 
 </div>
 
