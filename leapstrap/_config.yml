@@ -14,13 +14,12 @@ port:             9001
 current_version:  1.0.0
 repo:             https://github.com/wilkesalex/leapstrap
 
-download_source:  https://github.com/wilkesalex/leapstrap/archive/leapstrap.0.1b.zip
-download_dist:    https://github.com/wilkesalex/leapstrap/archive/leapstrap.0.1b.zip
+download_source:  https://github.com/wilkesalex/leapstrap/archive/master.zip
+download_dist:    https://github.com/wilkesalex/leapstrap/archive/master.zip
 
 blog:             http://wilkesalex.github.io/leapstrap
 twitter:          https://www.twitter.com/leapstrap
 expo:             http://wilkesalex.github.io/leapstrap
 
-cdn_css:          //netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css
-cdn_theme_css:    //netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css
-cdn_js:           //netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js
+cdn_css:          //leapstrap.alex-wilkes.com/1.0.0/css/leapstrap.min.css
+cdn_js:           //leapstrap.alex-wilkes.com/1.0.0/js/leapstrap.min.js
