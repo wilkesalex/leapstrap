@@ -12,7 +12,7 @@
 
     <!-- Docs page layout -->
     <div class="bs-header" id="content">
-      <div class="container container-fluid">
+      <div class="container">
         <h1>{{ page.title }}</h1>
         <p>{{ page.lead }}</p>
       
@@ -22,34 +22,10 @@
     <!-- Callout for the old docs link -->
    
 
-    <div class="container container-fluid bs-docs-container">
+    <div class="container bs-docs-container">
       <div class="row">
-        <div class="col-md-3">
-          <div class="bs-sidebar hidden-xs hidden-print" role="complementary">
-            <ul class="nav bs-sidenav">
-              {% if page.slug == "getting-started" %}
-                {% include nav-getting-started.html %}
-              {% elsif page.slug == "basics" %}
-                {% include nav-basics.html %}
-                {% elsif page.slug == "leap" %}
-                {% include nav-leap.html %}
-              {% elsif page.slug == "components" %}
-                {% include nav-components.html %}
-              {% elsif page.slug == "js" %}
-                {% include nav-javascript.html %}
-              {% elsif page.slug == "customize" %}
-                {% include nav-customize.html %}
-              {% elsif page.slug == "about" %}
-                {% include nav-about.html %}
-                 {% elsif page.slug == "icons" %}
-                {% include nav-icons.html %}
-                   {% elsif page.slug == "more" %}
-                {% include nav-more.html %}
-              {% endif %}
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-9" role="main">
+      
+        <div class="col-md-12" role="main">
           {{ content }}
         </div>
       </div>
@@ -58,7 +34,7 @@
 
     <!-- Footer
     ================================================== -->
-     <footer class="bs-footer" role="contentinfo">
+    <footer class="bs-footer" role="contentinfo">
       <div class="container">
         {% include social-buttons.html %}
 
@@ -72,9 +48,6 @@
           <li><a class="leap-interactive" href="{{ site.repo }}/issues?state=open">Issues</a></li>
           <li class="muted">&middot;</li>
           <li><a class="leap-interactive" href="{{ site.repo }}/releases">Releases</a></li>
-           <li class="muted">&middot;</li>
-          <li><a class="leap-interactive" href="http://www.amazon.co.uk/gp/product/B00C66Z9ZC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00C66Z9ZC&linkCode=as2&tag=eosmnet-21">Buy Leap Controller</a><img src="http://ir-uk.amazon-adsystem.com/e/ir?t=eosmnet-21&l=as2&o=2&a=B00C66Z9ZC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
-          
         </ul>
       </div>
     </footer>

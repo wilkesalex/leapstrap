@@ -2,19 +2,19 @@
 layout: home
 title: Leapstrap
 base_url: "./"
-maxCursors: "10"
+maxCursors: "5"
 ---
 
 <main class="bs-masthead" id="content" role="main">
   <div class="container">
     <h1>Leapstrap</h1>
-    <p class="lead masttext topp">HTML5 Point-to-touch frontend framework.</p>
-    <p class="lead masttext">With Leap Motion&reg; integration.</p>
+    <p class="lead masttext topp">Leap first HTML5 frontend framework.</p>
+    <p class="lead masttext">Suitable for web sites, web apps and more.</p>
     <p class="lead masttext bottomp">Now you can touch the web.</p>
  <p>
-       <a href="{{ site.download_dist }}" class="btn btn-outline btn-lg" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download {{ site.current_version }}']);">Get Started</a>
-      <a href="{{ site.download_dist }}" class="btn btn-outline btn-lg" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download {{ site.current_version }}']);">Get Demo</a>
-      <a href="{{ site.download_source }}" class="btn btn-outline btn-lg" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download {{ site.current_version source }}']);">Get Code (Github)</a>
+       <a href="{{ page.base_url }}getting-started" class="btn btn-outline btn-lg leap-interactive">Get Started</a>
+      <a href="{{ page.base_url }}leap" class="btn btn-outline btn-lg leap-interactive">Leap Stuff</a>
+      <a href="{{ site.repo }}" class="btn btn-outline btn-lg leap-interactive">Get Code (Github)</a>
     </p>
   </div>
  
@@ -27,7 +27,7 @@ maxCursors: "10"
     </pre>
     <div class="row">
      <div class="col-md-6">
-      <a class="btn btn-outline btn-lg" href="javascript:void(0)" onclick="controller.connect">Connect</a>
+      <a class="btn btn-outline btn-lg leap-interactive" href="#" onclick="controller.connect();">Connect</a>
     </div>
     <div class="col-md-6 text-right">
      Number of fingers: <canvas id="fingers-canvas"></canvas>
@@ -42,43 +42,8 @@ maxCursors: "10"
  <script>
  var controller = new Leap.Controller();
    
-
-     controller.on('ready', function() {
-     document.getElementById('initbox').innerHTML = 'It works!';
-          console.log("It works");
-      });
-      controller.on('connect', function() {
-       document.getElementById('initbox').innerHTML = 'Waiting to connect...';
-          console.log("connect");
-      });
-      controller.on('disconnect', function() {
-       document.getElementById('initbox').innerHTML = 'Leap was disconnected...';
-          console.log("disconnect");
-      });
-      controller.on('focus', function() {
-       document.getElementById('initbox').innerHTML = 'Leapstrap is ready (Leap detected).';
-          console.log("focus");
-      });
-      controller.on('blur', function() {
-       document.getElementById('initbox').innerHTML = 'Leapstrap is not in focus.';
-          console.log("blur");
-      });
-      controller.on('deviceConnected', function() {
-       document.getElementById('initbox').innerHTML = 'A Leap Controller was connected.';
-          console.log("deviceConnected");
-      });
-      controller.on('deviceDisconnected', function() {
-       document.getElementById('initbox').innerHTML = 'The Leap Controller was disconnected.';
-          console.log("deviceDisconnected");
-      });
-       controller.connect();
-  </script>
-  <canvas id="ccanvas"></canvas>
-   <script>
- 	
-	// Get the canvas DOM element 
-    var ccanvas = document.getElementById('ccanvas');
- var canvas = document.getElementById('fingers-canvas');
+   
+    var canvas = document.getElementById('fingers-canvas');
       // Making sure we have the proper aspect ratio for our canvas
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
@@ -90,17 +55,11 @@ maxCursors: "10"
     // as easily accesible variables
     var width = canvas.width;
     var height = canvas.height;
-   	// Making sure we have the proper aspect ratio for our canvas
-    ccanvas.width = ccanvas.clientWidth;
-    ccanvas.height = ccanvas.clientHeight;
 
-    // Create the context we will use for drawing
-    var cc =  ccanvas.getContext('2d');
 
-    // Save the canvas width and canvas height
-    // as easily accesible variables
-    var cwidth = ccanvas.width;
-    var cheight = ccanvas.height;
+    
+
+
 
    
     /*
@@ -147,16 +106,12 @@ maxCursors: "10"
       return [ x , -y ];
 
     }
-	  
-
-    // Creates our Leap Controller
-    var controller2 = new Leap.Controller();
-
-    // Tells the controller what to do every time it sees a frame
-    controller2.on( 'frame' , function(frame){
+    
+     // Tells the controller what to do every time it sees a frame
+    controller.on( 'frame' , function(frame){
 
 	  //Clears the canvas so we are not drawing multiple frames	
-      cc.clearRect( 0 , 0 , cwidth , cheight );
+     
        c.clearRect( 0 , 0 , width , height );
  // Gets the number of fingers in each frame
       var numberOfFingers = frame.fingers.length;
@@ -172,88 +127,45 @@ maxCursors: "10"
       // at the center of the canvas
       c.fillText( numberOfFingers , width/2 , height/2 );
     
-      // First we loop through all of the hands that the frame sees
-      for( var i=0; i < frame.hands.length; i++ ){
-
-        // For each hand we define it
-        var hand = frame.hands[i];
-
-        // and get its position, so that it can be passed through
-        // for drawing the connections
-        var handPos = leapToScene( frame , hand.palmPosition );
-
-        // Loop through all the fingers of the hand we are on
-        for( var j = 0; j < hand.fingers.length; j++ ){
-
-          // Define the finger we are looking at
-          var finger = hand.fingers[j];
-
-          // and get its position in Canvas
-          var fingerPos = leapToScene( frame , finger.tipPosition );
-
-        
-          /*
-              First Draw the Connection
-          */
-
-          // Setting up the style for the stroke
-          cc.strokeStyle = "#FFA040";
-          cc.lineWidth = 3;
-
-          // Drawing the path
-          cc.beginPath();
-
-          // Move to the hand position
-          cc.moveTo(   handPos[0] ,   handPos[1] );
-
-          // Draw a line to the finger position
-         cc.lineTo( fingerPos[0] , fingerPos[1] );
-
-          cc.closePath();
-          cc.stroke();
-
-
-          /*
-              Second Draw the Finger
-          */
-
-          // Setting up the style for the stroke
-          cc.strokeStyle = "#39AECF";
-          cc.lineWidth = 5;
-
-          // Creating the path for the finger circle
-          cc.beginPath();
-
-          // Draw a full circle of radius 6 at the finger position
-          cc.arc(fingerPos[0], fingerPos[1], 20, 0, Math.PI*2); 
-
-          cc.closePath();
-          cc.stroke();
-
-        }
-
-
-        /*
-            Third draw the hand
-        */
-
-        // Setting up the style for the fill
-        cc.fillStyle = "#FF5A40";
-
-        // Creating the path for the hand circle
-        cc.beginPath();
-
-        // Draw a full circle of radius 10 at the hand position
-        cc.arc(handPos[0], handPos[1], 40, 0, Math.PI*2);
-
-        cc.closePath();
-        cc.fill();
-
-      }
-    
     });
 
-    // Get frames rolling by connecting the controller
-    controller2.connect();
+
+     controller.on('ready', function() {
+     document.getElementById('initbox').innerHTML = 'It works!';
+          console.log("It works");
+      });
+      controller.on('connect', function() {
+       document.getElementById('initbox').innerHTML = 'Waiting to connect...';
+          console.log("connect");
+      });
+      controller.on('disconnect', function() {
+       document.getElementById('initbox').innerHTML = 'Leap was disconnected...';
+          console.log("disconnect");
+      });
+      controller.on('focus', function() {
+       document.getElementById('initbox').innerHTML = 'Leapstrap is ready (Leap detected).';
+          console.log("focus");
+      });
+      controller.on('blur', function() {
+       document.getElementById('initbox').innerHTML = 'Leapstrap is not in focus.';
+          console.log("blur");
+      });
+      controller.on('deviceConnected', function() {
+       document.getElementById('initbox').innerHTML = 'A Leap Controller was connected.';
+          console.log("deviceConnected");
+      });
+      controller.on('deviceDisconnected', function() {
+       document.getElementById('initbox').innerHTML = 'The Leap Controller was disconnected.';
+          console.log("deviceDisconnected");
+      });
+       controller.connect();
+  </script>
+  
+   <script>
+ 	
+	// Get the canvas DOM element 
+    
+
+	  
 		
   </script>

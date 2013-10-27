@@ -1,8 +1,8 @@
-# [Leapstrap](http://getbootstrap.com) [![Build Status](https://secure.travis-ci.org/twbs/bootstrap.png)](http://travis-ci.org/twbs/bootstrap) [![devDependency Status](https://david-dm.org/twbs/bootstrap/dev-status.png)](https://david-dm.org/twbs/bootstrap#info=devDependencies)
+# [Leapstrap](http://getLeapstrap.com)
 
-Leapstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Alex Wilkes](http://twitter.com/mdo). It is based on Twitter Bootstrap, LeapJS and Leap Cursor Library.
+Leapstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Alex Wilkes](http://twitter.com/mdo). It is based on Twitter Leapstrap, LeapJS and Leap Cursor Library.
 
-To get started, check out <http://getbootstrap.com>!
+To get started, check out <https://github.com/wilkesalex/leapstrap/>!
 
 
 
@@ -10,25 +10,25 @@ To get started, check out <http://getbootstrap.com>!
 
 Three quick start options are available:
 
-* [Download the latest release](https://github.com/twbs/bootstrap/releases/tag/v3.0.0).
-* Clone the repo: `git clone https://github.com/twbs/bootstrap.git`.
+* [Download the latest release](https://github.com/twbs/Leapstrap/releases/tag/v3.0.0).
+* Clone the repo: `git clone https://github.com/twbs/Leapstrap.git`.
 
-Read the [Getting Started page](http://getbootstrap.com/getting-started/) for information on the framework contents, templates and examples, and more.
+Read the [Getting Started page](http://getLeapstrap.com/getting-started/) for information on the framework contents, templates and examples, and more.
 
 ### What's included
 
 Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
 
 ```
-bootstrap/
+Leapstrap/
 ├── css/
-│   ├── bootstrap.css
-│   ├── bootstrap.min.css
-│   ├── bootstrap-theme.css
-│   └── bootstrap-theme.min.css
+│   ├── Leapstrap.css
+│   ├── Leapstrap.min.css
+│   ├── Leapstrap-theme.css
+│   └── Leapstrap-theme.min.css
 ├── js/
-│   ├── bootstrap.js
-│   └── bootstrap.min.js
+│   ├── Leapstrap.js
+│   └── Leapstrap.min.js
 └── fonts/
     ├── glyphicons-halflings-regular.eot
     ├── glyphicons-halflings-regular.svg
@@ -36,13 +36,13 @@ bootstrap/
     └── glyphicons-halflings-regular.woff
 ```
 
-We provide compiled CSS and JS (`bootstrap.*`), as well as compiled and minified CSS and JS (`bootstrap.min.*`). Fonts from Glyphicons are included, as is the optional Bootstrap theme.
+We provide compiled CSS and JS (`Leapstrap.*`), as well as compiled and minified CSS and JS (`Leapstrap.min.*`). Fonts from Glyphicons are included, as is the optional Leapstrap theme.
 
 
 
 ## Bugs and feature requests
 
-Have a bug or a feature request? [Please open a new issue](https://github.com/twbs/bootstrap/issues). Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/necolas/issue-guidelines), written by [Nicolas Gallagher](https://github.com/necolas/).
+Have a bug or a feature request? [Please open a new issue](https://github.com/twbs/Leapstrap/issues). Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/necolas/issue-guidelines), written by [Nicolas Gallagher](https://github.com/necolas/).
 
 You may use [this JS Bin](http://jsbin.com/aKiCIDO/1/edit) as a template for your bug reports.
 
@@ -50,12 +50,12 @@ You may use [this JS Bin](http://jsbin.com/aKiCIDO/1/edit) as a template for you
 
 ## Documentation
 
-Bootstrap's documentation, included in this repo in the root directory, is built with [Jekyll](http://jekyllrb.com) and publicly hosted on GitHub Pages at <http://getbootstrap.com>. The docs may also be run locally.
+Leapstrap's documentation, included in this repo in the root directory, is built with [Jekyll](http://jekyllrb.com) and publicly hosted on GitHub Pages at <http://getLeapstrap.com>. The docs may also be run locally.
 
 ### Running documentation locally
 
 1. If necessary, [install Jekyll](http://jekyllrb.com/docs/installation) (requires v1.x).
-2. From the root `/bootstrap` directory, run `jekyll serve` in the command line.
+2. From the root `/Leapstrap` directory, run `jekyll serve` in the command line.
   - **Windows users:** run `chcp 65001` first to change the command prompt's character encoding ([code page](http://en.wikipedia.org/wiki/Windows_code_page)) to UTF-8 so Jekyll runs without errors.
 3. Open <http://localhost:9001> in your browser, and voilà.
 
@@ -63,22 +63,22 @@ Learn more about using Jekyll by reading its [documentation](http://jekyllrb.com
 
 ### Documentation for previous releases
 
-Documentation for v2.3.2 has been made available for the time being at <http://getbootstrap.com/2.3.2/> while folks transition to Bootstrap 3.
+Documentation for v2.3.2 has been made available for the time being at <http://getLeapstrap.com/2.3.2/> while folks transition to Leapstrap 3.
 
-[Previous releases](https://github.com/twbs/bootstrap/releases) and their documentation are also available for download.
+[Previous releases](https://github.com/twbs/Leapstrap/releases) and their documentation are also available for download.
 
 
 
 ## Compiling CSS and JavaScript
 
-Bootstrap uses [Grunt](http://gruntjs.com/) with convenient methods for working with the framework. It's how we compile our code, run tests, and more. To use it, install the required dependencies as directed and then run some Grunt commands.
+Leapstrap uses [Grunt](http://gruntjs.com/) with convenient methods for working with the framework. It's how we compile our code, run tests, and more. To use it, install the required dependencies as directed and then run some Grunt commands.
 
 ### Install Grunt
 
 From the command line:
 
 1. Install `grunt-cli` globally with `npm install -g grunt-cli`.
-2. Navigate to the root `/bootstrap` directory, then run `npm install`. npm will look at [package.json](package.json) and automatically install the necessary local dependencies listed there.
+2. Navigate to the root `/Leapstrap` directory, then run `npm install`. npm will look at [package.json](package.json) and automatically install the necessary local dependencies listed there.
 
 When completed, you'll be able to run the various Grunt commands provided from the command line.
 
@@ -106,7 +106,7 @@ Should you encounter problems with installing dependencies or running Grunt comm
 
 ## Contributing
 
-Please read through our [contributing guidelines](https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
+Please read through our [contributing guidelines](https://github.com/twbs/Leapstrap/blob/master/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
 
 More over, if your pull request contains JavaScript patches or features, you must include relevant unit tests. All HTML and CSS should conform to the [Code Guide](http://github.com/mdo/code-guide), maintained by [Mark Otto](http://github.com/mdo).
 
@@ -141,8 +141,8 @@ For more information on SemVer, please visit <http://semver.org/>.
 
 ## Contributors
 
-**Twitter Bootstrap**
-+ <http://getbootstrap.com/>
+**Twitter Leapstrap**
++ <http://getLeapstrap.com/>
 
 **Leap JS**
 + <http://js.leapmotion.com/>

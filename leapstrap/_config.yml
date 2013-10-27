@@ -11,13 +11,14 @@ exclude:          [".editorconfig", ".gitignore", "bower.json", "composer.json",
 port:             9001
 
 # Custom vars
-current_version:  0.1b
+current_version:  1.0.0
 repo:             https://github.com/wilkesalex/leapstrap
 
 download_source:  https://github.com/wilkesalex/leapstrap/archive/leapstrap.0.1b.zip
 download_dist:    https://github.com/wilkesalex/leapstrap/archive/leapstrap.0.1b.zip
 
 blog:             http://blog.getbootstrap.com
+twitter:          https://www.twitter.com/leapstrap
 expo:             http://expo.getbootstrap.com
 
 cdn_css:          //netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css

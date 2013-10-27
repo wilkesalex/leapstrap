@@ -41,7 +41,7 @@ body
 {
 	position: relative;
 	/* For scrollyspy */
-	padding-top: 50px;
+	padding-top: 80px;
 	/* Account for fixed navbar */
 }
 
@@ -220,16 +220,26 @@ body
  * Apply the map background via base64 and relevant colors where we need 'em.
  */
 
-.bs-docs-home
+body
+{
+/* 
+	background: url(../img/cream_pixels50.png) repeat 0 0;
+ */
+	background-color: #ffffff;
+}
+
+body.bs-docs-home
 {
 	background: url(../img/cream_pixels.png) repeat 0 0;
-	background-color: #fefefe;
+	background-color: #ffffff;
 	color: #563d7c;
 }
 
+
+
 .bs-header
 {
-	background: url(../img/leapsidehead.png) right center no-repeat no-repeat;
+	background: url(../img/leapsidehead.png) right bottom no-repeat no-repeat;
 	background-attachment: scroll;
 	color: #563d7c;
 }
@@ -277,8 +287,8 @@ body
 	{
 		text-align: left;
 		margin-top: 10px;
-		padding-top: 60px;
-		padding-bottom: 60px;
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
 	
 	.bs-masthead h1 { font-size: 100px; }
@@ -302,6 +312,11 @@ body
 		padding: 0;
 		text-align: left;
 	}
+	
+}
+
+.bs-docs-home .bs-footer {
+margin-top: 60px;
 }
 
 /*
@@ -551,15 +566,22 @@ body
 {
 	.bs-sidebar .nav > .active > ul { display: block; }
 	
-	/* Widen the fixed sidebar */
-	.bs-sidebar.affix,
+	/* 
+Widen the fixed sidebar	.bs-sidebar.affix,
 	  .bs-sidebar.affix-bottom { width: 213px; }
+ */
 	
 	.bs-sidebar.affix
 	{
 		position: fixed;
 		/* Undo the static from mobile first approach */
-		top: 80px;
+		top: 110px;
+		width:20%;
+	}
+	.bs-sidebar.affix-top
+	{
+		
+		width:90%;
 	}
 	
 	.bs-sidebar.affix-bottom
@@ -575,13 +597,16 @@ body
 		margin-bottom: 0;
 	}
 }
+/* 
 
 @media (min-width: 1200px)
 {
-	/* Widen the fixed sidebar again */
-	.bs-sidebar.affix-bottom,
+	/* 
+Widen the fixed sidebar again	.bs-sidebar.affix-bottom,
 	  .bs-sidebar.affix { width: 263px; }
+ */
 }
+ */
 
 /*
  * Docs sections
@@ -856,7 +881,7 @@ h1[id]
 	margin-right: 0;
 }
 
-.bs-navbar-top-example { padding-bottom: 45px; }
+.bs-navbar-top-example { padding-bottom: 80px; }
 
 .bs-navbar-top-example:after
 {
@@ -909,12 +934,14 @@ h1[id]
 }
 
 /* Example dropdowns */
+/* 
 .bs-example > .dropdown > .dropdown-menu
 {
 	position: static;
 	display: block;
 	margin-bottom: 5px;
 }
+ */
 
 /* Example tabbable tabs */
 .bs-example-tabs .nav-tabs { margin-bottom: 15px; }
@@ -982,7 +1009,7 @@ h1[id]
 
 .highlight pre code
 {
-	font-size: inherit;
+	font-size: 0.8em;
 	color: #333;
 	/* Effectively the base text color */
 }
@@ -1279,6 +1306,28 @@ background:white;
 }
 
 .page-header h1[id] {
-padding-top: 30px;
-margin-top: -45px;
+padding-top: 95px;
+margin-top: -80px;
+}
+h2[id] {
+padding-top: 95px;
+margin-top: -80px;
+}
+
+.container-fluid {
+width: 100% !important;
+padding-right: 30px;
+padding-left: 30px;
+}
+.container-fluid > .row {
+margin-left:0px;
+margin-right:0px;
+}
+.container-fluid > .row > .col-md-9[role="main"] {
+padding-left: 30px;
+}
+
+.bs-docs-section h1, h2, h3 {
+margin-top: 30px;
+margin-bottom: 18px;
 }

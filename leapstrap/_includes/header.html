@@ -1,8 +1,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="description" content="Leapstrap - Leap Motion web framework">
+<meta name="author" content="Alex Wilkes">
 
 <title>
   {% if page.title == "Leapstrap" %}
@@ -12,9 +12,10 @@
   {% endif %}
 </title>
 
-<!-- Bootstrap core CSS -->
-<link href="{{ page.base_url }}dist/css/bootstrap.css" rel="stylesheet">
+<!-- Leapstrap core CSS -->
 <link href="{{ page.base_url }}dist/css/leapstrap.css" rel="stylesheet">
+
+
 <!-- Documentation extras -->
 <link href="{{ page.base_url }}docs-assets/css/docs.css" rel="stylesheet">
 <link href="{{ page.base_url }}docs-assets/css/pygments-manni.css" rel="stylesheet">
@@ -27,19 +28,10 @@
 <![endif]-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
 <script>window.jQuery || document.write('<script src="/dist/js/jquery.js">\x3C/script>')</script>
-<script src="{{ page.base_url }}dist/js/bootstrap.js"></script>
+<script src="//js.leapmotion.com/0.2.2/leap.min.js"></script>
+<!-- need to find code to localise -->
+<!-- <script>window.BaseConnection || document.write('<script src="/dist/js/leap.js">\x3C/script>')</script> -->
 <script src="{{ page.base_url }}dist/js/leapstrap.js"></script>
 <!-- Favicons -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ page.base_url }}docs-assets/ico/apple-touch-icon-144-precomposed.png">
 <link rel="shortcut icon" href="{{ page.base_url }}docs-assets/ico/favicon.png">
-
-<script>
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-146052-10']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>

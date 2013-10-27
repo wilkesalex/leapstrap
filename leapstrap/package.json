@@ -1,17 +1,17 @@
 {
-    "name": "bootstrap"
-  , "description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development."
-  , "version": "3.0.0"
-  , "keywords": ["bootstrap", "css"]
-  , "homepage": "http://getbootstrap.com"
-  , "author": "Twitter, Inc."
+    "name": "leapstrap"
+  , "description": "Sleek, intuitive, and powerful Leap first framework."
+  , "version": "1.0.0"
+  , "keywords": ["leapstrap", "css"]
+  , "homepage": "https://github.com/wilkesalex/leapstrap/"
+  , "author": "Alex Wilkes"
   , "scripts": { "test": "grunt test" }
   , "repository": {
       "type": "git"
-    , "url": "https://github.com/twbs/bootstrap.git"
+    , "url": "https://github.com/wilkesalex/leapstrap.git"
   }
   , "bugs": {
-      "url": "https://github.com/twbs/bootstrap/issues"
+      "url": "https://github.com/wilkesalex/leapstrap/issues"
   }
   , "licenses": [
     {

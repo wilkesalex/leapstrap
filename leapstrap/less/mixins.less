@@ -407,6 +407,13 @@
       border-bottom-color: @border;
     }
   }
+  
+  &.hover.panel-leap,
+  &:hover.panel-leap
+   {
+border-color: darken(@border, 14%);
+  }
+  
 }
 
 // Alerts
@@ -422,6 +429,12 @@
   .alert-link {
     color: darken(@text-color, 10%);
   }
+
+&.hover.alert-leap,
+&:hover.alert-leap {
+background-color: darken(@background, 7%);
+}
+
 }
 
 // Tables
@@ -444,6 +457,10 @@
   // Hover states for `.table-hover`
   // Note: this is not available for cells or rows within `thead` or `tfoot`.
   .table-hover > tbody > tr {
+    > td.@{state}.hover,
+    > th.@{state}.hover,
+    &.@{state}.hover > td,
+    &.@{state}.hover > th,
     > td.@{state}:hover,
     > th.@{state}:hover,
     &.@{state}:hover > td,
@@ -464,7 +481,7 @@
   border-color: @border;
 
   &.hover,
-&:hover,
+  &:hover,
   &:focus,
   &:active,
   &.active,
@@ -483,7 +500,7 @@
   fieldset[disabled] & {
     &,
     &.hover,
-&:hover,
+    &:hover,
     &:focus,
     &:active,
     &.active {
@@ -532,7 +549,7 @@
   background-color: @color;
   &[href] {
     &.hover,
-&:hover,
+    &:hover,
     &:focus {
       background-color: darken(@color, 10%);
     }

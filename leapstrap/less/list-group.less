@@ -51,7 +51,7 @@ a.list-group-item {
 
   // Hover state
   &.hover,
-&:hover,
+  &:hover,
   &:focus {
     text-decoration: none;
     background-color: @list-group-hover-bg;
@@ -59,6 +59,7 @@ a.list-group-item {
 
   // Active class on item itself, not parent
   &.active,
+  &.active.hover,
   &.active:hover,
   &.active:focus {
     z-index: 2; // Place active items above their siblings for proper border styling

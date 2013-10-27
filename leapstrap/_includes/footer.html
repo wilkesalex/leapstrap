@@ -1,26 +1,16 @@
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-
 <script src="{{ page.base_url }}docs-assets/js/holder.js"></script>
 <script src="{{ page.base_url }}docs-assets/js/application.js"></script>
-
-{% if page.slug == "customize" %}
-<script src="{{ page.base_url }}docs-assets/js/less.js"></script>
-<script src="{{ page.base_url }}docs-assets/js/jszip.js"></script>
-<script src="{{ page.base_url }}docs-assets/js/uglify.js"></script>
-<script src="{{ page.base_url }}docs-assets/js/filesaver.js"></script>
-<script src="{{ page.base_url }}docs-assets/js/raw-files.js"></script>
-<script src="{{ page.base_url }}docs-assets/js/customizer.js"></script>
-{% endif %}
 <script>
  
         LeapManager.init({
-            interactiveSelector:"a",
-            enableMetaGestures: false,
+            
+            enableMetaGestures: true,
+            enableDefaultMetaGestureActions: false,
             maxCursors:{% if page.maxCursors %}{{ page.maxCursors }}{% else %}1{% endif %},
             enableHoverTap: true,
-            enablePressDown: true
+            enablePressDown: true,
+            enableTouchScrolling: false,
+            enableScrollbarScrolling: true
             });
     
 </script>

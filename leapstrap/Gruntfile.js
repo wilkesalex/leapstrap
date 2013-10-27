@@ -48,23 +48,22 @@ module.exports = function(grunt) {
           'js/popover.js',
           'js/scrollspy.js',
           'js/tab.js',
-          'js/affix.js'
+          'js/affix.js',
+          'js/leapstrap-leap-manager.js'
         ],
         dest: 'dist/js/<%= pkg.name %>.js'
       },
-      leapstrap: {
-        src: [
-          'js/leap.js',
-          'js/leap-manager.js'
-
-        ],
-        dest: 'dist/js/leapstrap.js'
-      },
-        jquery: {
+      jquery: {
         src: [
           'js/jquery.js'
         ],
         dest: 'dist/js/jquery.js'
+      },
+      leap: {
+        src: [
+          'js/leap.js'
+        ],
+        dest: 'dist/js/leap.js'
       }
     },
 
@@ -76,10 +75,6 @@ module.exports = function(grunt) {
       bootstrap: {
         src: ['<%= concat.bootstrap.dest %>'],
         dest: 'dist/js/<%= pkg.name %>.min.js'
-      },
-       leapstrap: {
-        src: ['<%= concat.leapstrap.dest %>'],
-        dest: 'dist/js/leapstrap.min.js'
       }
     },
 
@@ -89,14 +84,14 @@ module.exports = function(grunt) {
         banner: '<%= banner %>'
       },
       bootstrap: {
-        src: ['less/bootstrap.less'],
+        src: ['less/leapstrap.less'],
         dest: 'dist/css/<%= pkg.name %>.css'
       },
       min: {
         options: {
           compress: true
         },
-        src: ['less/bootstrap.less'],
+        src: ['less/leapstrap.less'],
         dest: 'dist/css/<%= pkg.name %>.min.css'
       },
       theme: {
@@ -109,18 +104,7 @@ module.exports = function(grunt) {
         },
         src: ['less/theme.less'],
         dest: 'dist/css/<%= pkg.name %>-theme.min.css'
-      },
-      leapstrap: {
-        src: ['less/leapstrap.less'],
-        dest: 'dist/css/leapstrap.css'
-      },
-      leapstrap_min: {
-        options: {
-          compress: true
-        },
-        src: ['less/leapstrap.less'],
-        dest: 'dist/css/leapstrap.min.css'
-      },     
+      }     
     },
 
     copy: {

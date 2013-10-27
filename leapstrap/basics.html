@@ -1,22 +1,27 @@
 ---
 layout: default
-title: CSS
-slug: css
-lead: "Global CSS settings, fundamental HTML elements styled and enhanced with extensible classes, and an advanced grid system."
+title: Basics
+slug: basics
+lead: "Basic CSS settings, fundamental HTML elements styled and enhanced with extensible classes, and an advanced grid system.<br/>Read this page before you make your own pages."
 base_url: "../"
 ---
 
 
-  <!-- Global Bootstrap settings
+  <!-- Global Leapstrap settings
   ================================================== -->
   <div class="bs-docs-section">
     <div class="page-header">
       <h1 id="overview">Overview</h1>
     </div>
-    <p class="lead">Get the lowdown on the key pieces of Bootstrap's infrastructure, including our approach to better, faster, stronger web development.</p>
+    <p class="lead">Get the lowdown on the key pieces of Leapstrap's infrastructure, including our approach to better, faster, stronger web development.</p>
+    
+     <div class="bs-callout bs-callout-danger">
+      <h4>See Bootstrap Documentation</h4>
+     <p>A lot of basic information on the non-Leap-focused layout and CSS structure (which is also the basis for many Leap-focused plugins) can be found on the <a href="http://getbootstrap.com/javascript/">Bootstrap CSS</a> page. It is worth reading if you are not familiar with Bootstrap.</p>
+    </div>
 
     <h3 id="overview-doctype">HTML5 doctype</h3>
-    <p>Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.</p>
+    <p>Leapstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.</p>
 {% highlight html %}
 <!DOCTYPE html>
 <html lang="en">
@@ -24,34 +29,29 @@ base_url: "../"
 </html>
 {% endhighlight %}
 
-    <h3 id="overview-mobile">Mobile first</h3>
-    <p>With Bootstrap 2, we added optional mobile friendly styles for key aspects of the framework. With Bootstrap 3, we've rewritten the project to be mobile friendly from the start. Instead of adding on optional mobile styles, they're baked right into the core. In fact, <strong>Bootstrap is mobile first</strong>. Mobile first styles can be found throughout the entire library instead of in separate files.</p>
+    <h3 id="overview-mobile">Mobile first, Leap always</h3>
+    <p>Leapstrap is mobile and large-screen friendly, intelligently adapting Leapstrap based projects, web pages and web applications to a wide range of resolutions. Currently, most people use 15"+ screens with Leap. But there are experimental Leap projects and by using Leapstrap, you give your project the capability to interact with smaller screens <em>from the start</em>. In this case you should structure your CSS from the mobile-up, adding additional styles for screens <strong>as they get bigger - not smaller</strong>.</p>
     <p>To ensure proper rendering and touch zooming, <strong>add the viewport meta tag</strong> to your <code>&lt;head&gt;</code>.</p>
 {% highlight html %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endhighlight %}
-    <p>You can disable zooming capabilities on mobile devices by adding <code>user-scalable=no</code> to the viewport meta tag. This disables zooming, meaning users are only able to scroll, and results in your site feeling a bit more like a native application. Overall we don't recommend this on every site, so use caution!</p>
-{% highlight html %}
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-{% endhighlight %}
 
     <h3 id="overview-responsive-images">Responsive images</h3>
-    <p>Images in Bootstrap 3 can be made responsive-friendly via the addition of the <code>.img-responsive</code> class. This applies <code>max-width: 100%;</code> and <code>height: auto;</code> to the image so that it scales nicely to the parent element.</p>
+    <p>Images in Leapstrap 3 can be made responsive-friendly via the addition of the <code>.img-responsive</code> class. This applies <code>max-width: 100%;</code> and <code>height: auto;</code> to the image so that it scales nicely to the parent element.</p>
 {% highlight html %}
 <img src="..." class="img-responsive" alt="Responsive image">
 {% endhighlight %}
 
     <h3 id="overview-type-links">Typography and links</h3>
-    <p>Bootstrap sets basic global display, typography, and link styles. Specifically, we:</p>
+    <p>Leapstrap sets basic global display, typography, and link styles. Specifically, we:</p>
     <ul>
       <li>Set <code>background-color: #fff;</code> on the <code>body</code></li>
       <li>Use the <code>@font-family-base</code>, <code>@font-size-base</code>, and <code>@line-height-base</code> attributes as our typographic base</li>
       <li>Set the global link color via <code>@link-color</code> and apply link underlines only on <code>:hover</code></li>
     </ul>
-    <p>These styles can be found within <code>scaffolding.less</code>.</p>
 
     <h3 id="overview-normalize">Normalize</h3>
-    <p>For improved cross-browser rendering, we use <a href="http://necolas.github.io/normalize.css/" target="_blank">Normalize</a>, a project by <a href="http://twitter.com/necolas" target="_blank">Nicolas Gallagher</a> and <a href="http://twitter.com/jon_neal" target="_blank">Jonathan Neal</a>.</p>
+    <p>For improved cross-browser rendering, we use <a href="http://necolas.github.io/normalize.css/" target="_blank">Normalize</a>.</p>
 
     <h3 id="overview-container">Containers</h3>
     <p>Easily center a page's contents by wrapping its contents in a <code>.container</code>. Containers set <code>max-width</code> at various media query breakpoints to match our grid system.</p>
@@ -70,10 +70,10 @@ base_url: "../"
     <div class="page-header">
       <h1 id="grid">Grid system</h1>
     </div>
-    <p class="lead">Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. It includes <a href="#grid-example-basic">predefined classes</a> for easy layout options, as well as powerful <a href="#grid-less">mixins for generating more semantic layouts</a>.</p>
+    <p class="lead">Leapstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. It includes <a href="#grid-example-basic">predefined classes</a> for easy layout options, as well as powerful <a href="#grid-less">mixins for generating more semantic layouts</a>.</p>
 
     <h3 id="grid-intro">Introduction</h3>
-    <p>Grid systems are used for creating page layouts through a series of rows and columns that house your content. Here's how the Bootstrap grid system works:</p>
+    <p>Grid systems are used for creating page layouts through a series of rows and columns that house your content. Here's how the Leapstrap grid system works:</p>
     <ul>
       <li>Rows must be placed within a <code>.container</code> for proper alignment and padding.</li>
       <li>Use rows to create horizontal groups of columns.</li>
@@ -93,7 +93,7 @@ base_url: "../"
     <p>We use the following media queries in our LESS files to create the key breakpoints in our grid system.</p>
 {% highlight css %}
 /* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Bootstrap */
+/* No media query since this is the default in Leapstrap */
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm-min) { ... }
@@ -113,7 +113,7 @@ base_url: "../"
 {% endhighlight %}
 
     <h3 id="grid-options">Grid options</h3>
-    <p>See how aspects of the Bootstrap grid system work across multiple devices with a handy table.</p>
+    <p>See how aspects of the Leapstrap grid system work across multiple devices with a handy table.</p>
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
@@ -439,7 +439,7 @@ base_url: "../"
 {% endhighlight %}
 
     <h3 id="grid-less">LESS mixins and variables</h3>
-    <p>In addition to <a href="#grid-example-basic">prebuilt grid classes</a> for fast layouts, Bootstrap includes LESS variables and mixins for quickly generating your own simple, semantic layouts.</p>
+    <p>In addition to <a href="#grid-example-basic">prebuilt grid classes</a> for fast layouts, Leapstrap includes LESS variables and mixins for quickly generating your own simple, semantic layouts.</p>
 
     <h4>Variables</h4>
     <p>Variables determine the number of columns, the gutter width, and the media query point at which to begin floating columns. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below.</p>
@@ -625,39 +625,39 @@ base_url: "../"
       <table class="table">
         <tbody>
           <tr>
-            <td><h1>h1. Bootstrap heading</h1></td>
+            <td><h1>h1. Leapstrap heading</h1></td>
             <td class="info">Semibold 36px</td>
           </tr>
           <tr>
-            <td><h2>h2. Bootstrap heading</h2></td>
+            <td><h2>h2. Leapstrap heading</h2></td>
             <td class="info">Semibold 30px</td>
           </tr>
           <tr>
-            <td><h3>h3. Bootstrap heading</h3></td>
+            <td><h3>h3. Leapstrap heading</h3></td>
             <td class="info">Semibold 24px</td>
           </tr>
           <tr>
-            <td><h4>h4. Bootstrap heading</h4></td>
+            <td><h4>h4. Leapstrap heading</h4></td>
             <td class="info">Semibold 18px</td>
           </tr>
           <tr>
-            <td><h5>h5. Bootstrap heading</h5></td>
+            <td><h5>h5. Leapstrap heading</h5></td>
             <td class="info">Semibold 14px</td>
           </tr>
           <tr>
-            <td><h6>h6. Bootstrap heading</h6></td>
+            <td><h6>h6. Leapstrap heading</h6></td>
             <td class="info">Semibold 12px</td>
           </tr>
         </tbody>
       </table>
     </div>
 {% highlight html %}
-<h1>h1. Bootstrap heading</h1>
-<h2>h2. Bootstrap heading</h2>
-<h3>h3. Bootstrap heading</h3>
-<h4>h4. Bootstrap heading</h4>
-<h5>h5. Bootstrap heading</h5>
-<h6>h6. Bootstrap heading</h6>
+<h1>h1. Leapstrap heading</h1>
+<h2>h2. Leapstrap heading</h2>
+<h3>h3. Leapstrap heading</h3>
+<h4>h4. Leapstrap heading</h4>
+<h5>h5. Leapstrap heading</h5>
+<h6>h6. Leapstrap heading</h6>
 {% endhighlight %}
 
     <p>Create lighter, secondary text in any heading with a generic <code>&lt;small&gt;</code> tag or the <code>.small</code> class.</p>
@@ -665,39 +665,39 @@ base_url: "../"
       <table class="table">
         <tbody>
           <tr>
-            <td><h1>h1. Bootstrap heading <small>Secondary text</small></h1></td>
+            <td><h1>h1. Leapstrap heading <small>Secondary text</small></h1></td>
           </tr>
           <tr>
-            <td><h2>h2. Bootstrap heading <small>Secondary text</small></h2></td>
+            <td><h2>h2. Leapstrap heading <small>Secondary text</small></h2></td>
           </tr>
           <tr>
-            <td><h3>h3. Bootstrap heading <small>Secondary text</small></h3></td>
+            <td><h3>h3. Leapstrap heading <small>Secondary text</small></h3></td>
           </tr>
           <tr>
-            <td><h4>h4. Bootstrap heading <small>Secondary text</small></h4></td>
+            <td><h4>h4. Leapstrap heading <small>Secondary text</small></h4></td>
           </tr>
           <tr>
-            <td><h5>h5. Bootstrap heading <small>Secondary text</small></h5></td>
+            <td><h5>h5. Leapstrap heading <small>Secondary text</small></h5></td>
           </tr>
           <tr>
-            <td><h6>h6. Bootstrap heading <small>Secondary text</small></h6></td>
+            <td><h6>h6. Leapstrap heading <small>Secondary text</small></h6></td>
           </tr>
         </tbody>
       </table>
     </div>
 {% highlight html %}
-<h1>h1. Bootstrap heading <small>Secondary text</small></h1>
-<h2>h2. Bootstrap heading <small>Secondary text</small></h2>
-<h3>h3. Bootstrap heading <small>Secondary text</small></h3>
-<h4>h4. Bootstrap heading <small>Secondary text</small></h4>
-<h5>h5. Bootstrap heading <small>Secondary text</small></h5>
-<h6>h6. Bootstrap heading <small>Secondary text</small></h6>
+<h1>h1. Leapstrap heading <small>Secondary text</small></h1>
+<h2>h2. Leapstrap heading <small>Secondary text</small></h2>
+<h3>h3. Leapstrap heading <small>Secondary text</small></h3>
+<h4>h4. Leapstrap heading <small>Secondary text</small></h4>
+<h5>h5. Leapstrap heading <small>Secondary text</small></h5>
+<h6>h6. Leapstrap heading <small>Secondary text</small></h6>
 {% endhighlight %}
 
 
     <!-- Body copy -->
     <h2 id="type-body-copy">Body copy</h2>
-    <p>Bootstrap's global default <code>font-size</code> is <strong>14px</strong>, with a <code>line-height</code> of <strong>1.428</strong>. This is applied to the <code>&lt;body&gt;</code> and all paragraphs. In addition, <code>&lt;p&gt;</code> (paragraphs) receive a bottom margin of half their computed line-height (10px by default).</p>
+    <p>Leapstrap's global default <code>font-size</code> is <strong>14px</strong>, with a <code>line-height</code> of <strong>1.428</strong>. This is applied to the <code>&lt;body&gt;</code> and all paragraphs. In addition, <code>&lt;p&gt;</code> (paragraphs) receive a bottom margin of half their computed line-height (10px by default).</p>
     <div class="bs-example">
       <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
       <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
@@ -719,7 +719,7 @@ base_url: "../"
 
     <!-- Using LESS -->
     <h3>Built with Less</h3>
-    <p>The typographic scale is based on two LESS variables in <strong>variables.less</strong>: <code>@font-size-base</code> and <code>@line-height-base</code>. The first is the base font-size used throughout and the second is the base line-height. We use those variables and some simple math to create the margins, paddings, and line-heights of all our type and more. Customize them and Bootstrap adapts.</p>
+    <p>The typographic scale is based on two LESS variables in <strong>variables.less</strong>: <code>@font-size-base</code> and <code>@line-height-base</code>. The first is the base font-size used throughout and the second is the base line-height. We use those variables and some simple math to create the margins, paddings, and line-heights of all our type and more. Customize them and Leapstrap adapts.</p>
 
 
     <!-- Emphasis -->
@@ -1186,7 +1186,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
           <tr>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@TwBootstrap</td>
+            <td>@TwLeapstrap</td>
           </tr>
           <tr>
             <td>2</td>
@@ -1210,7 +1210,8 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 
 
     <h2 id="tables-hover-rows">Hover rows</h2>
-    <p>Add <code>.table-hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>
+    <p>Add <code>.table-hover</code> <strong>to the table element</strong> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>
+    <p>Add <code>.leap-interactive</code> <strong>to the table rows (tr)</strong> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>
     <div class="bs-example">
       <table class="table table-hover">
         <thead>
@@ -1222,19 +1223,19 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr class="leap-interactive" leap-disable-tap="true">
             <td>1</td>
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
           </tr>
-          <tr>
+          <tr class="leap-interactive" leap-disable-tap="true">
             <td>2</td>
             <td>Jacob</td>
             <td>Thornton</td>
             <td>@fat</td>
           </tr>
-          <tr>
+          <tr class="leap-interactive" leap-disable-tap="true">
             <td>3</td>
             <td colspan="2">Larry the Bird</td>
             <td>@twitter</td>
@@ -1244,7 +1245,20 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
     </div><!-- /example -->
 {% highlight html %}
 <table class="table table-hover">
-  ...
+<tbody>
+          <tr class="leap-interactive" leap-disable-tap="true">
+            <td>1</td>
+            <td>Mark</td>	
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+                    <tr class="leap-interactive" leap-disable-tap="true">
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          </tbody>
 </table>
 {% endhighlight %}
 
@@ -1570,7 +1584,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
     <p>Add <code>.form-inline</code> for left-aligned and inline-block controls for a compact layout.</p>
     <div class="bs-callout bs-callout-danger">
       <h4>Requires custom widths</h4>
-      <p>Inputs, selects, and textareas are 100% wide by default in Bootstrap. To use the inline form, you'll have to set a width on the form controls used within.</p>
+      <p>Inputs, selects, and textareas are 100% wide by default in Leapstrap. To use the inline form, you'll have to set a width on the form controls used within.</p>
     </div>
     <div class="bs-callout bs-callout-danger">
       <h4>Always add labels</h4>
@@ -1615,7 +1629,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 
 
     <h2 id="forms-horizontal">Horizontal form</h2>
-    <p>Use Bootstrap's predefined grid classes to align labels and groups of form controls in a horizontal layout by adding <code>.form-horizontal</code> to the form. Doing so changes <code>.form-group</code>s to behave as grid rows, so no need for <code>.row</code>.</p>
+    <p>Use Leapstrap's predefined grid classes to align labels and groups of form controls in a horizontal layout by adding <code>.form-horizontal</code> to the form. Doing so changes <code>.form-group</code>s to behave as grid rows, so no need for <code>.row</code>.</p>
     <div class="bs-example">
       <form class="form-horizontal">
         <div class="form-group">
@@ -1897,7 +1911,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 
     <div class="bs-callout bs-callout-danger">
       <h4>Cross-browser compatibility</h4>
-      <p>While Bootstrap will apply these styles in all browsers, Internet Explorer 9 and below don't actually support the <code>disabled</code> attribute on a <code>&lt;fieldset&gt;</code>. Use custom JavaScript to disable the fieldset in these browsers.</p>
+      <p>While Leapstrap will apply these styles in all browsers, Internet Explorer 9 and below don't actually support the <code>disabled</code> attribute on a <code>&lt;fieldset&gt;</code>. Use custom JavaScript to disable the fieldset in these browsers.</p>
     </div>
 
     <div class="bs-example">
@@ -1946,7 +1960,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 {% endhighlight %}
 
     <h3 id="forms-validation">Validation states</h3>
-    <p>Bootstrap includes validation styles for error, warning, and success states on form controls. To use, add <code>.has-warning</code>, <code>.has-error</code>, or <code>.has-success</code> to the parent element. Any <code>.control-label</code>, <code>.form-control</code>, and <code>.help-block</code> within that element will receive the validation styles.</p>
+    <p>Leapstrap includes validation styles for error, warning, and success states on form controls. To use, add <code>.has-warning</code>, <code>.has-error</code>, or <code>.has-success</code> to the parent element. Any <code>.control-label</code>, <code>.form-control</code>, and <code>.help-block</code> within that element will receive the validation styles.</p>
 
     <div class="bs-example">
       <form role="form">

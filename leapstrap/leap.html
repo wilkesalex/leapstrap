@@ -1,0 +1,622 @@
+---
+layout: default
+title: Leap
+slug: leap
+lead: "Leap interaction classes and tools.<br/>Read this page for great web-based Leap functionality."
+base_url: "../"
+---
+
+
+
+
+
+
+  <!-- Basics system
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="basics">Basics </h1>
+    </div>
+   
+  <h3 id="basics-click">Leap Click</h3>
+    <p>Just add the class <code>leap-interactive</code> to make it interactive</p>
+    <div class="bs-example">
+        <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
+        <button type="button" class="leap-click btn btn-primary btn-lg btn-block leap-interactive">I can be clicked</button>
+       
+      </div>
+    </div>
+    <pre style="">
+    <div class="output-leap-click"></div>
+    </pre>
+     <script type="text/javascript">
+        var buttons = document.querySelectorAll("button.leap-click");
+        var outputoutput_leap_click  = document.querySelector("div.output-leap-click");
+        var count   = 0;
+
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function(e){
+                outputoutput_leap_click.innerHTML += count + ": Button Clicked</br>";
+                count++;
+            });
+        };
+
+       
+    </script>   
+  {% highlight html %}
+<button type="button" class="btn leap-interactive">I can be clicked</button>
+{% endhighlight %}
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>class="leap-interactive"</td>
+           <td>css class</td>
+           <td></td>
+           <td>activate leap interaction on this element</td>
+         </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <h3 id="basics-click-delay">Click Delay</h3>
+    <p>Set a click delay on your elements. </p>
+    <div class="bs-example">
+        <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
+        <button type="button" class="leap-delay btn btn-primary btn-lg btn-block leap-interactive" leap-click-delay="1000">Click Delay: 1 second</button>
+        <button type="button" class="leap-delay btn btn-primary btn-lg btn-block leap-interactive" leap-click-delay="3000">Click Delay: 3 second</button>
+        <button type="button" class="leap-delay btn btn-primary btn-lg btn-block leap-interactive" leap-click-delay="5000">Click Delay: 5 second</button>
+      </div>
+    </div>     
+     <pre style="">
+    <div class="output-leap-delay"></div>
+    </pre>
+     <script type="text/javascript">
+        var buttons = document.querySelectorAll("button.leap-delay");
+        var outputoutput_leap_d  = document.querySelector("div.output-leap-delay");
+        var count   = 0;
+
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function(e){
+                outputoutput_leap_d.innerHTML += count + ": Button Clicked</br>";
+                count++;
+            });
+        };
+
+       
+    </script>   
+  {% highlight css %}
+<button type="button" class="btn leap-interactive" leap-click-delay="1000">Click Delay: 1 second </button>
+<button type="button" class="btn leap-interactive" leap-click-delay="3000">Click Delay: 3 second </button>
+<button type="button" class="btn leap-interactive" leap-click-delay="5000">Click Delay: 5 second </button>
+{% endhighlight %}
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>leap-click-delay</td>
+           <td>number</td>
+           <td>1000</td>
+           <td>time to wait until activate click on element (in ms)</td>
+         </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+     <h3 id="basics-multitap">Multitap</h3>
+         <p>Allow an element to be tapped multiple times </p>
+
+     <div class="bs-example">
+    <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
+        <button type="button" class="leap-mtap btn btn-primary btn-lg btn-block leap-interactive" leap-enable-multitap="true" leap-click-delay="500">Allow Multitap</button>
+      
+      </div>      </div>
+       <pre style="">
+    <div class="output-leap-multitap"></div>
+    </pre>
+     <script type="text/javascript">
+        var buttons = document.querySelectorAll("button.leap-mtap");
+        var outputoutput_leap_mt  = document.querySelector("div.output-leap-multitap");
+        var count   = 0;
+
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function(e){
+                outputoutput_leap_mt.innerHTML += count + ": Button Clicked</br>";
+                count++;
+            });
+        };
+
+       
+    </script>   
+        {% highlight css %}
+<button type="button" class="btn leap-interactive" leap-enable-multitap="true">Allow Multitap</button>
+{% endhighlight %}
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>leap-enable-multitap</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>allow element to be tapped by leap more than once</td>
+         </tr>
+
+        </tbody>
+      </table>
+      </div>
+      
+     <h3 id="basics-event-suppression">Event Suppression</h3>
+         <p>Set a click delay on your elements. </p>
+
+     <div class="bs-example">
+     <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
+        <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive"  leap-disable-tap="true">Can't tap me</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive" leap-disable-tap="true" leap-disable-hover="true">Can't tap or hover me</button>
+        
+      </div>      </div>
+        {% highlight css %}
+<button type="button" class="btn leap-interactive" leap-disable-tap="true">Can't tap me</button>
+<button type="button" class="btn leap-interactive" leap-disable-tap="true" leap-disable-hover="true">Can't tap or hover me</button>
+{% endhighlight %}
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>leap-disable-tap</td>
+           <td>boolean</td>
+           <td>true</td>
+           <td>don't allow leap tap</td>
+         </tr>
+<tr>
+           <td>leap-disable-hover</td>
+           <td>boolean</td>
+           <td>true</td>
+           <td>don't allow leap hover</td>
+         </tr>
+        </tbody>
+      </table>
+      </div>
+       <h3 id="basics-attractors">Attractors</h3>
+           <p>Set a click delay on your elements. </p>
+
+       <div class="bs-example">
+        <div class="well" style="max-width: 400px; margin: 0 auto 10px;"> <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive" leap-attractor="true">Standard Attraction</button><hr/>
+        <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive"  leap-attractor-x-padding="10">10px wide</button><hr/>
+        <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive" leap-attractor-y-padding="10">10px tall</button><hr/>
+        <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive" leap-attractor-x-padding="30" leap-attractor-y-padding="30">30px wide+tall</button>
+      </div>    
+        </div>
+        {% highlight css %}
+<button type="button" class="btn leap-interactive" leap-attractor="true">Standard Attraction</button>
+<button type="button" class="btn leap-interactive" leap-attractor-x-padding="10">10px wide</button>
+<button type="button" class="btn leap-interactive" leap-attractor-y-padding="10">10px tall</button>
+<button type="button" class="btn leap-interactive" leap-attractor-x-padding="30" leap-attractor-y-padding="30">30px wide+tall</button>
+{% endhighlight %}
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>leap-attractor</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>activate standard attractor</td>
+         </tr>
+           <tr>
+           <td>leap-attractor-x-padding</td>
+           <td>number</td>
+           <td></td>
+           <td>add horizontal attractor padding px</td>
+         </tr>
+           <tr>
+           <td>leap-attractor-y-padding</td>
+           <td>number</td>
+           <td></td>
+           <td>add vertical attractor padding px</td>
+         </tr>
+
+        </tbody>
+      </table>
+      </div>
+     
+
+</div>
+
+  <!-- Basics system
+  ================================================== -->
+<!-- 
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="grid">Finger Gestures</h1>
+    </div>
+    
+    <h3 id="grid-intro">Circle gesture</h3>
+    <p>Make a circle with your finger on this element </p>
+    <div class="bs-example">
+        <div class="well" style="max-width: 600px; margin: 0 auto 10px;">
+        <button type="button" class="catcher btn btn-primary btn-lg btn-block leap-interactive" leap-disable-tap="true" style="min-height:400px;">Make a circle on me</button>
+       
+      </div>
+    </div>  
+    <pre>
+     <div class="outputbs1"></div>
+    </pre>   
+  {% highlight css %}
+<button type="button" class="catcher btn leap-interactive">Make a circle on me</button>
+{% endhighlight %}
+    <h3 id="grid-intro">Tap gesture</h3>
+    <p>Tap your finger on this element </p>
+    <div class="bs-example">
+        <div class="well" style="max-width: 600px; margin: 0 auto 10px;">
+        <button type="button" class="tapper btn btn-primary btn-lg btn-block leap-interactive" leap-disable-tap="true"  style="min-height:400px;">Make a tap on me</button>
+       
+      </div>
+    </div>   
+     <pre>
+     <div class="outputbs2"></div>
+    </pre>   
+  {% highlight css %}
+<button type="button" class="tapper btn leap-interactive">Make a tap on me</button>
+{% endhighlight %}
+  {% highlight js %}
+
+        var circleAreas     = document.querySelectorAll("div.catcher");
+        var tapAreas        = document.querySelectorAll("div.tapper");
+        var outputbs1          = document.querySelector("div.outputbs1");
+        var outputbs2          = document.querySelector("div.outputbs2");
+        var circleCount     = 0;
+        var tapCount        = 0;
+
+        for (var i = 0; i < circleAreas.length; i++) {
+            circleAreas[i].addEventListener("leap-circle-stop", function(e){
+                outputbs1.innerHTML += circleCount + ": Circled Gesture</br>";
+                circleCount++;
+            });
+        };
+
+        for (var i = 0; i < tapAreas.length; i++) {
+
+            //Stop state could also be used, though screenTap only has one state
+            // tapAreas[i].addEventListener("leap-screenTap-stop", function(e){
+            
+            tapAreas[i].addEventListener("leap-screenTap", function(e){
+                outputbs2.innerHTML += tapCount + ": ScreenTap Gesture</br>";
+                tapCount++;
+            });
+        };
+
+{% endhighlight %}
+<script type="text/javascript">
+        var circleAreas     = document.querySelectorAll("div.catcher");
+        var tapAreas        = document.querySelectorAll("div.tapper");
+        var outputbs1          = document.querySelector("div.outputbs1");
+        var outputbs2          = document.querySelector("div.outputbs2");
+        var circleCount     = 0;
+        var tapCount        = 0;
+
+        for (var i = 0; i < circleAreas.length; i++) {
+            circleAreas[i].addEventListener("leap-circle-stop", function(e){
+                outputbs1.innerHTML += circleCount + ": Circled Gesture</br>";
+                circleCount++;
+            });
+        };
+
+        for (var i = 0; i < tapAreas.length; i++) {
+
+            //Stop state could also be used, though screenTap only has one state
+            // tapAreas[i].addEventListener("leap-screenTap-stop", function(e){
+            
+            tapAreas[i].addEventListener("leap-screenTap", function(e){
+                outputbs2.innerHTML += tapCount + ": ScreenTap Gesture</br>";
+                tapCount++;
+            });
+        };
+
+       
+    </script>
+     
+
+</div>
+ -->
+
+  <!-- Hands system
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="hands">Hand Gestures</h1>
+    </div>
+    
+    
+    <p>Move your hand over this box to see actions</p>
+    <div class="bs-example">
+        <div class="well" style="max-width: 90%; margin: 0 auto 10px;">
+        <button type="button" class="catcher btn btn-primary btn-lg btn-block leap-interactive" style="min-height:400px;" leap-disable-tap="true">Swipe your hand over me</button>
+       
+      </div>
+    </div>  
+    <pre>
+     <div class="outputbs3"></div>
+    </pre>   
+  {% highlight css %}
+<button type="button" class="catcher btn leap-interactive">Make a circle on me</button>
+{% endhighlight %}
+    
+     <script type="text/javascript">
+        var outputbs3          = document.querySelector("div.outputbs3");
+
+        document.body.addEventListener("leap-dual-swipe", function(event){
+            var gesture = event.gesture
+            outputbs3.innerHTML += gesture.type + " : " + gesture.direction + "<br/>";
+        })
+
+        
+    </script>
+
+
+</div>
+
+  <!-- Basics system
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="scrolling">Scrolling</h1>
+    </div>
+    
+    
+    <p>Move your finger in a circle over these elements to scroll through them</p>
+    <div class="bs-example">
+        <div class="well" style="max-width: 90%; margin: 0 auto 10px;">
+        <div class="vertical leap-interactive" style="height:300px;overflow:scroll;" leap-disable-tap="true">
+       <div class="vertical-content" style="height:900px;width:100%;overflow:hidden;">Bacon ipsum dolor sit amet doner t-bone shankle brisket ribeye salami. Shankle tail ham chuck swine doner meatloaf kielbasa pig. Ham hock meatball flank pork belly shoulder sausage. Ribeye tenderloin ham pork chop spare ribs ham hock. Biltong pancetta pastrami, andouille ball tip fatback ham rump. Ground round kielbasa capicola pastrami shank brisket jowl meatloaf cow. Shankle beef biltong hamburger pork belly corned beef, tri-tip t-bone pig turkey short ribs filet mignon ball tip jerky brisket.
+
+Swine boudin bacon, andouille hamburger short loin tongue drumstick jerky sirloin spare ribs pancetta. Corned beef ball tip tail strip steak. Cow fatback short loin doner ground round sirloin chuck turducken corned beef prosciutto t-bone. Chuck t-bone spare ribs beef ribs filet mignon strip steak. Pastrami pork loin brisket hamburger, turducken short ribs bresaola t-bone ball tip corned beef. Fatback shoulder filet mignon cow, short ribs strip steak turducken pancetta drumstick venison. Shank turkey sausage tenderloin venison spare ribs ham filet mignon.
+
+Pancetta tenderloin shankle meatloaf pork, pork belly bacon filet mignon jerky brisket. Strip steak meatball sirloin shoulder. Pancetta salami boudin pork turducken hamburger short ribs, pork chop andouille pastrami prosciutto doner shoulder turkey. Tongue hamburger tri-tip, fatback shank chicken tail short ribs spare ribs short loin ground round capicola brisket pork chop. Hamburger frankfurter beef ribs tongue boudin sausage pancetta meatball, pork chop bacon jerky kielbasa cow.
+
+Swine fatback tail t-bone venison pig biltong pork chop pancetta salami rump. Bacon pork pancetta frankfurter pork belly flank sirloin ball tip prosciutto short ribs. Boudin salami ball tip turducken jerky fatback leberkas bacon chuck pig ground round strip steak. Ribeye turducken doner shankle tenderloin beef beef ribs corned beef. Corned beef leberkas sirloin, short ribs salami chuck pork chop turducken. Shankle flank spare ribs tri-tip turkey. Short ribs strip steak pork loin, cow pork belly pastrami filet mignon turkey.
+
+Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swine beef t-bone shankle short loin frankfurter corned beef sausage meatball. Beef sausage capicola drumstick bresaola tail bacon chuck chicken ham hock pork pork belly ground round venison. Salami turkey meatball, tri-tip ham drumstick short loin chuck brisket beef bacon.</div>
+       </div>
+      </div>
+    </div>  
+  {% highlight css %}
+<button type="button" class="catcher btn leap-interactive">Make a circle on me</button>
+{% endhighlight %}
+    
+   
+
+</div>
+
+<!-- Setup
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="initialising">Initialising Leap</h1>
+    </div>
+      <p>There are two methods of using Leapstrap. You can build your project (i.e. a website or a web application) on top of Leapstrap or you can integrate Leapstrap into an existing project. If you'd like to use Leapstrap as a basis for your project see below.<br/><strong>If you've already got Bootstrap 3</strong>, or if you've already got an existing project to "add" Leapstrap too, <a href="">see further below</a>.</p>
+
+
+<h3>LeapManager.init()</h3>
+    <p>Leapstrap requires just 2 lines of CSS, 2 lines of JS and some script - automagically, Leapstrap detects all anchor (e.g. hyperlinks) and makes them leap-interactive (see <a href="#">glossary</a>). That means users can "press" hyperlinks with their fingers. We've included our CDN links so you can try it out now. </p>
+{% highlight js %}
+LeapManager.init({
+	interactiveSelector: "a",
+	enableMetaGestures: true,
+	enableDefaultMetaGestureActions: false,
+	maxCursors:{% if page.maxCursors %}{{ page.maxCursors }}{% else %}1{% endif %},
+	enableHoverTap: true,
+	enablePressDown: true,
+	enableTouchScrolling: false,
+	enableScrollbarScrolling: true
+});
+{% endhighlight %}
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+          <tr>
+           <td>interactiveSelector</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td><i><strong>Not recommended</strong> for production use due to slow speed.</i> Allow element to be tapped by leap more than once</td>
+         </tr>
+         <tr>
+           <td>enableMetaGestures</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>allow element to be tapped by leap more than once</td>
+         </tr>
+ <tr>
+           <td>enableDefaultMetaGestureActions</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>allow element to be tapped by leap more than once</td>
+         </tr>
+          <tr>
+           <td>maxCursors</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>allow element to be tapped by leap more than once</td>
+         </tr>
+          <tr>
+           <td>enableHoverTap</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>allow element to be tapped by leap more than once</td>
+         </tr>
+          <tr>
+           <td>enablePressDown</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>allow element to be tapped by leap more than once</td>
+         </tr>
+           <tr>
+           <td>enableTouchScrolling</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>allow element to be tapped by leap more than once</td>
+         </tr>
+           <tr>
+           <td>enableScrollbarScrolling</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>allow element to be tapped by leap more than once</td>
+         </tr>
+        </tbody>
+      </table>
+      </div>
+    <h3 id="download-additional">Download it</h3>
+    <div class="bs-docs-dl-options">
+      <h4>
+        <a href="{{ site.download_source }}" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download source']);">Download Leapstrap.zip</a>
+      </h4>
+      <p>Download the entire repository zipped. You will be interested in the <strong>/dist/ folder</strong> (as that contains a ready-to-use version of Leapstrap).</p>
+      <h4>
+        <a href="{{ site.repo }}" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'GitHub project']);">Clone or fork via GitHub</a>
+      </h4>
+      <p>Use git to clone or fork the Leapstrap project.</p>
+
+      {% highlight bash %}$ git clone https://github.com/wilkesalex/leapstrap{% endhighlight %}
+    </div>
+    
+    
+
+    <h3 id="download-cdn">Build it</h3>
+    <p>The folks over at <a href="http://www.maxcdn.com/">MaxCDN</a> graciously provide CDN support for Leapstrap's CSS and JavaScript. Just use these <a href="http://www.bootstrapcdn.com/">Leapstrap CDN</a> links.</p>
+{% highlight bash %}
+$ npm install
+$ grunt{% endhighlight %}
+ 
+
+    <div class="bs-callout bs-callout-warning" id="callout-less-compilation">
+      <h4>Visit our Github project</h4>
+      <p>If you work with Leapstrap's uncompiled source code, you need to compile the LESS files to produce usable CSS files. For compiling LESS files into CSS, we only officially support>, which is Twitter's CSS hinter based on <a href="https://github.com/wilkesalex/leapstrap">Leapstrap @ Github</a>.</p>
+    </div>
+  </div>
+
+  <!-- Existing Project
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="integrate">Integrate Leapstrap (Already use Bootstrap 3?)</h1>
+    </div>
+   <p>Leapstrap is built independently of Bootstrap. Therefore you can just include the Leapstrap assets, <strong>together with <em>your</em> existing Bootstrap assets</strong>. You should be using a clean version of Bootstrap (see Customizing Bootstrap on BS guide).</p>
+
+ {% highlight html %}
+<!-- Include the CSS -->
+<!-- Your Bootstrap CSS goes here, then you add Leapstrap -->
+<link rel="stylesheet" href="HOSTEDleapstrap.css" />
+
+<!-- Include the JS, ***Use your own jQuery!*** -->
+<!-- Your Bootstrap JS goes here, then you add Leapstrap -->
+<script src="jquery.js"></script>
+<script src="HOSTEDbootstrap.js"></script>
+<script src="HOSTEDleapstrap.js"></script>
+
+<!-- Init Leap, Set all "a" interactive, use 1 Leap cursor/finger -->
+<script>LeapManager.init({interactiveSelector:"a",maxCursors:1});</script>
+{% endhighlight %}
+
+    <p>This is the most basic form of Leapstrap: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (<code>bootstrap.*</code>), as well as compiled and minified CSS and JS (<code>bootstrap.min.*</code>). Fonts from Glyphicons are included, as is the optional Leapstrap theme.</p>
+    <div class="bs-callout bs-callout-danger" id="jquery-required">
+      <h4>I've already got Bootstrap 3</h4>
+      <p>Please note that <strong>all JavaScript plugins require jQuery</strong> to be included, as shown in the <a href="#template">starter template</a>. <a href="{{ site.repo }}/blob/v{{ site.current_version }}/bower.json">Consult our <code>bower.json</code></a> to see which versions of jQuery are supported.</p>
+    </div>
+  </div>
+
+  <!-- File structure
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="whats-included">What's included</h1>
+    </div>
+    <p class="lead">Within the download you'll find the following directories and files, logically grouping common resources and providing both compiled and minified variations.</p>
+    <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) Leapstrap. You'll see something like this:</p>
+
+<!-- NOTE: This info is intentionally duplicated in the README.
+Copy any changes made here over to the README too. -->
+{% highlight bash %}
+bootstrap/
+├── css/
+│   ├── bootstrap.css
+│   ├── bootstrap.min.css
+│   ├── bootstrap-theme.css
+│   └── bootstrap-theme.min.css
+│   ├── leapstrap.css
+│   └── leapstrap.min.css
+├── js/
+│   ├── bootstrap.js
+│   └── bootstrap.min.js
+│   ├── leapstrap.js
+│   └── leapstrap.min.js
+└── fonts/
+    ├── glyphicons-halflings-regular.eot
+    ├── glyphicons-halflings-regular.svg
+    ├── glyphicons-halflings-regular.ttf
+    └── glyphicons-halflings-regular.woff
+{% endhighlight %}
+
+    <p>This is the most basic form of Leapstrap: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (<code>bootstrap.*</code>), as well as compiled and minified CSS and JS (<code>bootstrap.min.*</code>). Fonts from Glyphicons are included, as is the optional Leapstrap theme.</p>
+    <div class="bs-callout bs-callout-danger" id="jquery-required">
+      <h4>jQuery required</h4>
+      <p>Please note that <strong>all JavaScript plugins require jQuery</strong> to be included, as shown in the <a href="#template">starter template</a>. <a href="{{ site.repo }}/blob/v{{ site.current_version }}/bower.json">Consult our <code>bower.json</code></a> to see which versions of jQuery are supported.</p>
+    </div>
+  </div>
+
+
+
+
+ 
