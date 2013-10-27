@@ -11,7 +11,7 @@
     <title>Carousel Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../../dist/css/leapstrap.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="{{ page.base_url }}docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -199,7 +199,18 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="//js.leapmotion.com/0.2.2/leap.min.js"></script>
+    <script src="../../dist/js/leapstrap.js"></script>
     <script src="../../docs-assets/js/holder.js"></script>
+<script>
+LeapManager.init({
+enableMetaGestures: true,
+enableDefaultMetaGestureActions: true,
+maxCursors:1,
+enableHoverTap: true,
+enablePressDown: true,
+enableScrollbarScrolling: true,
+});
+</script>
   </body>
 </html>

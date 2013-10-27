@@ -11,7 +11,7 @@
     <title>Starter Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../../dist/css/leapstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
@@ -58,10 +58,22 @@
     </div><!-- /.container -->
 
 
-    <!-- Bootstrap core JavaScript
+  <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="//js.leapmotion.com/0.2.2/leap.min.js"></script>
+    <script src="../../dist/js/leapstrap.js"></script>
+    <script src="../../docs-assets/js/holder.js"></script>
+<script>
+LeapManager.init({
+enableMetaGestures: true,
+enableDefaultMetaGestureActions: true,
+maxCursors:1,
+enableHoverTap: true,
+enablePressDown: true,
+enableScrollbarScrolling: true,
+});
+</script>
   </body>
 </html>

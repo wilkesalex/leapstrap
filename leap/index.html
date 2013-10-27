@@ -579,7 +579,12 @@ Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swin
 	<span class="nx">enableHoverTap</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 	<span class="nx">enablePressDown</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 	<span class="nx">enableTouchScrolling</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-	<span class="nx">enableScrollbarScrolling</span><span class="o">:</span> <span class="kc">true</span>
+	<span class="nx">enableScrollbarScrolling</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="nx">simulateWithMouse</span><span class="o">:</span><span class="kc">false</span><span class="p">,</span>
+	<span class="nx">mouseCursorConfig</span><span class="o">:</span> <span class="p">{</span>
+	<span class="nx">easing</span><span class="o">:</span><span class="p">.</span><span class="mi">2</span>
+	<span class="p">},</span>
+	<span class="nx">greedySelector</span><span class="o">:</span> <span class="s2">&quot;body&quot;</span>
 <span class="p">});</span>
 </code></pre></div>
 
@@ -640,6 +645,87 @@ Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swin
            <tr>
            <td>enableScrollbarScrolling</td>
            <td>boolean</td>
+           <td></td>
+           <td></td>
+         </tr>
+         <tr>
+           <td>simulateWithMouse</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td></td>
+         </tr>
+         <tr>
+           <td>mouseCursorConfig</td>
+           <td>options</td>
+           <td></td>
+           <td>Configuration for Mouse Cursor<br/><code>mouseCursorConfig: {
+                multitapEnabled: false,
+                clickDelay: 1000
+            }</code></td>
+         </tr>
+         <tr>
+           <td>enableInBackground</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>Register Leap updates in the background</td>
+         </tr>
+         <tr>
+           <td>root</td>
+           <td></td>
+           <td></td>
+           <td>Change the root HTMLElement for all Leap Elements</td>
+         </tr>
+         <tr>
+           <td>gestureCallback</td>
+           <td></td>
+           <td></td>
+           <td>Callback function for globally catching Gestures</td>
+         </tr>
+         <tr>
+           <td>gestureScope</td>
+           <td></td>
+           <td></td>
+           <td>Scope for global gesture callback</td>
+         </tr>
+         <tr>
+           <td>enableSenchaTouch</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>Enable interactivity for a Sencha Touch Application</td>
+         </tr>
+          <tr>
+           <td>loopConfig</td>
+           <td></td>
+           <td></td>
+           <td>Configs to pass into the Loop function for the leap (see leap library docs for more info)<br/><code>loopConfig: {
+                enableGestures: true
+            }</code></td>
+         </tr>
+          <tr>
+           <td>boundary</td>
+           <td></td>
+           <td></td>
+           <td>Virtual Boundary inwhich to move your fingers around. Translates into screen space<br/><code>boundary: {
+                top: 350,
+                left: -100,
+                right: 100,
+                bottom: 150
+            }</code></td>
+         </tr>
+         
+          <tr>
+           <td>cursorConfig</td>
+           <td></td>
+           <td></td>
+           <td>Configuration for cursors<br/><code>cursorConfig: {
+                multitapEnabled: false,
+                clickDelay: 1000,
+                easing: .3
+            }</code></td>
+         </tr>
+         <tr>
+           <td>greedySelector</td>
+           <td></td>
            <td></td>
            <td></td>
          </tr>
@@ -798,7 +884,8 @@ Your text
             enableHoverTap: true,
             enablePressDown: true,
             enableTouchScrolling: false,
-            enableScrollbarScrolling: true
+            enableScrollbarScrolling: true,
+           
             });
     
 </script>
