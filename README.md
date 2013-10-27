@@ -1,9 +1,10 @@
-# [Leapstrap](http://wilkesalex.github.io/leapstrap/) - Leap first HTML5 frontend framework.
-####Leapstrap brings the power of touch to your website in an extensive yet easy to use HTML5 framework, eliminating the need for installing Leap apps (through Airspace). 
+# [Leapstrap](http://wilkesalex.github.io/leapstrap/)
+##Leap first HTML5 frontend framework.
+###Leapstrap brings the power of touch to your website in an extensive yet easy to use HTML5 framework, eliminating the need for installing Leap apps (through Airspace). 
 
 --
 
-Touch the web today. Get a Leap Motion Controller, get Leapstrap and put your fingers to work. Leapstrap provides complete HTML5 front-end interactivity for Leap Motion® devices and controllers. If you want to use a Leap® with your website, Leapstrap is for you. Created and maintained by [Alex Wilkes](http://www.alex-wilkes.com). Based on Twitter Leapstrap, LeapJS and Leap Cursor Library.
+Get a Leap Motion Controller, get Leapstrap and put your fingers to work. Leapstrap provides complete HTML5 front-end interactivity for Leap Motion® devices and controllers. If you want to use a Leap® with your website, Leapstrap is for you. Created and maintained by [Alex Wilkes](http://www.alex-wilkes.com). Based on Twitter Leapstrap, LeapJS and Leap Cursor Library. Touch the web today!
 
 To get started, check out <http://wilkesalex.github.io/leapstrap> !
 
