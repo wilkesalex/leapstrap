@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/leapstrap.css" rel="stylesheet">
     <!-- Bootstrap theme -->
-    <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../../dist/css/leapstrap-theme.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="theme.css" rel="stylesheet">
@@ -34,28 +34,28 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <button type="button" class="navbar-toggle leap-interactive" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Bootstrap theme</a>
+          <a class="navbar-brand leap-interactive" href="#">Bootstrap theme</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="#" class="leap-interactive">Home</a></li>
+            <li><a href="#about" class="leap-interactive">About</a></li>
+            <li><a href="#contact" class="leap-interactive">Contact</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle leap-interactive" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="#" class="leap-interactive">Action</a></li>
+                <li><a href="#" class="leap-interactive">Another action</a></li>
+                <li><a href="#" class="leap-interactive">Something else here</a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="#" class="leap-interactive">Separated link</a></li>
+                <li><a href="#" class="leap-interactive">One more separated link</a></li>
               </ul>
             </li>
           </ul>
@@ -69,7 +69,7 @@
       <div class="jumbotron">
         <h1>Hello, world!</h1>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+        <p><a href="#" class="btn btn-primary btn-lg leap-interactive" role="button">Learn more &raquo;</a></p>
       </div>
 
 
@@ -78,41 +78,15 @@
         <h1>Buttons</h1>
       </div>
       <p>
-        <button type="button" class="btn btn-lg btn-default">Default</button>
-        <button type="button" class="btn btn-lg btn-primary">Primary</button>
-        <button type="button" class="btn btn-lg btn-success">Success</button>
-        <button type="button" class="btn btn-lg btn-info">Info</button>
-        <button type="button" class="btn btn-lg btn-warning">Warning</button>
-        <button type="button" class="btn btn-lg btn-danger">Danger</button>
-        <button type="button" class="btn btn-lg btn-link">Link</button>
+        <button type="button" class="btn btn-lg btn-default leap-interactive">Default</button>
+        <button type="button" class="btn btn-lg btn-primary leap-interactive">Primary</button>
+        <button type="button" class="btn btn-lg btn-success leap-interactive">Success</button>
+        <button type="button" class="btn btn-lg btn-info leap-interactive">Info</button>
+        <button type="button" class="btn btn-lg btn-warning leap-interactive">Warning</button>
+        <button type="button" class="btn btn-lg btn-danger leap-interactive">Danger</button>
+        <button type="button" class="btn btn-lg btn-link leap-interactive">Link</button>
       </p>
-      <p>
-        <button type="button" class="btn btn-default">Default</button>
-        <button type="button" class="btn btn-primary">Primary</button>
-        <button type="button" class="btn btn-success">Success</button>
-        <button type="button" class="btn btn-info">Info</button>
-        <button type="button" class="btn btn-warning">Warning</button>
-        <button type="button" class="btn btn-danger">Danger</button>
-        <button type="button" class="btn btn-link">Link</button>
-      </p>
-      <p>
-        <button type="button" class="btn btn-sm btn-default">Default</button>
-        <button type="button" class="btn btn-sm btn-primary">Primary</button>
-        <button type="button" class="btn btn-sm btn-success">Success</button>
-        <button type="button" class="btn btn-sm btn-info">Info</button>
-        <button type="button" class="btn btn-sm btn-warning">Warning</button>
-        <button type="button" class="btn btn-sm btn-danger">Danger</button>
-        <button type="button" class="btn btn-sm btn-link">Link</button>
-      </p>
-      <p>
-        <button type="button" class="btn btn-xs btn-default">Default</button>
-        <button type="button" class="btn btn-xs btn-primary">Primary</button>
-        <button type="button" class="btn btn-xs btn-success">Success</button>
-        <button type="button" class="btn btn-xs btn-info">Info</button>
-        <button type="button" class="btn btn-xs btn-warning">Warning</button>
-        <button type="button" class="btn btn-xs btn-danger">Danger</button>
-        <button type="button" class="btn btn-xs btn-link">Link</button>
-      </p>
+
 
 
 
@@ -370,12 +344,22 @@
 
     </div> <!-- /container -->
 
-
-    <!-- Bootstrap core JavaScript
+<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//js.leapmotion.com/0.2.2/leap.min.js"></script>
     <script src="../../dist/js/leapstrap.js"></script>
     <script src="../../docs-assets/js/holder.js"></script>
+<script>
+LeapManager.init({
+enableMetaGestures: true,
+enableDefaultMetaGestureActions: true,
+maxCursors:1,
+enableHoverTap: true,
+enablePressDown: true,
+enableScrollbarScrolling: true,
+});
+</script>
   </body>
 </html>

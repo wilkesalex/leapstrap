@@ -464,7 +464,12 @@ LeapManager.init({
 	enableHoverTap: true,
 	enablePressDown: true,
 	enableTouchScrolling: false,
-	enableScrollbarScrolling: true
+	enableScrollbarScrolling: true,
+	simulateWithMouse:false,
+	mouseCursorConfig: {
+	easing:.2
+	},
+	greedySelector: "body"
 });
 {% endhighlight %}
 
@@ -525,6 +530,87 @@ LeapManager.init({
            <tr>
            <td>enableScrollbarScrolling</td>
            <td>boolean</td>
+           <td></td>
+           <td></td>
+         </tr>
+         <tr>
+           <td>simulateWithMouse</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td></td>
+         </tr>
+         <tr>
+           <td>mouseCursorConfig</td>
+           <td>options</td>
+           <td></td>
+           <td>Configuration for Mouse Cursor<br/><code>mouseCursorConfig: {
+                multitapEnabled: false,
+                clickDelay: 1000
+            }</code></td>
+         </tr>
+         <tr>
+           <td>enableInBackground</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>Register Leap updates in the background</td>
+         </tr>
+         <tr>
+           <td>root</td>
+           <td></td>
+           <td></td>
+           <td>Change the root HTMLElement for all Leap Elements</td>
+         </tr>
+         <tr>
+           <td>gestureCallback</td>
+           <td></td>
+           <td></td>
+           <td>Callback function for globally catching Gestures</td>
+         </tr>
+         <tr>
+           <td>gestureScope</td>
+           <td></td>
+           <td></td>
+           <td>Scope for global gesture callback</td>
+         </tr>
+         <tr>
+           <td>enableSenchaTouch</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>Enable interactivity for a Sencha Touch Application</td>
+         </tr>
+          <tr>
+           <td>loopConfig</td>
+           <td></td>
+           <td></td>
+           <td>Configs to pass into the Loop function for the leap (see leap library docs for more info)<br/><code>loopConfig: {
+                enableGestures: true
+            }</code></td>
+         </tr>
+          <tr>
+           <td>boundary</td>
+           <td></td>
+           <td></td>
+           <td>Virtual Boundary inwhich to move your fingers around. Translates into screen space<br/><code>boundary: {
+                top: 350,
+                left: -100,
+                right: 100,
+                bottom: 150
+            }</code></td>
+         </tr>
+         
+          <tr>
+           <td>cursorConfig</td>
+           <td></td>
+           <td></td>
+           <td>Configuration for cursors<br/><code>cursorConfig: {
+                multitapEnabled: false,
+                clickDelay: 1000,
+                easing: .3
+            }</code></td>
+         </tr>
+         <tr>
+           <td>greedySelector</td>
+           <td></td>
            <td></td>
            <td></td>
          </tr>

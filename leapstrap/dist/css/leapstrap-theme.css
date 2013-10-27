@@ -48,6 +48,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
+.btn-default.hover,
 .btn-default:hover,
 .btn-default:focus {
   background-color: #e0e0e0;
@@ -71,6 +72,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
+.btn-primary.hover,
 .btn-primary:hover,
 .btn-primary:focus {
   background-color: #2d6ca2;
@@ -94,6 +96,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
+.btn-success.hover,
 .btn-success:hover,
 .btn-success:focus {
   background-color: #419641;
@@ -117,6 +120,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
+.btn-warning.hover,
 .btn-warning:hover,
 .btn-warning:focus {
   background-color: #eb9316;
@@ -140,6 +144,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
+.btn-danger.hover,
 .btn-danger:hover,
 .btn-danger:focus {
   background-color: #c12e2a;
@@ -163,6 +168,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
+.btn-info.hover,
 .btn-info:hover,
 .btn-info:focus {
   background-color: #2aabd2;
@@ -181,6 +187,7 @@
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
 }
 
+.dropdown-menu > li > a.hover,
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
   background-color: #e8e8e8;
@@ -193,6 +200,7 @@
 }
 
 .dropdown-menu > .active > a,
+.dropdown-menu > .active > a.hover,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
   background-color: #357ebd;
@@ -372,6 +380,7 @@
 }
 
 .list-group-item.active,
+.list-group-item.active.hover,
 .list-group-item.active:hover,
 .list-group-item.active:focus {
   text-shadow: 0 -1px 0 #3071a9;
