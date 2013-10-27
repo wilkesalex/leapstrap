@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Leapstrap - Leap Motion web framework">
+<meta name="author" content="Alex Wilkes">
+
+<title>
+  
+    About &middot; Leapstrap
+  
+</title>
+
+<!-- Leapstrap core CSS -->
+<link href="../dist/css/leapstrap.css" rel="stylesheet">
+
+
+<!-- Documentation extras -->
+<link href="../docs-assets/css/docs.css" rel="stylesheet">
+<link href="../docs-assets/css/pygments-manni.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script>window.jQuery || document.write('<script src="/dist/js/jquery.js">\x3C/script>')</script>
+<script src="//js.leapmotion.com/0.2.2/leap.min.js"></script>
+<!-- need to find code to localise -->
+<!-- <script>window.BaseConnection || document.write('<script src="/dist/js/leap.js">\x3C/script>')</script> -->
+<script src="../dist/js/leapstrap.js"></script>
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../docs-assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="../docs-assets/ico/favicon.png">
+  </head>
+  <body class="leap-interactive" leap-disable-tap="true" leap-disable-hover="true">
+    <a class="sr-only" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="../" class="navbar-brand">Leapstrap</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a class="leap-interactive" href="../getting-started">Get Started</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../basics">Basics</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../leap">Leap</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../components">Components</a>
+        </li>
+         <li>
+          <a class="leap-interactive" href="../more">More</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../javascript">JavaScript</a>
+        </li>
+      
+       
+       
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+          <a class="leap-interactive" href="../about">About</a>
+        </li>
+         <li>
+          <a class="leap-interactive" href="../data">Data</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-header" id="content">
+      <div class="container container-fluid">
+        <h1>About</h1>
+        <p>Learn about the history of Leapstrap, meet the core team, and check out the ever-growing community resources.</p>
+      
+      </div>
+    </div>
+
+    <!-- Callout for the old docs link -->
+   
+
+    <div class="container container-fluid bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-sidebar hidden-xs hidden-print" role="complementary">
+            <ul class="nav bs-sidenav">
+              
+                <li>
+  <a class="leap-interactive" href="#history">History</a>
+</li>
+<li>
+  <a class="leap-interactive" href="#team">Core team</a>
+</li>
+<li>
+  <a class="leap-interactive" href="#community">Community</a>
+</li>
+<li>
+  <a class="leap-interactive" href="#translations">Translations</a>
+</li>
+
+                 
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9" role="main">
+          <!-- History
+================================================== -->
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="history">History</h1>
+  </div>
+  <p class="lead">Leapstrap brings the power of touch to your HTML5 web frontend. You can use it quick way to utilize Leap Motion controllers on your website.</p>
+  
+</div>
+
+
+<!-- Team
+================================================== -->
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="team">Core team</h1>
+  </div>
+  <p class="lead">Leapstrap is maintained by Alex Wilkes, built upon a community of Leap &amp; Web designers and developers.</p>
+  <div class="list-group bs-team">
+    <div class="list-group-item">
+    <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;type=follow"
+  allowtransparency="true" frameborder="0" scrolling="0" width="160" height="20"></iframe>
+      <a class="team-member" href="https://github.com/wilkesalex">
+        <img src="http://www.gravatar.com/avatar/32a9c6c3ec336af4c699dba0ed13042d.png" alt="Alex Wilkes">
+        <strong>Alex Wilkes</strong> <small>@deskofwilkes</small>
+      </a>
+    </div>
+    <div class="list-group-item">
+     
+      <a class="team-member" href="#">
+        <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="You">
+        <strong>I need help</strong> <small>@itstrue</small>
+      </a>
+    </div>
+  
+  </div>
+  <p>Your contribution to Leapstrap might shape the future of touch interaction for the web. Get involved with Leapstrap development by <a href="https://github.com/wilkesalex/leapstrap/issues/new">opening an issue</a> or submitting a pull request. Read our <a href="https://github.com/wilkesalex/leapstrap/Leapstrap/blob/master/CONTRIBUTING.md">contributing guidelines</a> for information on how we develop.</p>
+</div>
+
+
+<!-- Community
+================================================== -->
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="community">Community</h1>
+  </div>
+  <p class="lead">Stay up to date on the development of Leapstrap and reach out to the community with these helpful resources.</p>
+  <ul>
+    <li>Read and subscribe to <a href="http://blog.getLeapstrap.com/">The Official Leapstrap Blog</a>.</li>
+    <li>Have a question that's not a feature request or bug report? <a href="http://groups.google.com/group/twitter-Leapstrap">Ask on the mailing list.</a></li>
+    <li>Chat with fellow Leapstrappers using IRC in the <code>irc.freenode.net</code> server, in the <a href="irc://irc.freenode.net/#twitter-Leapstrap">##twitter-Leapstrap channel</a>.</li>
+    <li>Find inspiring examples of people building with Leapstrap at the <a href="http://expo.getLeapstrap.com">Leapstrap Expo</a>.</li>
+  </ul>
+  <p>You can also follow <a href="https://twitter.com/twLeapstrap">@twLeapstrap on Twitter</a> for the latest gossip and awesome music videos.</p>
+</div>
+
+
+<!-- Translations
+================================================== -->
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="translations">Translations</h1>
+  </div>
+  <p class="lead">Community members have translated Leapstrap's documentation into various langauges. None are officially supported and may not always be up to date.</p>
+  <ul>
+    <li><a href="http://v3.bootcss.com/">Leapstrap 中文文档 (Chinese)</a></li>
+    <li><a href="http://www.oneskyapp.com/docs/Leapstrap/ru">Leapstrap по-русски (Russian)</a></li>
+    <li><a href="http://www.oneskyapp.com/docs/Leapstrap/es">Leapstrap en Español (Spanish)</a></li>
+  </ul>
+  <p>Have another language to add, or perhaps a different or better translation? Let us know by <a href="https://github.com/twbs/Leapstrap/issues/new">opening an issue</a>.</p>
+  <hr/>
+  <ul class="footer-links">
+          <li>Supported by </li>
+          <li><a href="http://blog.getbootstrap.com">Awco</a></li>
+          <li class="muted">&middot;</li>
+          <li><a href="https://github.com/wilkesalex/leapstrap/issues?state=open">Anyweather</a></li>
+          <li class="muted">&middot;</li>
+          <li><a href="https://github.com/wilkesalex/leapstrap/releases">DrEd</a></li>
+        </ul>
+</div>
+
+  <!-- Roadmap
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="migration">Roadmap</h1>
+    </div>
+    <p class="lead">Leapstrap 3 is not backwards compatible with v2.x. Use this section as a general guide to upgrading from v2.x to v3.0. For a broader overview, see <a href="http://blog.getbootstrap.com/2013/08/19/bootstrap-3-released/">what's new</a> in the v3.0 release announcement.</p>
+
+<h2 id="migration-new">Glossary</h2>
+    <p>We've added new elements and changed some existing ones. Here are the new or updated styles.</p>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>leap-interactive</td>
+            <td><code>.panel .panel-default</code> <code>.panel-body</code> <code>.panel-title</code> <code>.panel-heading</code> <code>.panel-footer</code> <code>.panel-collapse</code></td>
+          </tr>
+          <tr>
+            <td>List groups</td>
+            <td><code>.list-group</code> <code>.list-group-item</code> <code>.list-group-item-text</code> <code>.list-group-item-heading</code></td>
+          </tr>
+          <tr>
+            <td>Glyphicons</td>
+            <td><code>.glyphicon</code></td>
+          </tr>
+          <tr>
+            <td>Jumbotron</td>
+            <td><code>.jumbotron</code></td>
+          </tr>
+          <tr>
+            <td>Extra small grid (&lt;768px)</td>
+            <td><code>.col-xs-*</code></td>
+          </tr>
+          <tr>
+            <td>Small grid (&ge;768px)</td>
+            <td><code>.col-sm-*</code></td>
+          </tr>
+          <tr>
+            <td>Medium grid (&ge;992px)</td>
+            <td><code>.col-md-*</code></td>
+          </tr>
+          <tr>
+            <td>Large grid (&ge;1200px)</td>
+            <td><code>.col-lg-*</code></td>
+          </tr>
+          <tr>
+            <td>Responsive utility classes (&ge;1200px)</td>
+            <td><code>.visible-lg</code> <code>.hidden-lg</code></td>
+          </tr>
+          <tr>
+            <td>Offsets</td>
+            <td><code>.col-sm-offset-*</code> <code>.col-md-offset-*</code> <code>.col-lg-offset-*</code></td>
+          </tr>
+          <tr>
+            <td>Push</td>
+            <td><code>.col-sm-push-*</code> <code>.col-md-push-*</code> <code>.col-lg-push-*</code></td>
+          </tr>
+          <tr>
+            <td>Pull</td>
+            <td><code>.col-sm-pull-*</code> <code>.col-md-pull-*</code> <code>.col-lg-pull-*</code></td>
+          </tr>
+          <tr>
+            <td>Input groups</td>
+            <td><code>.input-group</code> <code>.input-group-addon</code> <code>.input-group-btn</code></td>
+          </tr>
+          <tr>
+            <td>Form controls</td>
+            <td><code>.form-control</code> <code>.form-group</code></td>
+          </tr>
+          <tr>
+            <td>Button group sizes</td>
+            <td><code>.btn-group-xs</code> <code>.btn-group-sm</code> <code>.btn-group-lg</code></td>
+          </tr>
+          <tr>
+            <td>Navbar text</td>
+            <td><code>.navbar-text</code></td>
+          </tr>
+          <tr>
+            <td>Navbar header</td>
+            <td><code>.navbar-header</code></td>
+          </tr>
+          <tr>
+            <td>Justified tabs / pills</td>
+            <td><code>.nav-justified</code></td>
+          </tr>
+          <tr>
+            <td>Responsive images</td>
+            <td><code>.img-responsive</code></td>
+          </tr>
+          <tr>
+            <td>Contextual table rows</td>
+            <td><code>.success</code> <code>.danger</code> <code>.warning</code> <code>.active</code></td>
+          </tr>
+          <tr>
+            <td>Contextual panels</td>
+            <td><code>.panel-success</code> <code>.panel-danger</code> <code>.panel-warning</code> <code>.panel-info</code></td>
+          </tr>
+          <tr>
+            <td>Modal</td>
+            <td><code>.modal-dialog</code> <code>.modal-content</code></td>
+          </tr>
+          <tr>
+            <td>Thumbnail image</td>
+            <td><code>.img-thumbnail</code></td>
+          </tr>
+          <tr>
+            <td>Well sizes</td>
+            <td><code>.well-sm</code> <code>.well-lg</code></td>
+          </tr>
+          <tr>
+            <td>Alert links</td>
+            <td><code>.alert-link</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div><!-- /.table-responsive -->
+
+  <h2 id="migration-new">Glossary</h2>
+    <p>We've added new elements and changed some existing ones. Here are the new or updated styles.</p>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>leap-interactive</td>
+            <td><code>.panel .panel-default</code> <code>.panel-body</code> <code>.panel-title</code> <code>.panel-heading</code> <code>.panel-footer</code> <code>.panel-collapse</code></td>
+          </tr>
+          <tr>
+            <td>List groups</td>
+            <td><code>.list-group</code> <code>.list-group-item</code> <code>.list-group-item-text</code> <code>.list-group-item-heading</code></td>
+          </tr>
+          <tr>
+            <td>Glyphicons</td>
+            <td><code>.glyphicon</code></td>
+          </tr>
+          <tr>
+            <td>Jumbotron</td>
+            <td><code>.jumbotron</code></td>
+          </tr>
+          <tr>
+            <td>Extra small grid (&lt;768px)</td>
+            <td><code>.col-xs-*</code></td>
+          </tr>
+          <tr>
+            <td>Small grid (&ge;768px)</td>
+            <td><code>.col-sm-*</code></td>
+          </tr>
+          <tr>
+            <td>Medium grid (&ge;992px)</td>
+            <td><code>.col-md-*</code></td>
+          </tr>
+          <tr>
+            <td>Large grid (&ge;1200px)</td>
+            <td><code>.col-lg-*</code></td>
+          </tr>
+          <tr>
+            <td>Responsive utility classes (&ge;1200px)</td>
+            <td><code>.visible-lg</code> <code>.hidden-lg</code></td>
+          </tr>
+          <tr>
+            <td>Offsets</td>
+            <td><code>.col-sm-offset-*</code> <code>.col-md-offset-*</code> <code>.col-lg-offset-*</code></td>
+          </tr>
+          <tr>
+            <td>Push</td>
+            <td><code>.col-sm-push-*</code> <code>.col-md-push-*</code> <code>.col-lg-push-*</code></td>
+          </tr>
+          <tr>
+            <td>Pull</td>
+            <td><code>.col-sm-pull-*</code> <code>.col-md-pull-*</code> <code>.col-lg-pull-*</code></td>
+          </tr>
+          <tr>
+            <td>Input groups</td>
+            <td><code>.input-group</code> <code>.input-group-addon</code> <code>.input-group-btn</code></td>
+          </tr>
+          <tr>
+            <td>Form controls</td>
+            <td><code>.form-control</code> <code>.form-group</code></td>
+          </tr>
+          <tr>
+            <td>Button group sizes</td>
+            <td><code>.btn-group-xs</code> <code>.btn-group-sm</code> <code>.btn-group-lg</code></td>
+          </tr>
+          <tr>
+            <td>Navbar text</td>
+            <td><code>.navbar-text</code></td>
+          </tr>
+          <tr>
+            <td>Navbar header</td>
+            <td><code>.navbar-header</code></td>
+          </tr>
+          <tr>
+            <td>Justified tabs / pills</td>
+            <td><code>.nav-justified</code></td>
+          </tr>
+          <tr>
+            <td>Responsive images</td>
+            <td><code>.img-responsive</code></td>
+          </tr>
+          <tr>
+            <td>Contextual table rows</td>
+            <td><code>.success</code> <code>.danger</code> <code>.warning</code> <code>.active</code></td>
+          </tr>
+          <tr>
+            <td>Contextual panels</td>
+            <td><code>.panel-success</code> <code>.panel-danger</code> <code>.panel-warning</code> <code>.panel-info</code></td>
+          </tr>
+          <tr>
+            <td>Modal</td>
+            <td><code>.modal-dialog</code> <code>.modal-content</code></td>
+          </tr>
+          <tr>
+            <td>Thumbnail image</td>
+            <td><code>.img-thumbnail</code></td>
+          </tr>
+          <tr>
+            <td>Well sizes</td>
+            <td><code>.well-sm</code> <code>.well-lg</code></td>
+          </tr>
+          <tr>
+            <td>Alert links</td>
+            <td><code>.alert-link</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div><!-- /.table-responsive -->
+
+    <h2 id="migration-notes">Additional notes</h2>
+    <p>Other changes in v3.0 are not immediately apparent. Base classes, key styles, and behaviors have been adjusted for flexibility and our <em>mobile first</em> approach. Here's a partial list:</p>
+    <ul>
+      <li>By default, text-based form controls now receive only minimal styling.  For focus colors and rounded corners, apply the <code>.form-control</code> class on the element to style.</li>
+      <li>Text-based form controls with the <code>.form-control</code> class applied are now 100% wide by default. Wrap inputs inside <code>&lt;div class="col-*"&gt;&lt;/div&gt;</code> to control input widths.</li>
+      <li><code>.badge</code> no longer has contextual (-success,-primary,etc..) classes.</li>
+      <li><code>.btn</code> must also use <code>.btn-default</code> to get the "default" button.</li>
+      <li><code>.container</code> and <code>.row</code> are now fluid (percentage-based).</li>
+      <li>Images are no longer responsive by default. Use <code>.img-responsive</code> for fluid <code>&lt;img&gt;</code> size.</li>
+      <li>The icons, now <code>.glyphicon</code>, are now font based. Icons also require a base and icon class (e.g. <code>.glyphicon .glyphicon-asterisk</code>).</li>
+      <li>Typeahead has been dropped, in favor of using <a href="http://twitter.github.io/typeahead.js/">Twitter Typeahead</a>.</li>
+      <li>Modal markup has changed significantly. The <code>.modal-header</code>, <code>.modal-body</code>, and <code>.modal-footer</code> sections are now wrapped in <code>.modal-content</code> and <code>.modal-dialog</code> for better mobile styling and behavior.</li>
+      <li>The HTML loaded by the <code>remote</code> modal option is now injected into the <code>.modal</code> instead of into the <code>.modal-body</code>. This allows you to also easily vary the header and footer of the modal, not just the modal body.</li>
+      <li>JavaScript events are namespaced. For example, to handle the modal "show" event, use <code>'show.bs.modal'</code>. For tabs "shown" use <code>'shown.bs.tab'</code>, etc..</li>
+    </ul>
+    <p>For more information on upgrading to v3.0, and code snippets from the community, see <a href="http://bootply.com/">Bootply</a>.</p>
+  </div>
+  
+  <!-- License
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="license-faqs">License</h1>
+    </div>
+    <p class="lead">Leapstrap is released into the public domain with a WOOP Licence and is copyright 2013 Alex Wilkes. Importantly, it contains Bootstrap, LeapJS, Leap Cursor Library (and other components) and you agree to be responsible for the licensing of these components (they are all open source).</p>
+
+    <p>The full Leapstrap license is located <a href="https://github.com/wilkesalex/leapstrap/blob/master/README.md">in the project repository</a>.</p>
+  </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer
+    ================================================== -->
+     <footer class="bs-footer" role="contentinfo">
+      <div class="container">
+        <!-- 
+<div class="bs-social">
+  <ul class="bs-social-buttons">
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
+    </li>
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=fork&amp;count=true" width="102" height="20" title="Fork on GitHub"></iframe>
+    </li>
+       <li class="tweet-btn">
+   <a href="https://twitter.com/share" class="twitter-share-button" data-via="leapstrap">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+    <li class="follow-btn">
+    <a href="https://twitter.com/leapstrap" class="twitter-follow-button" data-show-count="false">Follow @leapstrap</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+ 
+  </ul>
+</div>
+ -->
+
+
+        <p>Maintained by <a class="leap-interactive" href="http://twitter.com/deskofwilkes" target="_blank">Alex Wilkes</a>.</p>
+        <p>Code licensed under <a class="leap-interactive" href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a class="leap-interactive" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <ul class="footer-links">
+          <li>Currently v1.0.0</li>
+          <li class="muted">&middot;</li>
+          <li><a class="leap-interactive" href="https://www.twitter.com/leapstrap">Get help on Twitter</a></li>
+          <li class="muted">&middot;</li>
+          <li><a class="leap-interactive" href="https://github.com/wilkesalex/leapstrap/issues?state=open">Issues</a></li>
+          <li class="muted">&middot;</li>
+          <li><a class="leap-interactive" href="https://github.com/wilkesalex/leapstrap/releases">Releases</a></li>
+           <li class="muted">&middot;</li>
+          <li><a class="leap-interactive" href="http://www.amazon.co.uk/gp/product/B00C66Z9ZC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00C66Z9ZC&linkCode=as2&tag=eosmnet-21">Buy Leap Controller</a><img src="http://ir-uk.amazon-adsystem.com/e/ir?t=eosmnet-21&l=as2&o=2&a=B00C66Z9ZC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+          
+        </ul>
+      </div>
+    </footer>
+
+    <!-- JS and analytics only. -->
+    <script src="../docs-assets/js/holder.js"></script>
+<script src="../docs-assets/js/application.js"></script>
+<script>
+ 
+        LeapManager.init({
+            
+            enableMetaGestures: true,
+            enableDefaultMetaGestureActions: false,
+            maxCursors:1,
+            enableHoverTap: true,
+            enablePressDown: true,
+            enableTouchScrolling: false,
+            enableScrollbarScrolling: true
+            });
+    
+</script>
+<!-- Analytics
+================================================== -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45024155-1', 'github.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>
