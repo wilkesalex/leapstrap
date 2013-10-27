@@ -3,7 +3,7 @@
   , "description": "Sleek, intuitive, and powerful Leap first framework."
   , "version": "1.0.0"
   , "keywords": ["leapstrap", "css"]
-  , "homepage": "https://github.com/wilkesalex/leapstrap/"
+  , "homepage": "http://wilkesalex.github.io/leapstrap"
   , "author": "Alex Wilkes"
   , "scripts": { "test": "grunt test" }
   , "repository": {

@@ -17,9 +17,9 @@ repo:             https://github.com/wilkesalex/leapstrap
 download_source:  https://github.com/wilkesalex/leapstrap/archive/leapstrap.0.1b.zip
 download_dist:    https://github.com/wilkesalex/leapstrap/archive/leapstrap.0.1b.zip
 
-blog:             http://blog.getbootstrap.com
+blog:             http://wilkesalex.github.io/leapstrap
 twitter:          https://www.twitter.com/leapstrap
-expo:             http://expo.getbootstrap.com
+expo:             http://wilkesalex.github.io/leapstrap
 
 cdn_css:          //netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css
 cdn_theme_css:    //netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css
