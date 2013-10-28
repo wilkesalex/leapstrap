@@ -1,5 +1,5 @@
 # [Leapstrap](http://wilkesalex.github.io/leapstrap/)
-##Leap Motion HTML5 CSS web frontend framework. Based on Bootstrap.
+##Leap Motion HTML5 CSS web frontend framework. Based on Twitter Bootstrap, LeapJS and more.
 ###Leapstrap brings the power of touch to your website in an extensive yet easy to use HTML5 framework, eliminating the need for installing Leap apps (through Airspace). 
 
 --
