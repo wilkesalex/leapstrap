@@ -23,43 +23,73 @@ base_url: "../"
     <div class="page-header">
       <h1 id="roadmap">Roadmap</h1>
     </div>
-    <p class="lead">We will continue to add new features to Leapstrap and upgrade in line with Bootstrap.</p>
-<h3 id="migration-new">Features</h3>
+ 
+<h3 id="migration-new">Current Features</h3>
 
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-4">
+<h5>Leap-ready Interaction</h5>
 <ul class="list-unstyled">
-<li><span class="glyphicon glyphicon-ok"></span> </li>
-<li><span class="glyphicon glyphicon-ok"></span> </li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}leap">Leap Click/Tap</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}leap">Delay</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}leap">Multitap</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}leap">Attractors</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}leap">Hand Gestures</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}leap">Meta Gestures</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}leap">Scrolling</a></li>
 </ul>
 </div>
-<div class="col-md-6">
+<div class="col-md-4">
+<h5>Leap-ready Page Components</h5>
 <ul class="list-unstyled">
-<li><span class="glyphicon glyphicon-ok"></span> </li>
-<li><span class="glyphicon glyphicon-ok"></span> </li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}javascript">Modals</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}javascript">Dropdowns</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}javascript">Scrollspy</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}javascript">Tabs</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}javascript">Tooltips</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}javascript">Alerts / Popups</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}javascript">Buttons</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}javascript">Collapse / Accordions</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}more">Thumbnails</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}more">Media Objects</a></li></ul>
+</div>
+<div class="col-md-4">
+<h5>Leap-ready Page Elements</h5>
+<ul class="list-unstyled">
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}basics">Dropdowns</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}basics">Buttons</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}more">Navigation</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}more">List Groups</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}more">Breadcrumbs</a></li>
+
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}more">Icons</a></li>
+
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}basics">Alerts / Popups</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}basics">Panels</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}basics">Wells</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}basics">Labels</a></li>
+<li><span class="glyphicon glyphicon-ok"></span> <a href="{{ page.base_url }}basics">Badges</a></li>
 </ul>
 </div>
+
 </div>
 
 
-<h3 id="migration-new">Coming Soon</h3>
+<h3 id="migration-new">Work List</h3>
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>Element</th>
+            <th>Item</th>
             <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>leap-interactive</td>
-            <td><code>.panel .panel-default</code> <code>.panel-body</code> <code>.panel-title</code> <code>.panel-heading</code> <code>.panel-footer</code> <code>.panel-collapse</code></td>
+            <td>Content / Image Carousel</td>
+            <td>Need to improve the image carousel so that it does not follow the hyperlink</td>
           </tr>
-          <tr>
-            <td>List groups</td>
-            <td><code>.list-group</code> <code>.list-group-item</code> <code>.list-group-item-text</code> <code>.list-group-item-heading</code></td>
-          </tr>
+     
        
         </tbody>
       </table>
@@ -67,22 +97,10 @@ base_url: "../"
 
  
 
-    <h3 id="migration-notes">Additional notes</h3>
-    <p>Other changes in v3.0 are not immediately apparent. Base classes, key styles, and behaviors have been adjusted for flexibility and our <em>mobile first</em> approach. Here's a partial list:</p>
-    <ul>
-      <li>By default, text-based form controls now receive only minimal styling.  For focus colors and rounded corners, apply the <code>.form-control</code> class on the element to style.</li>
-      <li>Text-based form controls with the <code>.form-control</code> class applied are now 100% wide by default. Wrap inputs inside <code>&lt;div class="col-*"&gt;&lt;/div&gt;</code> to control input widths.</li>
-      <li><code>.badge</code> no longer has contextual (-success,-primary,etc..) classes.</li>
-      <li><code>.btn</code> must also use <code>.btn-default</code> to get the "default" button.</li>
-      <li><code>.container</code> and <code>.row</code> are now fluid (percentage-based).</li>
-      <li>Images are no longer responsive by default. Use <code>.img-responsive</code> for fluid <code>&lt;img&gt;</code> size.</li>
-      <li>The icons, now <code>.glyphicon</code>, are now font based. Icons also require a base and icon class (e.g. <code>.glyphicon .glyphicon-asterisk</code>).</li>
-      <li>Typeahead has been dropped, in favor of using <a href="http://twitter.github.io/typeahead.js/">Twitter Typeahead</a>.</li>
-      <li>Modal markup has changed significantly. The <code>.modal-header</code>, <code>.modal-body</code>, and <code>.modal-footer</code> sections are now wrapped in <code>.modal-content</code> and <code>.modal-dialog</code> for better mobile styling and behavior.</li>
-      <li>The HTML loaded by the <code>remote</code> modal option is now injected into the <code>.modal</code> instead of into the <code>.modal-body</code>. This allows you to also easily vary the header and footer of the modal, not just the modal body.</li>
-      <li>JavaScript events are namespaced. For example, to handle the modal "show" event, use <code>'show.bs.modal'</code>. For tabs "shown" use <code>'shown.bs.tab'</code>, etc..</li>
-    </ul>
-    <p>For more information on upgrading to v3.0, and code snippets from the community, see <a href="http://bootply.com/">Bootply</a>.</p>
+    <h3 id="">Intended Audience</h3>
+    <p>Leapstrap is currently intended for use by developers who have some experience in Bootstrap. </p>
+    
+ 
   </div>
 
 
