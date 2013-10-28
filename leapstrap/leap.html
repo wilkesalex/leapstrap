@@ -381,9 +381,10 @@ base_url: "../"
     </div>  
     <pre>
      <div class="outputbs3"></div>
-    </pre>   
+    </pre>  
+    <p>Add leap-interactive to any element and you can use it to detect for gestures.</p>
   {% highlight html %}
-<button type="button" class="catcher btn leap-interactive">Make a circle on me</button>
+<button type="button" class="btn leap-interactive">Make a circle on me</button>
 {% endhighlight %}
     
      <script type="text/javascript">
@@ -409,6 +410,7 @@ base_url: "../"
     
     
     <p>You can enable Meta gestures, like Page Back and Page Forward, if you enable the default on-page Meta actions.</p>
+    <h3 id="browser-meta">Browser History - Sliding / Swipe Gesture</h3>
    <div class="bs-example bs-example-popover">
       <div class="popover right">
         <div class="arrow"></div>
@@ -429,10 +431,35 @@ base_url: "../"
       <div class="clearfix"></div>
     </div>
   {% highlight js %}
-	enableMetaGestures: true,
-	enableDefaultMetaGestureActions: true
+enableMetaGestures: true,
+enableDefaultMetaGestureActions: true
 {% endhighlight %}
    {% highlight html %}
+<script>
+LeapManager.init({
+	interactiveSelector: "a",
+	maxCursors:3,
+	enableMetaGestures: true,
+	enableDefaultMetaGestureActions: true
+});
+</script>
+{% endhighlight %} 
+    <h3 id="page-scroll-meta">Page Scroll - Circle Gesture</h3>
+<div class="bs-example">
+        <div class="well" style="background:white;max-width: 90%; margin: 0 auto 10px;text-align:center;">
+        <img src="../docs-assets/img/circlearrow.jpg" width="50%" height="50%" />
+        <p class="lead">Move your finger in a circle to scroll the page</p>
+       
+      </div>
+      <p>To enable page scrolling, attach <code>leap-interactive</code> to your body element. You probably don't need tap or hover on the body, so disable them.</p>
+{% highlight html %}
+<body class="leap-interactive" leap-disable-tap="true" leap-disable-hover="true">
+{% endhighlight %}
+{% highlight js %}
+enableMetaGestures: true,
+enableDefaultMetaGestureActions: true
+{% endhighlight %}
+{% highlight html %}
 <script>
 LeapManager.init({
 	interactiveSelector: "a",
@@ -466,7 +493,19 @@ Pancetta tenderloin shankle meatloaf pork, pork belly bacon filet mignon jerky b
 
 Swine fatback tail t-bone venison pig biltong pork chop pancetta salami rump. Bacon pork pancetta frankfurter pork belly flank sirloin ball tip prosciutto short ribs. Boudin salami ball tip turducken jerky fatback leberkas bacon chuck pig ground round strip steak. Ribeye turducken doner shankle tenderloin beef beef ribs corned beef. Corned beef leberkas sirloin, short ribs salami chuck pork chop turducken. Shankle flank spare ribs tri-tip turkey. Short ribs strip steak pork loin, cow pork belly pastrami filet mignon turkey.
 
-Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swine beef t-bone shankle short loin frankfurter corned beef sausage meatball. Beef sausage capicola drumstick bresaola tail bacon chuck chicken ham hock pork pork belly ground round venison. Salami turkey meatball, tri-tip ham drumstick short loin chuck brisket beef bacon.</div>
+Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swine beef t-bone shankle short loin frankfurter corned beef sausage meatball. Beef sausage capicola drumstick bresaola tail bacon chuck chicken ham hock pork pork belly ground round venison. Salami turkey meatball, tri-tip ham drumstick short loin chuck brisket beef bacon.
+
+Bacon ipsum dolor sit amet doner t-bone shankle brisket ribeye salami. Shankle tail ham chuck swine doner meatloaf kielbasa pig. Ham hock meatball flank pork belly shoulder sausage. Ribeye tenderloin ham pork chop spare ribs ham hock. Biltong pancetta pastrami, andouille ball tip fatback ham rump. Ground round kielbasa capicola pastrami shank brisket jowl meatloaf cow. Shankle beef biltong hamburger pork belly corned beef, tri-tip t-bone pig turkey short ribs filet mignon ball tip jerky brisket.
+
+Swine boudin bacon, andouille hamburger short loin tongue drumstick jerky sirloin spare ribs pancetta. Corned beef ball tip tail strip steak. Cow fatback short loin doner ground round sirloin chuck turducken corned beef prosciutto t-bone. Chuck t-bone spare ribs beef ribs filet mignon strip steak. Pastrami pork loin brisket hamburger, turducken short ribs bresaola t-bone ball tip corned beef. Fatback shoulder filet mignon cow, short ribs strip steak turducken pancetta drumstick venison. Shank turkey sausage tenderloin venison spare ribs ham filet mignon.
+
+Pancetta tenderloin shankle meatloaf pork, pork belly bacon filet mignon jerky brisket. Strip steak meatball sirloin shoulder. Pancetta salami boudin pork turducken hamburger short ribs, pork chop andouille pastrami prosciutto doner shoulder turkey. Tongue hamburger tri-tip, fatback shank chicken tail short ribs spare ribs short loin ground round capicola brisket pork chop. Hamburger frankfurter beef ribs tongue boudin sausage pancetta meatball, pork chop bacon jerky kielbasa cow.
+
+Swine fatback tail t-bone venison pig biltong pork chop pancetta salami rump. Bacon pork pancetta frankfurter pork belly flank sirloin ball tip prosciutto short ribs. Boudin salami ball tip turducken jerky fatback leberkas bacon chuck pig ground round strip steak. Ribeye turducken doner shankle tenderloin beef beef ribs corned beef. Corned beef leberkas sirloin, short ribs salami chuck pork chop turducken. Shankle flank spare ribs tri-tip turkey. Short ribs strip steak pork loin, cow pork belly pastrami filet mignon turkey.
+
+Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swine beef t-bone shankle short loin frankfurter corned beef sausage meatball. Beef sausage capicola drumstick bresaola tail bacon chuck chicken ham hock pork pork belly ground round venison. Salami turkey meatball, tri-tip ham drumstick short loin chuck brisket beef bacon.
+
+</div>
        </div>
       </div>
     </div>  
