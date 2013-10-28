@@ -125,7 +125,12 @@
 </li>
 <li>
   <a class="leap-interactive" href="#meta-gestures">Meta Gestures</a>
-  
+  <ul class="nav">
+  <li><a class="leap-interactive" href="#browser-meta">Browser History</a></li>
+    <li><a class="leap-interactive" href="#page-scroll-meta">Page Scroll</a></li>
+    
+   
+  </ul>
 </li>
 <li>
   <a class="leap-interactive" href="#scrolling">Scrolling</a>
@@ -504,8 +509,9 @@
     </div>  
     <pre>
      <div class="outputbs3"></div>
-    </pre>   
-  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;catcher btn leap-interactive&quot;</span><span class="nt">&gt;</span>Make a circle on me<span class="nt">&lt;/button&gt;</span>
+    </pre>  
+    <p>Add leap-interactive to any element and you can use it to detect for gestures.</p>
+  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span><span class="nt">&gt;</span>Make a circle on me<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
     
      <script type="text/javascript">
@@ -531,6 +537,7 @@
     
     
     <p>You can enable Meta gestures, like Page Back and Page Forward, if you enable the default on-page Meta actions.</p>
+    <h3 id="browser-meta">Browser History - Sliding / Swipe Gesture</h3>
    <div class="bs-example bs-example-popover">
       <div class="popover right">
         <div class="arrow"></div>
@@ -550,10 +557,32 @@
 
       <div class="clearfix"></div>
     </div>
-  <div class="highlight"><pre><code class="js">	<span class="nx">enableMetaGestures</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-	<span class="nx">enableDefaultMetaGestureActions</span><span class="o">:</span> <span class="kc">true</span>
+  <div class="highlight"><pre><code class="js"><span class="nx">enableMetaGestures</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">enableDefaultMetaGestureActions</span><span class="o">:</span> <span class="kc">true</span>
 </code></pre></div>
    <div class="highlight"><pre><code class="html"><span class="nt">&lt;script&gt;</span>
+<span class="nx">LeapManager</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+	<span class="nx">interactiveSelector</span><span class="o">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+	<span class="nx">maxCursors</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span>
+	<span class="nx">enableMetaGestures</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="nx">enableDefaultMetaGestureActions</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div> 
+    <h3 id="page-scroll-meta">Page Scroll - Circle Gesture</h3>
+<div class="bs-example">
+        <div class="well" style="background:white;max-width: 90%; margin: 0 auto 10px;text-align:center;">
+        <img src="../docs-assets/img/circlearrow.jpg" width="50%" height="50%" />
+        <p class="lead">Move your finger in a circle to scroll the page</p>
+       
+      </div>
+      <p>To enable page scrolling, attach <code>leap-interactive</code> to your body element. You probably don't need tap or hover on the body, so disable them.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;body</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span> <span class="na">leap-disable-hover=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><code class="js"><span class="nx">enableMetaGestures</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">enableDefaultMetaGestureActions</span><span class="o">:</span> <span class="kc">true</span>
+</code></pre></div>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;script&gt;</span>
 <span class="nx">LeapManager</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
 	<span class="nx">interactiveSelector</span><span class="o">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
 	<span class="nx">maxCursors</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span>
@@ -586,7 +615,19 @@ Pancetta tenderloin shankle meatloaf pork, pork belly bacon filet mignon jerky b
 
 Swine fatback tail t-bone venison pig biltong pork chop pancetta salami rump. Bacon pork pancetta frankfurter pork belly flank sirloin ball tip prosciutto short ribs. Boudin salami ball tip turducken jerky fatback leberkas bacon chuck pig ground round strip steak. Ribeye turducken doner shankle tenderloin beef beef ribs corned beef. Corned beef leberkas sirloin, short ribs salami chuck pork chop turducken. Shankle flank spare ribs tri-tip turkey. Short ribs strip steak pork loin, cow pork belly pastrami filet mignon turkey.
 
-Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swine beef t-bone shankle short loin frankfurter corned beef sausage meatball. Beef sausage capicola drumstick bresaola tail bacon chuck chicken ham hock pork pork belly ground round venison. Salami turkey meatball, tri-tip ham drumstick short loin chuck brisket beef bacon.</div>
+Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swine beef t-bone shankle short loin frankfurter corned beef sausage meatball. Beef sausage capicola drumstick bresaola tail bacon chuck chicken ham hock pork pork belly ground round venison. Salami turkey meatball, tri-tip ham drumstick short loin chuck brisket beef bacon.
+
+Bacon ipsum dolor sit amet doner t-bone shankle brisket ribeye salami. Shankle tail ham chuck swine doner meatloaf kielbasa pig. Ham hock meatball flank pork belly shoulder sausage. Ribeye tenderloin ham pork chop spare ribs ham hock. Biltong pancetta pastrami, andouille ball tip fatback ham rump. Ground round kielbasa capicola pastrami shank brisket jowl meatloaf cow. Shankle beef biltong hamburger pork belly corned beef, tri-tip t-bone pig turkey short ribs filet mignon ball tip jerky brisket.
+
+Swine boudin bacon, andouille hamburger short loin tongue drumstick jerky sirloin spare ribs pancetta. Corned beef ball tip tail strip steak. Cow fatback short loin doner ground round sirloin chuck turducken corned beef prosciutto t-bone. Chuck t-bone spare ribs beef ribs filet mignon strip steak. Pastrami pork loin brisket hamburger, turducken short ribs bresaola t-bone ball tip corned beef. Fatback shoulder filet mignon cow, short ribs strip steak turducken pancetta drumstick venison. Shank turkey sausage tenderloin venison spare ribs ham filet mignon.
+
+Pancetta tenderloin shankle meatloaf pork, pork belly bacon filet mignon jerky brisket. Strip steak meatball sirloin shoulder. Pancetta salami boudin pork turducken hamburger short ribs, pork chop andouille pastrami prosciutto doner shoulder turkey. Tongue hamburger tri-tip, fatback shank chicken tail short ribs spare ribs short loin ground round capicola brisket pork chop. Hamburger frankfurter beef ribs tongue boudin sausage pancetta meatball, pork chop bacon jerky kielbasa cow.
+
+Swine fatback tail t-bone venison pig biltong pork chop pancetta salami rump. Bacon pork pancetta frankfurter pork belly flank sirloin ball tip prosciutto short ribs. Boudin salami ball tip turducken jerky fatback leberkas bacon chuck pig ground round strip steak. Ribeye turducken doner shankle tenderloin beef beef ribs corned beef. Corned beef leberkas sirloin, short ribs salami chuck pork chop turducken. Shankle flank spare ribs tri-tip turkey. Short ribs strip steak pork loin, cow pork belly pastrami filet mignon turkey.
+
+Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swine beef t-bone shankle short loin frankfurter corned beef sausage meatball. Beef sausage capicola drumstick bresaola tail bacon chuck chicken ham hock pork pork belly ground round venison. Salami turkey meatball, tri-tip ham drumstick short loin chuck brisket beef bacon.
+
+</div>
        </div>
       </div>
     </div>  
