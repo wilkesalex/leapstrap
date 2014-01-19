@@ -1,0 +1,11 @@
+{
+  "name": "leapstrap",
+  "version": "1.1.0",
+  "main": ["./dist/js/leapstrap.js", "./dist/css/leapstrap.css", "./dist/fonts/*"],
+  "ignore": [
+      "**/.*"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.0"
+  }
+}

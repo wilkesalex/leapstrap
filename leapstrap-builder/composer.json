@@ -1,0 +1,16 @@
+{
+    "name": "wilkesalex/leapstrap"
+  , "description": "Leapstrap Leap Motion Web HTML Framework"
+  , "keywords": ["leapstrap", "css"]
+  , "homepage": "https://github.com/wilkesalex/leapstrap"
+  , "authors": [
+      {
+        "name": "Alex Wilkes",
+        "email": "alex@awco.co.uk"
+      }
+    ]
+  , "support": {
+      "issues": "https://twitter.com/leapstrap"
+    }
+  , "license": "Apache-2.0"
+}

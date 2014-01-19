@@ -1,0 +1,439 @@
+---
+layout: default
+title: Getting started
+slug: getting-started
+lead: "An overview, how to download and use Leapstrap, current roadmap, basic examples, and more."
+base_url: "../"
+---
+
+
+  <!-- Getting started
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="download">Get Leapstrap</h1>
+    </div>
+    <p class="lead">Touch the web today. Get a <a href="http://www.amazon.co.uk/gp/product/B00C66Z9ZC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00C66Z9ZC&linkCode=as2&tag=eosmnet-21">Leap Motion Controller</a><img src="http://ir-uk.amazon-adsystem.com/e/ir?t=eosmnet-21&l=as2&o=2&a=B00C66Z9ZC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />, get Leapstrap and put your fingers to work. Leapstrap provides complete HTML5 front-end interactivity for Leap Motion&reg; devices and controllers, aimed specifically at desktop and TV browsers. If you want to use a Leap&reg; with your website, Leapstrap is for you.</p>
+    <p>You can build your project (i.e. a website or a web application) on fresh on top of Leapstrap or you can integrate Leapstrap into an existing project. <strong>If you've already got Bootstrap 3</strong>, or if you've already got an existing project to "add" Leapstrap too, <a href="">see further below</a>.</p>
+
+<h3 id="download-cdn">Use it <strong>now</strong></h3>
+    <p>Leapstrap requires just 1 CSS file, 2 plugin files and a JavaScript file - in the below example, Leapstrap detects all anchor (e.g. hyperlinks) and makes them <code>leap-interactive</code>. We don't typically recommend this for performance reasons, but hopefully you'll be able to use your Leap to "touch" all hyperlinks.</p>
+    <p>Here is some example code with our CDN links, which you may reuse. Please download Leapstrap (by zip or Github) if you intend to make more use of it.</p>
+
+{% highlight html %}
+<!-- Include the CSS -->
+<link rel="stylesheet" href="http://leapstrap.alex-wilkes.com/css/leapstrap.css" />
+
+<!-- Include the JS dependencies -->
+<!-- Maybe you already use these? -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script src="//js.leapmotion.com/0.3.0-beta3/leap.js"></script>
+
+<!-- Include the Leapstrap JS -->
+<script src="http://wilkesalex.github.io/leapstrap/dist/js/leapstrap.js"></script>
+
+<!-- Init Leap, Set all "a" interactive, use 1 Leap cursor/finger -->
+<script>LeapManager.init({interactiveSelector:"a",maxCursors:1});</script>
+{% endhighlight %}
+
+    <h3 id="download-additional">Download it</h3>
+    <div class="bs-docs-dl-options">
+      <h4>
+        <a href="{{ site.download_source }}" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download source']);">Download Leapstrap.zip</a>
+      </h4>
+      <p>Download the entire repository zipped. You will be interested in the <strong>/dist/ folder</strong> (as that contains a ready-to-use version of Leapstrap). See the example template below for what to include</p>
+      <h4>
+        <a href="{{ site.repo }}" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'GitHub project']);">Clone or fork via GitHub</a>
+      </h4>
+      <p>Use git to clone or fork the Leapstrap project.</p>
+
+      {% highlight bash %}$ git clone https://github.com/wilkesalex/leapstrap{% endhighlight %}
+    </div>
+    
+    
+
+    <h3 id="download-cdn">Build it</h3>
+    <p>The best way to play with Leapstrap is to build your own copy. Checkout the project from github, or extract the entire zip, and navigate to the new leapstrap directory using a terminal. You'll need <strong>git, npm and more</strong> installed.</p>
+{% highlight bash %}
+$ npm install
+$ grunt{% endhighlight %}
+ 
+
+    <div class="bs-callout bs-callout-warning" id="callout-less-compilation">
+      <h4>Visit our Github project</h4>
+      <p>If you work with Leapstrap's uncompiled source code, you need to compile the LESS files to produce usable CSS files. For compiling LESS files into CSS, we only officially support>, which is Twitter's CSS hinter based on <a href="https://github.com/wilkesalex/leapstrap">Leapstrap @ Github</a>.</p>
+    </div>
+    
+    
+    
+  </div>
+
+  <!-- Existing Project
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="integrate">Integrate Leapstrap (Already use Bootstrap 3?)</h1>
+    </div>
+   <p>To use Leapstrap with Bootstrap, you just need to replace:</p>
+   <ul>
+   <li>bootstrap.css with leapstrap.css</li>
+   <li>bootstrap.min.css with leapstrap.min.css</li>
+   <li>bootstrap.js with leapstrap.js</li>
+   <li>bootstrap.min.js with leapstrap.min.js</li>
+   </ul>
+  
+  <p>You need to link to the leap.js javascript</p>
+   {% highlight html %}
+<script src="//js.leapmotion.com/0.2.2/leap.min.js"></script>
+{% endhighlight %}
+
+  <p>You need to add the Leapstrap initialiser</p>
+    
+ {% highlight html %}
+<script>LeapManager.init({interactiveSelector:"a",maxCursors:1});</script>
+{% endhighlight %}
+
+
+    <p>This presumes that you have not modified the core Bootstrap css or javascript files and that you extended bootstrap, rather than modifying it.</p>
+   
+  </div>
+
+  <!-- File structure
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="whats-included">What's included</h1>
+    </div>
+    <p class="lead">Within the download you'll find the following directories and files, logically grouping common resources and providing both compiled and minified variations.</p>
+    <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) Leapstrap. You'll see something like this:</p>
+
+<!-- NOTE: This info is intentionally duplicated in the README.
+Copy any changes made here over to the README too. -->
+{% highlight bash %}
+bootstrap/
+├── css/
+│   ├── leapstrap.css
+│   ├── leapstrap.min.css
+│   ├── leapstrap-theme.css
+│   └── leapstrap-theme.min.css
+├── js/
+│   ├── leapstrap.js
+│   └── leapstrap.min.js
+└── fonts/
+    ├── glyphicons-halflings-regular.eot
+    ├── glyphicons-halflings-regular.svg
+    ├── glyphicons-halflings-regular.ttf
+    └── glyphicons-halflings-regular.woff
+{% endhighlight %}
+
+    <p>This is the most basic form of Leapstrap: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (<code>bootstrap.*</code>), as well as compiled and minified CSS and JS (<code>bootstrap.min.*</code>). Fonts from Glyphicons are included, as is the optional Leapstrap theme.</p>
+    <div class="bs-callout bs-callout-danger" id="jquery-required">
+      <h4>jQuery required</h4>
+      <p>Please note that <strong>all JavaScript plugins require jQuery</strong> to be included, as shown in the <a href="#template">starter template</a>. <a href="{{ site.repo }}/blob/v{{ site.current_version }}/bower.json">Consult our <code>bower.json</code></a> to see which versions of jQuery are supported.</p>
+    </div>
+  </div>
+
+
+  <!-- Template
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="template">Basic template</h1>
+    </div>
+    <p class="lead">Start with this basic HTML template, or modify <a href="../getting-started#examples">these examples</a>. We hope you'll customize our templates and examples, adapting them to suit your needs.</p>
+
+    <p>Copy the HTML below to begin working with a minimal Leapstrap document.</p>
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Leapstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Leapstrap -->
+    <link href="css/leapstrap.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <a class="leap-interactive" href="#">Click me with Leap!</a>
+
+    <!-- jQuery (necessary for Leapstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Leap (http://js.leapmotion.com/) -->
+    <script src="//js.leapmotion.com/0.2.2/leap.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/leapstrap.js"></script>
+    <script>LeapManager.init({interactiveSelector:"a",maxCursors:1});</script>
+  </body>
+</html>
+{% endhighlight %}
+  </div>
+  
+
+
+  <!-- Template
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="examples">Examples</h1>
+    </div>
+    <p class="lead">Build on the basic template above with Bootstrap's many components. See also <a href="#customizing">Customizing Bootstrap</a> for tips on maintaining your own Bootstrap variants.</p>
+
+    <div class="row bs-examples">
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/starter-template/">
+          <img src="../examples/screenshots/starter-template.jpg" alt="">
+        </a>
+        <h4>Starter template</h4>
+        <p>Nothing but the basics: compiled CSS and JavaScript along with a container.</p>
+      </div>
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/grid/">
+          <img src="../examples/screenshots/grid.jpg" alt="">
+        </a>
+        <h4>Grids</h4>
+        <p>Multiple examples of grid layouts with all four tiers, nesting, and more.</p>
+      </div>
+      <div class="clearfix visible-xs"></div>
+
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/jumbotron/">
+          <img src="../examples/screenshots/jumbotron.jpg" alt="">
+        </a>
+        <h4>Jumbotron</h4>
+        <p>Build around the jumbotron with a navbar and some basic grid columns.</p>
+      </div>
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/jumbotron-narrow/">
+          <img src="../examples/screenshots/jumbotron-narrow.jpg" alt="">
+        </a>
+        <h4>Narrow jumbotron</h4>
+        <p>Build a more custom page by narrowing the default container and jumbotron.</p>
+      </div>
+      <div class="clearfix visible-xs"></div>
+
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/navbar/">
+          <img src="../examples/screenshots/navbar.jpg" alt="">
+        </a>
+        <h4>Navbar</h4>
+        <p>Super basic template that includes the navbar along with some additional content.</p>
+      </div>
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/navbar-static-top/">
+          <img src="../examples/screenshots/navbar-static.jpg" alt="">
+        </a>
+        <h4>Static top navbar</h4>
+        <p>Super basic template with a static top navbar along with some additional content.</p>
+      </div>
+      <div class="clearfix visible-xs"></div>
+
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/navbar-fixed-top/">
+          <img src="../examples/screenshots/navbar-fixed.jpg" alt="">
+        </a>
+        <h4>Fixed navbar</h4>
+        <p>Super basic template with a fixed top navbar along with some additional content.</p>
+      </div>
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/signin/">
+          <img src="../examples/screenshots/sign-in.jpg" alt="">
+        </a>
+        <h4>Sign-in page</h4>
+        <p>Custom form layout and design for a simple sign in form.</p>
+      </div>
+      <div class="clearfix visible-xs"></div>
+
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/sticky-footer/">
+          <img src="../examples/screenshots/sticky-footer.jpg" alt="">
+        </a>
+        <h4>Sticky footer</h4>
+        <p>Attach a footer to the bottom of the viewport when the content is shorter than it.</p>
+      </div>
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/sticky-footer-navbar/">
+          <img src="../examples/screenshots/sticky-footer-navbar.jpg" alt="">
+        </a>
+        <h4>Sticky footer with navbar</h4>
+        <p>Attach a footer to the bottom of the viewport with a fixed navbar at the top.</p>
+      </div>
+      <div class="clearfix visible-xs"></div>
+
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/justified-nav/">
+          <img src="../examples/screenshots/justified-nav.jpg" alt="">
+        </a>
+        <h4>Justified nav</h4>
+        <p>Create a custom navbar with justified links. Heads up! <a href="../components/#nav-justified">Not too WebKit friendly.</a></p>
+      </div>
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/offcanvas/">
+          <img src="../examples/screenshots/offcanvas.jpg" alt="">
+        </a>
+        <h4>Offcanvas</h4>
+        <p>Build a toggleable off-canvas navigation menu for use with Bootstrap.</p>
+      </div>
+      <div class="clearfix visible-xs"></div>
+
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/carousel/">
+          <img src="../examples/screenshots/carousel.jpg" alt="">
+        </a>
+        <h4>Carousel</h4>
+        <p>Customize the navbar and carousel, then add some new components.</p>
+      </div>
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/non-responsive/">
+          <img src="../examples/screenshots/non-responsive.jpg" alt="">
+        </a>
+        <h4>Non-responsive Bootstrap</h4>
+        <p>Easily disable the responsiveness of Bootstrap <a href="../getting-started/#disable-responsive">per our docs</a>.</p>
+      </div>
+      <div class="clearfix visible-xs"></div>
+
+      <div class="col-xs-6 col-md-4">
+        <a class="thumbnail" href="../examples/theme/">
+          <img src="../examples/screenshots/theme.jpg" alt="">
+        </a>
+        <h4>Bootstrap theme</h4>
+        <p>Load the optional Bootstrap theme for a visually enhanced experience.</p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <!-- Browser support
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="browsers">Browser support</h1>
+    </div>
+    <p class="lead">Leapstrap is built to work best in the latest desktop and TV browsers, meaning older browsers might just not work.</p>
+
+    <h3>Supported browsers</h3>
+    <p>Specifically, we support the latest versions of the following:</p>
+    <ul>
+      <li>Chrome (Mac, Windows, iOS, and Android)</li>
+      <li>Safari (Mac and iOS only, as the Windows version is being abandoned)</li>
+      <li>Firefox (Mac, Windows)</li>
+      <li>Internet Explorer 7 / 8 / 9 / 10 / 11</li>
+      <li>Opera (Mac, Windows)</li>
+    </ul>
+    <p>Unofficially, Leapstrap should look and behave well enough in Chromium and Chrome for Linux, Firefox for Linux, and Internet Explorer 7, though they are not officially supported.</p>
+
+    <h3>Internet Explorer 8 and 9</h3>
+    <p>Internet Explorer 8 and 9 are also supported, however, please be aware that some CSS3 properties and HTML5 elements are not fully supported by these browsers. In addition, <strong>Internet Explorer 8 requires the use of <a href="https://github.com/scottjehl/Respond">Respond.js</a> to enable media query support.</strong></p>
+    <div class="bs-callout bs-callout-warning" id="respond-js-x-domain">
+      <h4>Respond.js and cross-domain CSS</h4>
+      <p>Using Respond.js with CSS hosted on a different (sub)domain (for example, on a CDN) requires some additional setup. <a href="https://github.com/scottjehl/Respond/blob/master/README.md#cdnx-domain-setup">See the Respond.js docs</a> for details.</p>
+    </div>
+    <div class="bs-callout bs-callout-warning" id="respond-file-proto">
+      <h4>Respond.js and <code>file://</code></h4>
+      <p>Due to browser security rules, Respond.js doesn't work with pages viewed via the <code>file://</code> protocol (like when opening a local HTML file). To test responsive features in IE8, view your pages over HTTP(S). <a href="https://github.com/scottjehl/Respond/blob/master/README.md#support--caveats">See the Respond.js docs</a> for details.</p>
+    </div>
+
+    <p>Visit <a href="http://caniuse.com/">Can I use...</a> for details on browser support of CSS3 and HTML5 features.</p>
+
+
+    <h3 id="ie-compat-modes">IE Compatibility modes</h3>
+    <p>Leapstrap is not supported in the old Internet Explorer compatibility modes. To be sure you're using the latest rendering mode for IE, consider including the appropriate <code>&lt;meta&gt;</code> tag in your pages:</p>
+{% highlight html %}
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% endhighlight %}
+    <p>This tag is included in all docs pages and examples to ensure the best rendering possible in each supported version of Internet Explorer.</p>
+
+    <h3 id="ie-10-width">Internet Explorer 10 in Windows 8 and Windows Phone 8</h3>
+    <p>Internet Explorer 10 doesn't differentiate <strong>device width</strong> from <strong>viewport width</strong>, and thus doesn't properly apply the media queries in Leapstrap's CSS. We also need to cater for Windows Phone 8 devices that show a mostly desktop view instead of narrow "phone" view. To address this, <strong>include the following CSS and JavaScript to work around the bug</strong>.</p>
+{% highlight css %}
+@-webkit-viewport   { width: device-width; }
+@-moz-viewport      { width: device-width; }
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }
+{% endhighlight %}
+
+{% highlight js %}
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+  var msViewportStyle = document.createElement("style")
+  msViewportStyle.appendChild(
+    document.createTextNode(
+      "@-ms-viewport{width:auto!important}"
+    )
+  )
+  document.getElementsByTagName("head")[0].appendChild(msViewportStyle)
+}
+{% endhighlight %}
+    <p>For more information and usage guidelines, read <a href="http://timkadlec.com/2013/01/windows-phone-8-and-device-width/">Windows Phone 8 and Device-Width</a>.</p>
+    <p>As a heads up, we include this in the Leapstrap docs as an example.</p>
+
+    <h3 id="safari-percentages">Safari percent rounding</h3>
+    <p>As of Safari v6.1 for OS X and Safari for iOS v7.0.1, Safari's rendering engine has some trouble with the number of decimal places used in our <code>.col-*-1</code> grid classes. We can't do much here (<a href="https://github.com/twbs/bootstrap/issues/9282">see #9282</a>) but you do have some options:</p>
+    <ul>
+      <li>Add <code>.pull-right</code> to your last grid column to get the hard-right alignment</li>
+      <li>Tweak your percentages manually to get the perfect rounding for Safari (more difficult than the first option)</li>
+    </ul>
+
+    <h3 id="browser-zoom">Browser zooming</h3>
+    <p>Page zooming inevitably presents rendering artifacts in some components, both in Leapstrap and the rest of the web. Depending on the issue, we may be able to fix it (search first and then open an issue if need be). However, we tend to ignore these as they often have no direct solution other than "workarounds".</p>
+  </div>
+
+
+ 
+
+  <!-- Accessibility
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="accessibility">Accessibility</h1>
+    </div>
+    <p class="lead">We're going to assume that because your users are using Leap, they will have decent sight. But you can still add some helpful features.</p>
+
+
+    <p>If your navigation contains many links and comes before the main content in the DOM, add a <code>Skip to main content</code> link immediately after your opening <code>&lt;body&gt;</code> tag. <a href="http://a11yproject.com/posts/skip-nav-links/">(read why)</a></p>
+{% highlight html %}
+<a href="#content" class="sr-only">Skip to main content</a>
+{% endhighlight %}
+
+    <p>Learn more at <a href="http://squizlabs.github.io/HTML_CodeSniffer/Standards/Section508/">HTML CodeSniffer</a> and <a href="http://accessibility.psu.edu/headings">Penn State's AccessAbility</a>.</p>
+
+    <h3>Additional resources</h3>
+    <ul>
+      <li><a href="https://github.com/squizlabs/HTML_CodeSniffer">"HTML Codesniffer" bookmarklet for identifying accessibility issues</a></li>
+      <li><a href="http://a11yproject.com/">The A11Y Project</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Accessibility">MDN accessibility documentation</a></li>
+    </ul>
+  </div>
+
+
+  
+  <!-- Customization
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="customizing">Customizing Leapstrap</h1>
+    </div>
+    <p class="">Leapstrap is best maintained when you treat it as a separate and independently-versioned dependency in your development environment. Doing this makes upgrading Leapstrap easier in the future.</p>
+
+    <p>Once you've downloaded and included Leapstrap's styles and scripts, you can customize its components. Just create a new stylesheet (LESS, if you like, or just plain CSS) to house your customizations.</p>
+
+
+    <h3>Removing potential bloat</h3>
+    <p>Not all touch websites need to make use of everything Leapstrap has to offer, especially in production environments where optimizing bandwidth is an issue. We encourage you to remove whatever is unused in terms of LESS (CSS) and Javascript. You can do this by utilising the <a href="{{ site.repo }}">Github project</a>.</p>
+    <p>We're <a href="#">working on a customizer</a> - if you want to help make that, <a href="">join the Leapstrap team</a>!</p>
+    
+    <h3>Contact the team</h3>
+    <p>Please see our <a href="/about">About Leapstrap</a> page.</p>
+
+  </div>

@@ -1,0 +1,25 @@
+# Dependencies
+markdown:         rdiscount
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Server
+destination:      ./_gh_pages
+exclude:          [".editorconfig", ".gitignore", "bower.json", "composer.json", "CONTRIBUTING.md", "CNAME", "LICENSE", "Gruntfile.js", "package.json", "node_modules", "README.md", "less"]
+port:             9001
+
+# Custom vars
+current_version:  1.1.0
+repo:             https://github.com/wilkesalex/leapstrap
+
+download_source:  https://github.com/wilkesalex/leapstrap/archive/master.zip
+download_dist:    https://github.com/wilkesalex/leapstrap/archive/master.zip
+
+blog:             http://wilkesalex.github.io/leapstrap
+twitter:          https://www.twitter.com/leapstrap
+expo:             http://wilkesalex.github.io/leapstrap
+
+cdn_css:          //wilkesalex.github.io/leapstrap/dist/css/leapstrap.css
+cdn_js:           //wilkesalex.github.io/leapstrap/dist/js/leapstrap.js
