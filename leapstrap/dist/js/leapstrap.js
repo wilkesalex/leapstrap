@@ -1999,48 +1999,48 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
 }(window.jQuery);
 
 /*global Leap*/
-var LeapElement = function(element) {
-    this.element = element;
+var LeapElement = function(dom) {
+    this.dom = dom;
     this.cursor = null;
 };
 
 LeapElement.prototype = {
     isAttractor: function() {
-        return this.element.getAttribute("leap-attractor") === "true" || (this.element.getAttribute("leap-attractor-x-padding") != null && !isNaN(this.element.getAttribute("leap-attractor-x-padding"))) || (this.element.getAttribute("leap-attractor-y-padding") != null && !isNaN(this.element.getAttribute("leap-attractor-y-padding")));
+        return this.dom.getAttribute("leap-attractor") === "true" || (this.dom.getAttribute("leap-attractor-x-padding") != null && !isNaN(this.dom.getAttribute("leap-attractor-x-padding"))) || (this.dom.getAttribute("leap-attractor-y-padding") != null && !isNaN(this.dom.getAttribute("leap-attractor-y-padding")));
     },
     appendChild: function(element) {
         if (element instanceof HTMLElement) {
-            return this.element.appendChild(element);
+            return this.dom.appendChild(element);
         } else {
-            return this.element.appendChild(element.getElement());
+            return this.dom.appendChild(element.getDom());
         }
     },
     removeChild: function(element) {
         if (element instanceof HTMLElement) {
-            return this.element.removeChild(element);
+            return this.dom.removeChild(element);
         } else {
-            return this.element.removeChild(element.getElement());
+            return this.dom.removeChild(element.getDom());
         }
     },
     getID: function() {
-        return this.element.id;
+        return this.dom.id;
     },
     setStyle: function(style) {
         for (var key in style) {
-            this.element.style[key] = style[key];
+            this.dom.style[key] = style[key];
         }
     },
     getParent: function() {
-        return this.element.parentNode;
+        return this.dom.parentNode;
     },
     getWidth: function() {
-        return this.element.offsetWidth;
+        return this.dom.offsetWidth;
     },
     getHeight: function() {
-        return this.element.offsetHeight;
+        return this.dom.offsetHeight;
     },
-    getElement: function() {
-        return this.element;
+    getDom: function() {
+        return this.dom;
     },
     hasCursor: function() {
         return this.cursor !== null;
@@ -2059,30 +2059,30 @@ LeapElement.prototype = {
     },
     getAttractorPadding: function() {
         return {
-            x: parseInt(this.element.getAttribute("leap-attractor-x-padding"), 10) || 0,
-            y: parseInt(this.element.getAttribute("leap-attractor-y-padding"), 10) || 0
+            x: parseInt(this.dom.getAttribute("leap-attractor-x-padding"), 10) || 0,
+            y: parseInt(this.dom.getAttribute("leap-attractor-y-padding"), 10) || 0
         };
     },
     setAttribute: function(name, value){
-        this.element.setAttribute(name, value);
+        this.dom.setAttribute(name, value);
     },
     getClickDelay: function() {
-        return this.element.getAttribute("leap-click-delay");
+        return this.dom.getAttribute("leap-click-delay");
     },
     hasMultitap: function() {
-        return this.element.getAttribute("leap-enable-multitap") === "true";
+        return this.dom.getAttribute("leap-enable-multitap") === "true";
     },
     isTappable: function() {
-        return this.element.getAttribute("leap-disable-tap") !== "true";
+        return this.dom.getAttribute("leap-disable-tap") !== "true";
     },
     isHoverable: function() {
-        return this.element.getAttribute("leap-disable-hover") !== "true";
+        return this.dom.getAttribute("leap-disable-hover") !== "true";
     },
     hasRelay: function() {
-      return this.element.getAttribute("leap-relay") !== null;
+      return this.dom.getAttribute("leap-relay") !== null;
     },
     getRelay: function() {
-        var selector = this.element.getAttribute("leap-relay");
+        var selector = this.dom.getAttribute("leap-relay");
         return selector;
     },
     setXY: function(x, y) {
@@ -2090,43 +2090,45 @@ LeapElement.prototype = {
         this.setY(y);
     },
     setX: function(x) {
-        this.element.style.left = x + "px";
+        this.dom.style.left = x + "px";
     },
     setY: function(y) {
-        this.element.style.top = y + "px";
+        this.dom.style.top = y + "px";
     },
     getX: function() {
-        return this.element.getBoundingClientRect().left;
+        return this.dom.getBoundingClientRect().left;
     },
     getY: function() {
-        return this.element.getBoundingClientRect().top;
+        return this.dom.getBoundingClientRect().top;
     },
     scroll:function(speed) {
-        var yDiff = this.element.clientHeight > this.element.parentElement.clientHeight;
-        var xDiff = this.element.clientWidth > this.element.parentElement.clientWidth;
+        var dom = this.dom,
+            domParent = dom.parentElement,
+            yDiff = dom.clientHeight > domParent.clientHeight,
+            xDiff = dom.clientWidth > domParent.clientWidth;
 
-        if(this.element === document.body) {
+        if(dom === document.body) {
             if(yDiff > 0 && yDiff > xDiff) {
                 this.scrollY(speed);
             }else if(xDiff >0) {
                 this.scrollX(speed);
             }
         }else {
-            if(this.element.scrollHeight > this.element.clientHeight) {
+            if(dom.scrollHeight > dom.clientHeight) {
                 this.scrollY(speed);
-            }else if (this.element.scrollWidth > this.element.clientWidth) {
+            }else if (dom.scrollWidth > dom.clientWidth) {
                 this.scrollX(speed);
             }
         }
     },
     scrollX: function(speed) {
-        this.element.scrollLeft += speed;
+        this.dom.scrollLeft += speed;
     },
     scrollY: function(speed) {
-        this.element.scrollTop += speed;
+        this.dom.scrollTop += speed;
     },
     addClass: function(classname) {
-        var cn = this.element.className;
+        var cn = this.dom.className;
         //test for existance
         if (cn && cn.indexOf(classname) !== -1) {
             return;
@@ -2135,16 +2137,16 @@ LeapElement.prototype = {
         if (cn !== '') {
             classname = ' ' + classname;
         }
-        this.element.className = cn + classname;
+        this.dom.className = cn + classname;
     },
     removeClass: function(classname) {
-        var cn = this.element.className;
+        var cn = this.dom.className;
         var rxp = new RegExp("\\s?\\b" + classname + "\\b", "g");
         cn = cn.replace(rxp, '');
-        this.element.className = cn;
+        this.dom.className = cn;
     },
     fireEvent: function(event) {
-        this.element.dispatchEvent(event);
+        this.dom.dispatchEvent(event);
     }
 };
 
@@ -2496,6 +2498,7 @@ Cursor.prototype = {
     },
     fireEvent: function(event) {
         if (this.element) {
+            event.cursor = this;
             this.element.fireEvent.apply(this.element, [event]);
         }
     },
@@ -2570,21 +2573,62 @@ Cursor.prototype = {
             this.release();
         }
     },
+    initEvent: function(evtType, type) {
+        var evt = document.createEvent(evtType),
+            args = [
+                // Type
+                type, 
+                // CanBubble
+                true, 
+                // Cancelable
+                true, 
+                // view
+                window,
+                // detail 
+                1, 
+                // screenX
+                this.icon.getX(), 
+                // screenY
+                this.icon.getY(), 
+                // clientX
+                this.icon.getX(), 
+                // client Y
+                this.icon.getY(), 
+                // ctrlKey, altKey, shiftKey, metaKey
+                false, false, false, false, 
+                // button
+                0, 
+                // related target
+                this.element.getDom()
+            ],
+            fn;
+
+        if(evtType === "MouseEvent") {
+            fn = evt.initMouseEvent;
+        } else if(evtType === "UIEvent") {
+            fn = evt.initUIEvent;
+        } else {
+            fn = evt.initEvent;
+        }
+
+        fn.apply(evt, args);
+        return evt;
+    },
+    initAndFireEvent: function(evtType, type) {
+        var evt = this.initEvent(evtType, type);
+        this.fireEvent(evt);
+    },
     dispatchOver: function(element) {
         if(element) this.setElement(element);
         if(this.hasElement()) {
-            var mouseEvent = document.createEvent("MouseEvent");
-            mouseEvent.initMouseEvent("mouseover", true, false, window, 1, this.icon.getX(), this.icon.getY(), this.icon.getX(), this.icon.getY(), false, false, false, false, 0, this.element);
-            this.element.fireEvent(mouseEvent);
+            this.initAndFireEvent("MouseEvent", "mouseover");
             this.onElementOver(this.element);
         }
     },
     dispatchMove: function(element) {
         if(element) this.setElement(element);
         if(this.hasElement()) {
-            var mouseEvent = document.createEvent("MouseEvent");
-            mouseEvent.initMouseEvent("mousemove", true, false, window, 1, this.icon.getX(), this.icon.getY(), this.icon.getX(), this.icon.getY(), false, false, false, false, 0, this.element);
-            this.element.fireEvent(mouseEvent);
+            this.initAndFireEvent("MouseEvent", "mousemove");
             this.onElementMove(this.element);
             if(this.manager.isPressDownEnabled() && this.element.isTappable()) {
                 if(!this.isDown() && this.getZ() < this.manager.getPressThreshold()) {
@@ -2598,10 +2642,7 @@ Cursor.prototype = {
     dispatchOut: function(element) {
         if(element) this.setElement(element);
         if(this.hasElement()) {
-            var mouseEvent = document.createEvent("MouseEvent");
-            mouseEvent.initMouseEvent("mouseout", true, false, window, 1, this.icon.getX(), this.icon.getY(), this.icon.getX(), this.icon.getY(), false, false, false, false, 0, this.element);
-            this.element.fireEvent(mouseEvent);
-
+            this.initAndFireEvent("MouseEvent", "mouseout");
             if(this.isDown()) this.dispatchUp(element, false);
             this.onElementOut(this.element);
         }
@@ -2610,9 +2651,7 @@ Cursor.prototype = {
         if(element) this.setElement(element);
         this._startPoint = {x:this.icon.getX(), y: this.icon.getY()};
         if(this.hasElement()) {
-            var mouseEvent = document.createEvent("MouseEvent");
-            mouseEvent.initMouseEvent("mousedown", true, false, window, 1, this.icon.getX(), this.icon.getY(), this.icon.getX(), this.icon.getY(), false, false, false, false, 0, this.element);
-            this.element.fireEvent(mouseEvent);
+            this.initAndFireEvent("MouseEvent", "mousedown");
             this.onElementDown(this.element);
         }
     },
@@ -2620,9 +2659,7 @@ Cursor.prototype = {
         if(!LeapManagerUtils.exists(dispatchClick)) dispatchClick = true;
         if(element) this.setElement(element);
         if(this.hasElement()) {
-            var mouseEvent = document.createEvent("MouseEvent");
-            mouseEvent.initMouseEvent("mouseup", true, false, window, 1, this.icon.getX(), this.icon.getY(), this.icon.getX(), this.icon.getY(), false, false, false, false, 0, this.element);
-            this.element.fireEvent(mouseEvent);
+            this.initAndFireEvent("MouseEvent", "mouseup");
             this.onElementUp(this.element);
 
             var distance = LeapManagerUtils.distance(this._startPoint, {x:this.icon.getX(), y: this.icon.getY()});
@@ -2635,19 +2672,107 @@ Cursor.prototype = {
     dispatchClick: function(element) {
         if(element) this.setElement(element);
         if(this.hasElement()) {
-            var mouseEvent = document.createEvent("MouseEvent");
-            mouseEvent.initMouseEvent("click", true, false, window, 1, this.icon.getX(), this.icon.getY(), this.icon.getX(), this.icon.getY(), false, false, false, false, 0, this.element);
-            this.element.fireEvent(mouseEvent);
+            this.initAndFireEvent("MouseEvent", "click");
         }  
     },
     dispatchTap: function(element) {
         if(element) this.setElement(element);
         if(this.hasElement()) {
-            var mouseEvent = document.createEvent("UIEvent");
-            mouseEvent.initUIEvent("tap", true, false, window, 1, this.icon.getX(), this.icon.getY(), this.icon.getX(), this.icon.getY(), false, false, false, false, 0, this.element);
-            this.element.fireEvent(mouseEvent);
+            this.initAndFireEvent("UIEvent", "tap");
         }  
     }
+};
+
+var HandCursor = function(config) {
+    var HAND_OPEN = "open", 
+        HAND_GRAB = "grab",
+        HAND_CLOSED = "closed",
+        EVT_GRAB = "grab",
+        EVT_RELEASE = "release",
+        EVT_MOVE = "move",
+        ACTIVE_CLASS = "grabbed",
+        ACTIVE_CURSOR_CLASS = "leap-cursor-grabbing",
+        cursor = new Cursor(config);
+
+    LeapManagerUtils.extend(cursor, 
+        {
+            isHand: true,
+            lastOpenTime: new Date(),
+            grabDelay: 200,
+            handState: null,
+            isOutside: false,
+            update: function(x,y,z,fingers) {
+                    var timeDiff;
+
+                Cursor.prototype.update.apply(this, arguments);
+
+                if(this.hasElement()) {
+                    if(this.handState === null) {
+                        this.handState = HAND_CLOSED;
+                        return;
+                    }
+
+                    if(this.handState !== HAND_GRAB && fingers > 2) {
+                        this.handState = HAND_OPEN;
+                        this.lastOpenTime = new Date();
+                    } else if(this.handState === HAND_GRAB && fingers  <=2 ) {
+                        this.dispatchGrab(EVT_MOVE);
+                    } else if(this.handState === HAND_GRAB && fingers  > 2 ) {
+                        this.handState = HAND_OPEN;
+                        this.dispatchGrab(EVT_RELEASE);
+                    } else if (this.handState === HAND_OPEN && fingers <= 2) {
+                        timeDiff = new Date() - this.lastOpenTime;
+                        if(timeDiff < this.grabDelay) {
+                            this.handState = HAND_GRAB;
+                            this.dispatchGrab(EVT_GRAB);
+                        } else {
+                            this.handState = HAND_CLOSED;
+                        }
+                    }
+                }
+            },
+            dispatchGrab: function(type) {
+                var evt;
+                if (this.hasElement()) {
+                    evt = this.initEvent("MouseEvent", "leap-hand-grab");
+                    evt.state = type;
+                    evt.gesture = "grab";
+                    this.element.fireEvent(evt);
+                }
+
+                if(this.hasElement()) {
+                    if(type === EVT_GRAB) {
+                        this.element.addClass(ACTIVE_CLASS);
+                        cursor.icon.addClass(ACTIVE_CURSOR_CLASS);
+                    } else if(type === EVT_RELEASE ) {
+                        this.element.removeClass(ACTIVE_CLASS);
+                        cursor.icon.removeClass(ACTIVE_CURSOR_CLASS);
+                        if(this.isOutside) {
+                            this.setElement(null);
+                        }
+                    }
+                }
+            },
+            onElementOver: function(element) { 
+                this.isOutside = false;
+                Cursor.prototype.onElementOver.apply(this, arguments);
+            },
+            onElementOut: function(element) {
+                if(this.handState !== HAND_GRAB) {
+                    Cursor.prototype.onElementOut.apply(this, arguments);
+                } else {
+                    this.isOutside = true;
+                    if (element.isHoverable()) {
+                        element.removeClass("hover");
+                    }
+                    if (this.manager.isHoverTapEnabled() && this.currentClickDelay && element.isTappable()) {
+                        this.stopTimer();
+                    }
+                }
+            }
+        }
+    );
+    return cursor;
 };
 
 var CursorManager = function(config) {
@@ -2666,7 +2791,7 @@ var CursorManager = function(config) {
     if (!this.cursorContainer) {
         this.cursorContainer = new LeapElement(document.createElement('div'));
         var root = config.root || document.body;
-        root.appendChild(this.cursorContainer.element);
+        root.appendChild(this.cursorContainer.getDom());
         this.cursorContainer.addClass(this.cursorContainerClass);
         this.cursorContainer.setStyle({
             zIndex: 100000,
@@ -2770,7 +2895,7 @@ CursorManager.prototype = {
     update: function() {
         var windowPoint, destinationPoint, xDiff, yDiff, xRatio, yRatio, halfWidth, halfHeight, minPull = 0.1,
             maxPull = 1,
-            bounds, originalElement, element, i, cursor,
+            bounds, originalElement, element, attractorElement, i, cursor,
             typeIndex, sourceIndex, cursorIndex;
         for(typeIndex in this.cursorLookup){
             for(sourceIndex in this.cursorLookup[typeIndex]){
@@ -2808,7 +2933,8 @@ CursorManager.prototype = {
                         halfHeight = (cursor.icon.getHeight() / 2);
                         if (!cursor.isCaptured()) {
                             if (cursor.attractor) {
-                                bounds = cursor.attractor.element.getBoundingClientRect();
+                                attractorElement = cursor.attractor.getDom();
+                                bounds = attractorElement.getBoundingClientRect();
                                 destinationPoint = {
                                     x: Math.round((bounds.left + (bounds.width / 2)) - halfWidth),
                                     y: Math.round((bounds.top + (bounds.height / 2)) - halfHeight)
@@ -2914,7 +3040,7 @@ CursorManager.prototype = {
                         if(element.isTappable() && typeof(this.untappableSelector) === "string" && this.untappableSelector.length >0) {
                             var untappableElements = LeapManagerUtils.getQueryAll("untappableElements", this.untappableSelector, this.cacheAllQueries) || [];
                             for (i = 0; i < untappableElements.length; i++) {
-                                if(untappableElements[i] === element.getElement()) {
+                                if(untappableElements[i] === element.getDom()) {
                                     element.setAttribute("leap-disable-tap", "true");
                                     break;
                                 }
@@ -3021,6 +3147,7 @@ var LeapManager = (function() {
     var LEAP_SOURCE = "leap";
     var defaultConfig = {
         maxCursors: 1,
+        useHands: false,
         enableTouchScrolling: false,
         enableScrollbarScrolling: true,
         enableHoverTap: true,
@@ -3037,6 +3164,7 @@ var LeapManager = (function() {
         root: null,
         gestureCallback: null,
         gestureScope: null,
+        frameCallback: null,
         interactiveSelector: null,
         enableSenchaTouch: false,
         boundary: {
@@ -3079,6 +3207,7 @@ var LeapManager = (function() {
             this.simulateWithMouse = config.simulateWithMouse;
             this.gestureCallback = config.gestureCallback;
             this.gestureScope = config.gestureScope;
+            this.frameCallback = config.frameCallback;
             this.cursorConfig = config.cursorConfig;
             
             this.enableTouchScrolling = config.enableTouchScrolling;
@@ -3090,6 +3219,8 @@ var LeapManager = (function() {
             this.enableMetaGestures = config.enableMetaGestures;
             this.enableDefaultMetaGestureActions = config.enableDefaultMetaGestureActions;
             this.metaGestureMaxDelay = config.metaGestureMaxDelay || 500;
+
+            this.useHands = config.useHands;
 
             //Sencha Touch Switch
             if (config.enableSenchaTouch) {
@@ -3131,8 +3262,15 @@ var LeapManager = (function() {
         onLoop: function(frame) {
             if (!this.isActiveWindow) return;
             this.cursorManager.update();
-            this.updatePointables(frame);
-            this.updateGestures(frame);
+            if(this.useHands) {
+                this.updateHands(frame);
+            }else {
+                this.updatePointables(frame);
+                this.updateGestures(frame);
+            }
+            if (this.frameCallback) {
+                this.frameCallback.call(this, frame);
+            }
         },
         updatePointables: function(frame) {
             var pointable, pointableIndex, cursor, posX, posY, posZ, cursorIndex, currentCursors = [];
@@ -3156,7 +3294,33 @@ var LeapManager = (function() {
 
             this.cursorManager.pruneCursors(LEAP_SOURCE, currentCursors);
         },
-        getCursor: function(id, position) {
+        updateHands: function(frame) {
+            var hand, handIndex, cursor, posX, posY, posZ, cursorIndex, currentCursors = [];
+            if (frame && frame.hands) {
+                for (handIndex = 0; handIndex < frame.hands.length && handIndex < this.maxCursors; handIndex++) {
+                    hand = frame.hands[handIndex];
+                    if (hand) {
+                        posX = LeapManagerUtils.map(hand.palmPosition[0], this.boundary.left, this.boundary.right, 0, 1);
+                        posY = LeapManagerUtils.map(hand.palmPosition[1], this.boundary.bottom, this.boundary.top, 1, 0);
+                        posZ = hand.palmPosition[2]; 
+                        cursor = this.getCursor(
+                            hand.id, 
+                            {
+                                x: posX,
+                                y: posY,
+                                z: posZ
+                            }, 
+                            true
+                        );
+                        currentCursors.push(cursor.id);
+                        cursor.update(posX, posY, posZ, hand.fingers.length);
+                    }
+                }
+            }
+
+            this.cursorManager.pruneCursors(LEAP_SOURCE, currentCursors);
+        },
+        getCursor: function(id, position, isHand) {
             var cursor = this.cursorManager.get(LEAP_SOURCE, id);
             if (cursor) return cursor;
 
@@ -3169,7 +3333,11 @@ var LeapManager = (function() {
                 icon: icon
             };
             LeapManagerUtils.extend(cfg, this.cursorConfig);
-            cursor = new Cursor(cfg);
+            if(isHand) {
+                cursor = new HandCursor(cfg);
+            } else {
+                cursor = new Cursor(cfg);
+            }
             this.cursorManager.add(cursor);
             return cursor;
         },
@@ -3347,7 +3515,6 @@ var LeapManager = (function() {
                             previousGesture = me.gestureHistory[gesture.type][0];
                             if(gesture._direction === previousGesture._direction) {
                                 timeDiff = gesture.timestamp - previousGesture.timestamp;
-                                console.log(timeDiff);
                                 if(timeDiff < me.metaGestureMaxDelay) {
                                     var dualSwipe = new DualSwipe(gesture, previousGesture, gesture._direction);
 
