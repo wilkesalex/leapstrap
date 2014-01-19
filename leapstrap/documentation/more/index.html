@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Leapstrap - Leap Motion web framework">
+<meta name="author" content="Alex Wilkes">
+<meta property="og:title" content="Leapstrap" />
+<meta property="og:url" content="http://wilkesalex.github.io/leapstrap/" />
+<meta property="og:image" content="http://wilkesalex.github.io/leapstrap/docs-assets/img/Leapstrap.jpg" />
+
+<title>
+  
+    More Components &middot; Leapstrap
+  
+</title>
+
+<link href="../dist/css/leapstrap.css" rel="stylesheet">
+<link href="../docs-assets/css/docs.css" rel="stylesheet">
+<link href="../docs-assets/css/pygments-manni.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script>window.jQuery || document.write('<script src="/dist/js/jquery.js">\x3C/script>')</script>
+<script src="//js.leapmotion.com/0.3.0-beta3/leap.js"></script>
+<!-- need to find code to localise -->
+<!-- <script>window.BaseConnection || document.write('<script src="/dist/js/leap.js">\x3C/script>')</script> -->
+<script src="../dist/js/leapstrap.js"></script>
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../docs-assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="../docs-assets/ico/favicon.png">
+  </head>
+  <body class="leap-interactive" leap-disable-tap="true" leap-disable-hover="true">
+    <a class="sr-only" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="../" class="navbar-brand">Leapstrap</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a class="leap-interactive" href="../getting-started">Get Started</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../leap">Leap</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../basics">Basics</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../components">Components 1</a>
+        </li>
+         <li class="active">
+          <a class="leap-interactive" href="../more">Components 2</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../javascript">JavaScript</a>
+        </li>
+      
+       
+       
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a class="leap-interactive" href="../about">About</a>
+        </li>
+       <!-- 
+  <li>
+          <a class="leap-interactive" href="../data">Data</a>
+        </li>
+ -->
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-header" id="content">
+      <div class="container container-fluid">
+        <h1>More Components</h1>
+        <p>Over a dozen reusable components built to provide Leap users with a decent web browsing experience</p>
+      
+      </div>
+    </div>
+
+    <!-- Callout for the old docs link -->
+   
+
+    <div class="container container-fluid bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-sidebar hidden-xs hidden-print" role="complementary">
+            <ul class="nav bs-sidenav">
+              
+                <li>
+<a class="leap-interactive" href="#pagination">Pagination</a> 
+<ul class="nav">
+	<li><a class="leap-interactive" href="#pagination-default">Pagination</a></li>
+	<li><a class="leap-interactive" href="#pagination-pager">Pager</a></li>
+</ul>
+</li>
+
+<li> <a class="leap-interactive" href="#list-group">List group</a> 
+<ul class="nav">
+	<li><a class="leap-interactive" href="#list-group-leap">Linked items</a></li>
+	<li><a class="leap-interactive" href="#list-group-custom-content">Custom content</a></li>
+</ul>
+</li>
+
+<li> <a class="leap-interactive" href="#navbar">Navbar</a> 
+<ul class="nav">
+	<li><a class="leap-interactive" href="#navbar-default">Default navbar</a></li>
+	
+	<li><a class="leap-interactive" href="#navbar-component-alignment">Component alignment</a></li>
+	<li><a class="leap-interactive" href="#navbar-fixed-top">Fixed</a></li>
+	<li><a class="leap-interactive" href="#navbar-static-top">Static top</a></li>
+</ul>
+</li>
+
+<li><a class="leap-interactive" href="#breadcrumbs">Breadcrumbs</a></li>
+<li>
+  <a href="#glyphicons">Glyphicons</a>
+</li>
+              
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9" role="main">
+          <!-- Pagination
+  ================================================== -->
+<div class="bs-docs-section">
+	<div class="page-header">
+		<h1 id="pagination">
+			Pagination
+		</h1>
+	</div>
+	<p class="lead">
+		Provide pagination links for your site or app with the multi-page pagination component, or the simpler <a class="leap-interactive" href="#pagination-pager">pager alternative</a>.
+	</p>
+	<h2 id="pagination-default">
+		Default pagination
+	</h2>
+	<p>
+		Simple pagination inspired by Rdio, great for apps and search results. The large block is hard to miss, easily scalable, and provides large click areas.
+	</p>
+	<div class="bs-example">
+		<ul class="pagination">
+			<li><a class="leap-interactive" href="#">&laquo;</a></li>
+			<li><a class="leap-interactive" href="#">1</a></li>
+			<li><a class="leap-interactive" href="#">2</a></li>
+			<li><a class="leap-interactive" href="#">3</a></li>
+			<li><a class="leap-interactive" href="#">4</a></li>
+			<li><a class="leap-interactive" href="#">5</a></li>
+			<li><a class="leap-interactive" href="#">&raquo;</a></li>
+		</ul>
+	</div>
+<div class="highlight"><pre><code class="html"> 
+<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;pagination&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;laquo;</span><span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>3<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>4<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>5<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;raquo;</span><span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div> 
+	<h3>
+		Disabled and active states
+	</h3>
+	<p>
+		Links are customizable for different circumstances. Use <code>.disabled</code> for unclickable links and <code>.active</code> to indicate the current page.
+	</p>
+	<div class="bs-example">
+		<ul class="pagination">
+			<li class="disabled"><a class="leap-interactive" href="#">&laquo;</a></li>
+			<li class="active"><a class="leap-interactive" href="#">1 <span class="sr-only">(current)</span></a></li>
+			<li><a class="leap-interactive" href="#">2</a></li>
+			<li><a class="leap-interactive" href="#">3</a></li>
+			<li><a class="leap-interactive" href="#">4</a></li>
+			<li><a class="leap-interactive" href="#">5</a></li>
+			<li><a class="leap-interactive" href="#">&raquo;</a></li>
+		</ul>
+	</div>
+<div class="highlight"><pre><code class="html"> 
+<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;pagination&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;disabled&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;laquo;</span><span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>1 <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;sr-only&quot;</span><span class="nt">&gt;</span>(current)<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+... 
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div> 
+	<p>
+		You can optionally swap out active or disabled anchors for <code>&lt;span&gt;</code> to remove click functionality while retaining intended styles.
+	</p>
+	<div class="highlight"><pre><code class="html"> 
+<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;pagination&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;disabled&quot;</span><span class="nt">&gt;&lt;span&gt;</span><span class="ni">&amp;laquo;</span><span class="nt">&lt;/span&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;active&quot;</span><span class="nt">&gt;&lt;span&gt;</span>1 <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;sr-only&quot;</span><span class="nt">&gt;</span>(current)<span class="nt">&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;</span>
+... 
+<span class="nt">&lt;/ul&gt;</span>
+	
+</code></pre></div> 
+	<h2 id="pagination-pager">
+		Pager
+	</h2>
+	<p>
+		Quick previous and next links for simple pagination implementations with light markup and styles. It's great for simple sites like blogs or magazines.
+	</p>
+	<h3>
+		Default example
+	</h3>
+	<p>
+		By default, the pager centers links.
+	</p>
+	<div class="bs-example">
+		<ul class="pager">
+			<li><a class="leap-interactive" href="#">Previous</a></li>
+			<li><a class="leap-interactive" href="#">Next</a></li>
+		</ul>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;pager&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+	
+</code></pre></div> 
+	<h3>
+		Aligned links
+	</h3>
+	<p>
+		Alternatively, you can align each link to the sides:
+	</p>
+	<div class="bs-example">
+		<ul class="pager">
+			<li class="previous"><a class="leap-interactive" href="#">&larr; Older</a></li>
+			<li class="next"><a class="leap-interactive" href="#">Newer &rarr;</a></li>
+		</ul>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;pager&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;previous&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;larr;</span> Older<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;next&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Newer <span class="ni">&amp;rarr;</span><span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+	
+</code></pre></div> 
+	<h3>
+		Optional disabled state
+	</h3>
+	<p>
+		Pager links also use the general <code>.disabled</code> utility class from the pagination. You have two options, you can either not use <code>leap-interactive</code> on the element, or specify <code>leap-disabled-hover="true"</code> and <code>leap-disabled-tap="true"</code>
+	</p>
+	<div class="bs-example">
+		<ul class="pager">
+			<li class="previous disabled"><a class="leap-interactive" href="javascript:void(0);" leap-disabled-hover="true" leap-disabled-tap="true">&larr; Older</a></li>
+			<li class="next"><a class="leap-interactive" href="javascript:void(0);">Newer &rarr;</a></li>
+		</ul>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;pager&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;previous disabled&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">leap-disabled-hover=</span><span class="s">&quot;true&quot;</span> <span class="na">leap-disabled-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;larr;</span> Older<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+		<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;next&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Newer <span class="ni">&amp;rarr;</span><span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+	<span class="nt">&lt;/ul&gt;</span>
+	
+</code></pre></div> 
+</div>
+
+
+<!-- List group
+  ================================================== -->
+<div class="bs-docs-section">
+	<div class="page-header">
+		<h1 id="list-group">
+			List group
+		</h1>
+	</div>
+	<p class="lead">
+		List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content.
+	</p>
+	<h3 id="list-group-leap">
+		Leap List items
+	</h3>
+	<p>
+		Linkify list group items by using anchor tags instead of list items (that also means a parent <code>&lt;div&gt;</code> instead of an <code>&lt;ul&gt;</code>). No need for individual parents around each element.
+	</p>
+	<div class="bs-example">
+		<div class="list-group">
+			<a href="javascript:void(0);" class="list-group-item active leap-interactive"><span class="badge">14</span> Cras justo odio </a> <a href="javascript:void(0);" class="list-group-item leap-interactive"><span class="badge">14</span>Dapibus ac facilisis in</a> <a href="javascript:void(0);" class="list-group-item leap-interactive"><span class="badge">14</span>Morbi leo risus</a> <a href="javascript:void(0);" class="list-group-item leap-interactive"><span class="badge">14</span>Porta ac consectetur ac</a> <a href="javascript:void(0);" class="list-group-item leap-interactive"><span class="badge">14</span>Vestibulum at eros</a> 
+		</div>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;list-group&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item active leap-interactive&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;badge&quot;</span><span class="nt">&gt;</span>14<span class="nt">&lt;/span&gt;</span> Cras justo odio <span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item leap-interactive&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;badge&quot;</span><span class="nt">&gt;</span>14<span class="nt">&lt;/span&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item leap-interactive&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;badge&quot;</span><span class="nt">&gt;</span>14<span class="nt">&lt;/span&gt;</span>Morbi leo risus<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item leap-interactive&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;badge&quot;</span><span class="nt">&gt;</span>14<span class="nt">&lt;/span&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item leap-interactive&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;badge&quot;</span><span class="nt">&gt;</span>14<span class="nt">&lt;/span&gt;</span>Vestibulum at eros<span class="nt">&lt;/a&gt;</span> 
+	<span class="nt">&lt;/div&gt;</span>
+	
+</code></pre></div> 
+	<h3 id="list-group-custom-content">
+		Custom content
+	</h3>
+	<p>
+		Add nearly any HTML within, even for linked list groups like the one below. Just add <code>leap-interactive</code> to the anchor.
+	</p>
+	<div class="bs-example">
+		<div class="list-group">
+			<a href="javascript:void(0);" class="list-group-item active leap-interactive"> 
+		<h4 class="list-group-item-heading">
+			List group item heading
+		</h4>
+	<p class="list-group-item-text">
+		Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+	</p>
+	</a> <a href="javascript:void(0);" class="list-group-item leap-interactive"> 
+<h4 class="list-group-item-heading">
+	List group item heading
+</h4>
+<p class="list-group-item-text">
+Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+</p>
+</a> <a href="javascript:void(0);" class="list-group-item leap-interactive"> 
+<h4 class="list-group-item-heading">
+List group item heading
+</h4>
+<p class="list-group-item-text">
+Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+</p>
+</a> 
+</div>
+</div>
+<div class="highlight"><pre><code class="html"> 
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;list-group&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item active leap-interactive&quot;</span><span class="nt">&gt;</span> 
+<span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">&quot;list-group-item-heading&quot;</span><span class="nt">&gt;</span>
+	List group item heading
+<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;list-group-item-text&quot;</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item  leap-interactive&quot;</span><span class="nt">&gt;</span> 
+<span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">&quot;list-group-item-heading&quot;</span><span class="nt">&gt;</span>
+List group item heading
+<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;list-group-item-text&quot;</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/a&gt;</span> 
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div> 
+</div>
+
+
+<!-- Navbar
+  ================================================== -->
+<div class="bs-docs-section">
+	<div class="page-header">
+		<h1 id="navbar">
+			Navbar
+		</h1>
+	</div>
+	<h2 id="navbar-default">
+		Default navbar
+	</h2>
+	<p>
+		Navbars are responsive meta components that serve as navigation headers for your application or site. They begin collapsed (and are toggleable) in mobile views and become horizontal as the available viewport width increases.
+	</p>
+	<div class="bs-callout bs-callout-info">
+		<h4>
+			Customize the collapsing point
+		</h4>
+		<p>
+			Depending on the content in your navbar, you might need to change the point at which your navbar switches between collapsed and horizontal mode. Customize the <code>@grid-float-breakpoint</code> variable or add your own media query.
+		</p>
+	</div>
+	<div class="bs-callout bs-callout-warning" id="multiple-navbars-warning">
+		<h4>
+			Multiple navbars require custom code
+		</h4>
+		<p>
+			Multiple nearby navbars with dropdown menus are not supported by default. You will need to override the <code>z-index</code>es of the dropdown menus yourself. Otherwise, the dropdown menu will display behind the other navbar.
+		</p>
+		<p>Set dropdown href to be <code>javascript:void(0);</code>, to not trigger anchor actions. (i.e. don't use <code>href="#"</code> where you can use <code>javascript:void(0);</code>.</p>
+	</div>
+	<div class="bs-example">
+		<nav class="navbar navbar-default" role="navigation"> 
+<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle leap-interactive" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand leap-interactive" href="javascript:void(0);">Brand</a> 
+		</div>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a class="leap-interactive" href="#">Link</a></li>
+				<li><a class="leap-interactive" href="#">Link</a></li>
+				<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle leap-interactive" data-toggle="dropdown">Dropdown <b class="caret"></b></a> 
+				<ul class="dropdown-menu" role="menu">
+					<li><a class="leap-interactive" href="javascript:void(0);">Action</a></li>
+					<li><a class="leap-interactive" href="javascript:void(0);">Another action</a></li>
+					<li><a class="leap-interactive" href="javascript:void(0);">Something else here</a></li>
+					<li class="divider"></li>
+					<li><a class="leap-interactive" href="javascript:void(0);">Separated link</a></li>
+					<li class="divider"></li>
+					<li><a class="leap-interactive" href="javascript:void(0);">One more separated link</a></li>
+				</ul>
+				</li>
+			</ul>
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control leap-interactive" placeholder="Search">
+				</div>
+				<button type="submit" class="btn btn-default leap-interactive">Submit</button> 
+			</form>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a class="leap-interactive" href="javascript:void(0);">Link</a></li>
+				
+			</ul>
+		</div>
+
+<!-- /.navbar-collapse -->
+		</nav> 
+	</div>
+	<div class="highlight"><pre><code class="html"> <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">&quot;navbar navbar-default&quot;</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span><span class="nt">&gt;</span> 
+<span class="c">&lt;!-- Brand and toggle get grouped for better mobile display --&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navbar-header&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;navbar-toggle leap-interactive&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#bs-example-navbar-collapse-1&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;sr-only&quot;</span><span class="nt">&gt;</span>Toggle navigation<span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;icon-bar&quot;</span><span class="nt">&gt;&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;icon-bar&quot;</span><span class="nt">&gt;&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;icon-bar&quot;</span><span class="nt">&gt;&lt;/span&gt;</span> <span class="nt">&lt;/button&gt;</span> <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;navbar-brand leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Brand<span class="nt">&lt;/a&gt;</span> 
+	<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- Collect the nav links, forms, and other content for toggling --&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;collapse navbar-collapse&quot;</span> <span class="na">id=</span><span class="s">&quot;bs-example-navbar-collapse-1&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav navbar-nav&quot;</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+			<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+			<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;dropdown&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;dropdown-toggle leap-interactive&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;dropdown&quot;</span><span class="nt">&gt;</span>Dropdown <span class="nt">&lt;b</span> <span class="na">class=</span><span class="s">&quot;caret&quot;</span><span class="nt">&gt;&lt;/b&gt;&lt;/a&gt;</span> 
+			<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;dropdown-menu&quot;</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Another action<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Something else here<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+				<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;divider&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Separated link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+				<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;divider&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>One more separated link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+			<span class="nt">&lt;/ul&gt;</span>
+			<span class="nt">&lt;/li&gt;</span>
+		<span class="nt">&lt;/ul&gt;</span>
+		<span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">&quot;navbar-form navbar-left&quot;</span> <span class="na">role=</span><span class="s">&quot;search&quot;</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control leap-interactive&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Search&quot;</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;/div&gt;</span>
+			<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default leap-interactive&quot;</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span> 
+		<span class="nt">&lt;/form&gt;</span>
+		<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav navbar-nav navbar-right&quot;</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+		
+		<span class="nt">&lt;/ul&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- /.navbar-collapse --&gt;</span>
+	<span class="nt">&lt;/nav&gt;</span> 
+</code></pre></div> 
+	<div class="bs-callout bs-callout-danger">
+		<h4>
+			Plugin dependency
+		</h4>
+		<p>
+			The responsive navbar requires the <a class="leap-interactive" href="../javascript/#collapse">collapse plugin</a> to be included in your version of Leapstrap.
+		</p>
+	</div>
+	<div class="bs-callout bs-callout-warning">
+		<h4>
+			Make navbars accessible
+		</h4>
+		<p>
+			Be sure to add a <code>role="navigation"</code> to every navbar to help with accessibility.
+		</p>
+	</div>
+	
+	<h2 id="navbar-component-alignment">
+		Component alignment
+	</h2>
+	<p>
+		Align nav links, forms, buttons, or text, using the <code>.navbar-left</code> or <code>.navbar-right</code> utility classes. Both classes will add a CSS float in the specified direction. For example, to align nav links, put them in a separate <code>&lt;ul&gt;</code> with the respective utility class applied.
+	</p>
+	<p>
+		These classes are mixin-ed versions of <code>.pull-left</code> and <code>.pull-right</code>, but they're scoped to media queries for easier handling of navbar components across device sizes.
+	</p>
+	<h2 id="navbar-fixed-top">
+		Fixed to top / bottom
+	</h2>
+	<p>
+		Add <code>.navbar-fixed-top</code>.
+	</p>
+	<p>
+		Or add <code>.navbar-fixed-bottom</code> instead.
+	</p>
+	<div class="bs-example bs-navbar-top-example">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 
+<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle leap-interactive" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand leap-interactive" href="javascript:void(0);">Brand</a> 
+		</div>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+			<ul class="nav navbar-nav">
+				<li class="active"><a class="leap-interactive" href="javascript:void(0);">Home</a></li>
+				<li><a class="leap-interactive" href="javascript:void(0);">Link</a></li>
+				<li><a class="leap-interactive" href="javascript:void(0);">Link</a></li>
+			</ul>
+		</div>
+
+<!-- /.navbar-collapse -->
+		</nav> 
+	</div>
+
+<!-- /example -->
+	<div class="highlight"><pre><code class="html"> <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">&quot;navbar navbar-default navbar-fixed-top&quot;</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span><span class="nt">&gt;</span> ... <span class="nt">&lt;/nav&gt;</span> 
+</code></pre></div> <div class="highlight"><pre><code class="html"> <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">&quot;navbar navbar-default navbar-fixed-bottom&quot;</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span><span class="nt">&gt;</span> ... <span class="nt">&lt;/nav&gt;</span> 
+</code></pre></div> 
+	<div class="bs-callout bs-callout-danger">
+		<h4>
+			Body padding required
+		</h4>
+		<p>
+			The fixed navbar will overlay your other content, unless you add <code>padding</code> to the top of the <code>&lt;body&gt;</code>. Try out your own values or use our snippet below. Tip: By default, the navbar is 50px high.
+		</p>
+		<div class="highlight"><pre><code class="css"> <span class="nt">body</span> <span class="p">{</span> <span class="k">padding-top</span><span class="o">:</span> <span class="m">70px</span><span class="p">;</span> <span class="p">}</span> 
+</code></pre></div> <div class="highlight"><pre><code class="css"> <span class="nt">body</span> <span class="p">{</span> <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">70px</span><span class="p">;</span> <span class="p">}</span> 
+</code></pre></div> 
+		<p>
+			Make sure to include this <strong>after</strong> the core Leapstrap CSS.
+		</p>
+	</div>
+	<h2 id="navbar-static-top">
+		Static top
+	</h2>
+	<p>
+		Create a full-width navbar that scrolls away with the page by adding <code>.navbar-static-top</code>. Unlike the <code>.navbar-fixed-*</code> classes, you do not need to change any padding on the <code>body</code>.
+	</p>
+	<div class="bs-example bs-navbar-top-example">
+		<nav class="navbar navbar-default navbar-static-top" role="navigation"> 
+<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-8"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="javascript:void(0);">Brand</a> 
+		</div>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
+			<ul class="nav navbar-nav">
+				<li class="active"><a class="leap-interactive" href="#">Home</a></li>
+				<li><a class="leap-interactive" href="javascript:void(0);">Link</a></li>
+				<li><a class="leap-interactive" href="javascript:void(0);">Link</a></li>
+			</ul>
+		</div>
+
+<!-- /.navbar-collapse -->
+		</nav> 
+	</div>
+
+<!-- /example -->
+	<div class="highlight"><pre><code class="html"> <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">&quot;navbar navbar-default navbar-static-top&quot;</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span><span class="nt">&gt;</span> ... <span class="nt">&lt;/nav&gt;</span> 
+</code></pre></div> 
+</div>
+
+
+<!-- Breadcrumbs
+  ================================================== -->
+<div class="bs-docs-section">
+	<div class="page-header">
+		<h1 id="breadcrumbs">
+			Breadcrumbs <small></small>
+		</h1>
+	</div>
+	<p class="lead">
+		Indicate the current page's location within a navigational hierarchy.
+	</p>
+	<p>
+		Separators are automatically added in CSS through <code>:before</code> and <code>content</code>. Just add CSS class <code>leap-interactive</code> to make your breadcrumbs leapable.
+	</p>
+	<div class="bs-example">
+		<ol class="breadcrumb">
+			<li class="active">Home</li>
+		</ol>
+		<ol class="breadcrumb">
+			<li><a class="leap-interactive" href="#">Home</a></li>
+			<li class="active">Library</li>
+		</ol>
+		<ol class="breadcrumb" style="margin-bottom: 5px;">
+			<li><a class="leap-interactive" href="#">Home</a></li>
+			<li><a class="leap-interactive" href="#">Library</a></li>
+			<li class="active">Data</li>
+		</ol>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">&quot;breadcrumb&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+		<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Library<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+		<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;active&quot;</span><span class="nt">&gt;</span>Data<span class="nt">&lt;/li&gt;</span>
+	<span class="nt">&lt;/ol&gt;</span>
+	
+</code></pre></div> 
+</div>
+
+    <!-- Glyphicons
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="glyphicons">Glyphicons</h1>
+    </div>
+
+    <h2 id="glyphicons-glyphs">Available glyphs</h2>
+    <p>Includes 200 glyphs in font format from the Glyphicon Halflings set. <a class="leap-interactive" href="http://glyphicons.com/">Glyphicons</a> Halflings are normally not available for free, but their creator has made them available for Leapstrap free of cost. As a thank you, we only ask that you to include a link back to <a class="leap-interactive" href="http://glyphicons.com/">Glyphicons</a> whenever possible.</p>
+    <ul class="bs-glyphicons">
+      <li>
+        <span class="glyphicon glyphicon-adjust"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-adjust</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-align-center"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-align-center</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-align-justify"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-align-justify</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-align-left"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-align-left</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-align-right"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-align-right</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-arrow-down"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-arrow-down</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-arrow-left</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-arrow-right"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-arrow-right</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-arrow-up"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-arrow-up</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-asterisk"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-asterisk</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-backward"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-backward</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-ban-circle"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-ban-circle</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-barcode"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-barcode</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-bell"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-bell</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-bold"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-bold</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-book"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-book</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-bookmark"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-bookmark</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-briefcase"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-briefcase</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-bullhorn"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-bullhorn</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-calendar"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-calendar</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-camera"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-camera</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-certificate"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-certificate</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-check"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-check</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-chevron-down"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-chevron-down</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-chevron-left</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-chevron-right</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-chevron-up"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-chevron-up</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-circle-arrow-down"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-circle-arrow-down</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-circle-arrow-left"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-circle-arrow-left</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-circle-arrow-right"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-circle-arrow-right</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-circle-arrow-up"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-circle-arrow-up</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-cloud"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-cloud</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-cloud-download"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-cloud-download</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-cloud-upload"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-cloud-upload</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-cog"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-cog</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-collapse-down"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-collapse-down</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-collapse-up"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-collapse-up</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-comment"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-comment</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-compressed"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-compressed</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-copyright-mark"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-copyright-mark</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-credit-card"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-credit-card</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-cutlery"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-cutlery</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-dashboard"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-dashboard</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-download"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-download</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-download-alt"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-download-alt</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-earphone"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-earphone</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-edit"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-edit</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-eject"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-eject</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-envelope"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-envelope</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-euro"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-euro</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-exclamation-sign</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-expand"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-expand</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-export"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-export</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-eye-close"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-eye-close</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-eye-open"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-eye-open</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-facetime-video"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-facetime-video</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-fast-backward"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-fast-backward</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-fast-forward"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-fast-forward</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-file"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-file</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-film"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-film</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-filter"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-filter</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-fire"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-fire</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-flag"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-flag</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-flash"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-flash</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-floppy-disk</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-floppy-open"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-floppy-open</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-floppy-remove"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-floppy-remove</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-floppy-save"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-floppy-save</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-floppy-saved"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-floppy-saved</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-folder-close"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-folder-close</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-folder-open"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-folder-open</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-font"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-font</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-forward"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-forward</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-fullscreen"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-fullscreen</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-gbp"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-gbp</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-gift"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-gift</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-glass"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-glass</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-globe"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-globe</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-hand-down"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-hand-down</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-hand-left"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-hand-left</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-hand-right"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-hand-right</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-hand-up"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-hand-up</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-hd-video"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-hd-video</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-hdd"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-hdd</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-header"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-header</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-headphones"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-headphones</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-heart"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-heart</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-heart-empty"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-heart-empty</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-home"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-home</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-import"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-import</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-inbox"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-inbox</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-indent-left"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-indent-left</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-indent-right"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-indent-right</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-info-sign"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-info-sign</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-italic"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-italic</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-leaf"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-leaf</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-link"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-link</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-list"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-list</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-list-alt"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-list-alt</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-lock"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-lock</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-log-in"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-log-in</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-log-out"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-log-out</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-magnet"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-magnet</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-map-marker"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-map-marker</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-minus"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-minus</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-minus-sign"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-minus-sign</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-move"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-move</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-music"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-music</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-new-window"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-new-window</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-off"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-off</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-ok"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-ok</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-ok-circle"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-ok-circle</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-ok-sign"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-ok-sign</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-open"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-open</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-paperclip"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-paperclip</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-pause"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-pause</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-pencil</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-phone"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-phone</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-phone-alt"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-phone-alt</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-picture"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-picture</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-plane"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-plane</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-play"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-play</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-play-circle"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-play-circle</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-plus"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-plus</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-plus-sign"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-plus-sign</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-print"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-print</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-pushpin"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-pushpin</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-qrcode"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-qrcode</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-question-sign"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-question-sign</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-random"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-random</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-record"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-record</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-refresh"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-refresh</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-registration-mark"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-registration-mark</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-remove"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-remove</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-remove-circle"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-remove-circle</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-remove-sign"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-remove-sign</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-repeat"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-repeat</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-resize-full"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-resize-full</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-resize-horizontal"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-resize-horizontal</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-resize-small"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-resize-small</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-resize-vertical"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-resize-vertical</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-retweet"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-retweet</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-road"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-road</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-save"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-save</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-saved"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-saved</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-screenshot"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-screenshot</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sd-video"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sd-video</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-search"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-search</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-send"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-send</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-share"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-share</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-share-alt"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-share-alt</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-shopping-cart</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-signal"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-signal</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sort"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sort</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sort-by-alphabet</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sort-by-alphabet-alt</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sort-by-attributes"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sort-by-attributes</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sort-by-attributes-alt</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sort-by-order"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sort-by-order</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sort-by-order-alt"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sort-by-order-alt</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sound-5-1"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sound-5-1</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sound-6-1"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sound-6-1</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sound-7-1"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sound-7-1</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sound-dolby"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sound-dolby</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-sound-stereo"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-sound-stereo</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-star</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-star-empty</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-stats"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-stats</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-step-backward"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-step-backward</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-step-forward"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-step-forward</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-stop"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-stop</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-subtitles"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-subtitles</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-tag"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-tag</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-tags"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-tags</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-tasks"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-tasks</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-text-height"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-text-height</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-text-width"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-text-width</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-th"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-th</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-th-large"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-th-large</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-th-list"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-th-list</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-thumbs-down"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-thumbs-down</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-thumbs-up"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-thumbs-up</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-time"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-time</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-tint"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-tint</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-tower"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-tower</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-transfer"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-transfer</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-trash"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-trash</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-tree-conifer"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-tree-conifer</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-tree-deciduous"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-tree-deciduous</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-unchecked"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-unchecked</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-upload"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-upload</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-usd"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-usd</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-user"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-user</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-volume-down"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-volume-down</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-volume-off"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-volume-off</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-volume-up"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-volume-up</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-warning-sign</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-wrench"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-wrench</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-zoom-in"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-zoom-in</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-zoom-out"></span>
+        <span class="glyphicon-class">.glyphicon .glyphicon-zoom-out</span>
+      </li>
+    </ul>
+
+
+    <h2 id="glyphicons-how-to-use">How to use</h2>
+    <p>For performance reasons, all icons require a base class and individual icon class. To use, place the following code just about anywhere. Be sure to leave a space between the icon and text for proper padding.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;glyphicon glyphicon-search&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+</code></pre></div>
+
+
+    <h2 id="glyphicons-examples">Examples</h2>
+    <p>Use them in buttons, button groups for a toolbar, navigation, or prepended form inputs.</p>
+    <div class="bs-example">
+      <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default leap-interactive"><span class="glyphicon glyphicon-align-left"></span></button>
+          <button type="button" class="btn btn-default leap-interactive"><span class="glyphicon glyphicon-align-center"></span></button>
+          <button type="button" class="btn btn-default leap-interactive"><span class="glyphicon glyphicon-align-right"></span></button>
+          <button type="button" class="btn btn-default leap-interactive"><span class="glyphicon glyphicon-align-justify"></span></button>
+        </div>
+      </div>
+      <div class="btn-toolbar" role="toolbar">
+        <button type="button" class="btn btn-default btn-lg leap-interactive"><span class="glyphicon glyphicon-star"></span> Star</button>
+        <button type="button" class="btn btn-default leap-interactive"><span class="glyphicon glyphicon-star"></span> Star</button>
+        <button type="button" class="btn btn-default btn-sm leap-interactive"><span class="glyphicon glyphicon-star"></span> Star</button>
+        <button type="button" class="btn btn-default btn-xs leap-interactive"><span class="glyphicon glyphicon-star"></span> Star</button>
+      </div>
+    </div>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default btn-lg leap-interactive&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;glyphicon glyphicon-star&quot;</span><span class="nt">&gt;&lt;/span&gt;</span> Star
+<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+
+  </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer
+    ================================================== -->
+     <footer class="bs-footer" role="contentinfo">
+      <div class="container">
+        <div class="bs-social">
+  <ul class="bs-social-buttons">
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
+    </li>
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=fork&amp;count=true" width="102" height="20" title="Fork on GitHub"></iframe>
+    </li>
+       <li class="tweet-btn">
+   <a href="https://twitter.com/share" class="twitter-share-button" data-via="leapstrap">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+    <li class="follow-btn">
+    <a href="https://twitter.com/leapstrap" class="twitter-follow-button" data-show-count="false">Follow @leapstrap</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+ 
+  </ul>
+</div>
+
+
+
+        <p>Maintained by <a class="leap-interactive" href="http://www.alex-wilkes.com" target="_blank">Alex Wilkes</a>.</p>
+
+        <ul class="footer-links">
+          <li>Currently v1.1.0</li>
+          <li class="muted">&middot;</li>
+          <li><a class="leap-interactive" href="http://www.amazon.co.uk/gp/product/B00C66Z9ZC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00C66Z9ZC&linkCode=as2&tag=eosmnet-21">Buy Leap Controller</a><img src="http://ir-uk.amazon-adsystem.com/e/ir?t=eosmnet-21&l=as2&o=2&a=B00C66Z9ZC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+          
+        </ul>
+      </div>
+    </footer>
+
+    <!-- JS and analytics only. -->
+    <img class="sr-only" src="../docs-assets/img/Leapstrap.jpg" />
+<script src="../docs-assets/js/holder.js"></script>
+<script src="../docs-assets/js/application.js"></script>
+<script>
+ 
+        LeapManager.init({
+            
+            enableMetaGestures: true,
+            enableDefaultMetaGestureActions: true,
+            maxCursors:1,
+            enableHoverTap: true,
+            enablePressDown: true,
+            enableTouchScrolling: false,
+            enableScrollbarScrolling: true,
+           
+            });
+    
+</script>
+<!-- Analytics
+================================================== -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45024155-1', 'wilkesalex.github.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

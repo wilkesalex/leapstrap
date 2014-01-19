@@ -4,6 +4,7 @@ title: Leap
 slug: leap
 lead: "Leap interaction classes and tools.<br/>Read this page for great web-based Leap functionality."
 base_url: "../"
+maxCursors: "2"
 ---
 
 
@@ -400,6 +401,89 @@ base_url: "../"
 
 
 </div>
+<!-- 
+
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="hands">Grab Gestures</h1>
+    </div>
+    
+    
+    <p>Use one finger to grab this box, and 2 fingers to release it</p>
+    <div class="bs-example">
+    <style>
+    .grabbale {
+            display: inline-block;
+            
+            
+            position: relative;
+            min-width: 100px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .grabbale.hover {
+            background-color: lightblue;
+        }
+
+        .grabbale.grabbed {
+            background-color: orange;
+        }
+        </style>
+        <div class="well" style="max-width: 90%; min-height:600px; margin: 0 auto 10px;">
+        <div class="grabbale btn btn-primary btn-lg leap-interactive" leap-disable-tap="true">Swipe your hand over me</div>
+       
+      </div>
+    </div>  
+   
+    <p>Use the javascript below.</p>
+  {% highlight js %}
+
+var grabbale = document.querySelector("div.grabbale");
+
+grabbale.addEventListener("leap-hand-grab", function(e){
+    if(e.state === "grab") {
+        // nothing to do here, but maybe you need to?
+        console.log("grabbed");
+    } else if(e.state === "release") {
+        // nothing to do here, but maybe you need to?
+        console.log("release");
+    } else if(e.state === "move") {
+        grabbale.style.left = e.x - (grabbale.offsetWidth/2)+ "px";
+        grabbale.style.top = e.y - (grabbale.offsetHeight/2)+ "px";
+    }
+});
+
+window.onload = function() {
+    grabbale.style.left = (document.body.offsetWidth/2) - (grabbale.offsetWidth/2)+ "px";
+    grabbale.style.top = (document.body.offsetHeight/2) - (grabbale.offsetHeight/2)+ "px";
+}
+
+    {% endhighlight %}
+             <script type="text/javascript">
+        var grabbale = document.querySelector("div.grabbale");
+
+        grabbale.addEventListener("leap-hand-grab", function(e){
+            if(e.state === "grab") {
+                // nothing to do here, but maybe you need to?
+                console.log("grabbed");
+            } else if(e.state === "release") {
+                // nothing to do here, but maybe you need to?
+                console.log("release");
+            } else if(e.state === "move") {
+                grabbale.style.left = e.x - (grabbale.offsetWidth/2)+ "px";
+                grabbale.style.top = e.y - (grabbale.offsetHeight/2)+ "px";
+            }
+        });
+
+        window.onload = function() {
+            grabbale.style.left = (document.body.offsetWidth/2) - (grabbale.offsetWidth/2)+ "px";
+            grabbale.style.top = (document.body.offsetHeight/2) - (grabbale.offsetHeight/2)+ "px";
+        }
+    </script>
+
+</div>
+ -->
 
   <!-- Basics system
   ================================================== -->

@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Leapstrap - Leap Motion web framework">
+<meta name="author" content="Alex Wilkes">
+<meta property="og:title" content="Leapstrap" />
+<meta property="og:url" content="http://wilkesalex.github.io/leapstrap/" />
+<meta property="og:image" content="http://wilkesalex.github.io/leapstrap/docs-assets/img/Leapstrap.jpg" />
+
+<title>
+  
+    Leap &middot; Leapstrap
+  
+</title>
+
+<link href="../dist/css/leapstrap.css" rel="stylesheet">
+<link href="../docs-assets/css/docs.css" rel="stylesheet">
+<link href="../docs-assets/css/pygments-manni.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script>window.jQuery || document.write('<script src="/dist/js/jquery.js">\x3C/script>')</script>
+<script src="//js.leapmotion.com/0.3.0-beta3/leap.js"></script>
+<!-- need to find code to localise -->
+<!-- <script>window.BaseConnection || document.write('<script src="/dist/js/leap.js">\x3C/script>')</script> -->
+<script src="../dist/js/leapstrap.js"></script>
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../docs-assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="../docs-assets/ico/favicon.png">
+  </head>
+  <body class="leap-interactive" leap-disable-tap="true" leap-disable-hover="true">
+    <a class="sr-only" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="../" class="navbar-brand">Leapstrap</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a class="leap-interactive" href="../getting-started">Get Started</a>
+        </li>
+        <li class="active">
+          <a class="leap-interactive" href="../leap">Leap</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../basics">Basics</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../components">Components 1</a>
+        </li>
+         <li>
+          <a class="leap-interactive" href="../more">Components 2</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../javascript">JavaScript</a>
+        </li>
+      
+       
+       
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a class="leap-interactive" href="../about">About</a>
+        </li>
+       <!-- 
+  <li>
+          <a class="leap-interactive" href="../data">Data</a>
+        </li>
+ -->
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-header" id="content">
+      <div class="container container-fluid">
+        <h1>Leap</h1>
+        <p>Leap interaction classes and tools.<br/>Read this page for great web-based Leap functionality.</p>
+      
+      </div>
+    </div>
+
+    <!-- Callout for the old docs link -->
+   
+
+    <div class="container container-fluid bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-sidebar hidden-xs hidden-print" role="complementary">
+            <ul class="nav bs-sidenav">
+              
+                <li>
+  <a class="leap-interactive" href="#basics">Basics</a>
+  <ul class="nav">
+  <li><a class="leap-interactive" href="#basics-click">Click</a></li>
+    <li><a class="leap-interactive" href="#basics-click-delay">Click Delay</a></li>
+    <li><a class="leap-interactive" href="#basics-multitap">Multitap</a></li>
+    <li><a class="leap-interactive" href="#basics-event-suppression">Event Suppression</a></li>
+    <li><a class="leap-interactive" href="#basics-attractors">Attractors</a></li>
+   
+  </ul>
+</li>
+<li>
+  <a class="leap-interactive" href="#hands">Hand Gestures</a>
+  
+</li>
+<li>
+  <a class="leap-interactive" href="#meta-gestures">Meta Gestures</a>
+  <ul class="nav">
+  <li><a class="leap-interactive" href="#browser-meta">Browser History</a></li>
+    <li><a class="leap-interactive" href="#page-scroll-meta">Page Scroll</a></li>
+    
+   
+  </ul>
+</li>
+<li>
+  <a class="leap-interactive" href="#scrolling">Scrolling</a>
+  
+</li>
+<li>
+  <a class="leap-interactive" href="#initialising">Initialising Leap</a>
+  
+</li>
+<li>
+  <a class="leap-interactive" href="#leap-options">Leap Options</a>
+  
+</li>
+              
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9" role="main">
+            <!-- Basics system
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="basics">Basics </h1>
+    </div>
+   
+  <h3 id="basics-click">Leap Click</h3>
+    <p>Just give your element a class of <code>leap-interactive</code> to make it interactive.</p>
+    <div class="bs-example">
+        <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
+        <button type="button" class="leap-click btn btn-primary btn-lg btn-block leap-interactive">I can be clicked</button>
+       
+      </div>
+    </div>
+    <pre style="">
+    <div class="output-leap-click"></div>
+    </pre>
+     <script type="text/javascript">
+        var buttons = document.querySelectorAll("button.leap-click");
+        var outputoutput_leap_click  = document.querySelector("div.output-leap-click");
+        var count1   = 0;
+
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function(e){
+                outputoutput_leap_click.innerHTML += count1 + ": Button Clicked<br/>";
+                count1++;
+            });
+        };
+
+       
+    </script>   
+  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span><span class="nt">&gt;</span>I can be clicked<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>class="leap-interactive"</td>
+           <td>element class</td>
+           <td></td>
+           <td>activate leap interaction on this element</td>
+         </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <h3 id="basics-click-delay">Click Delay</h3>
+    <p>Set a click delay on your elements. </p>
+    <div class="bs-example">
+        <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
+        <button type="button" class="leap-delay btn btn-primary btn-lg btn-block leap-interactive" leap-click-delay="1000">Click Delay: 1 second</button>
+        <button type="button" class="leap-delay btn btn-primary btn-lg btn-block leap-interactive" leap-click-delay="3000">Click Delay: 3 second</button>
+        <button type="button" class="leap-delay btn btn-primary btn-lg btn-block leap-interactive" leap-click-delay="5000">Click Delay: 5 second</button>
+      </div>
+    </div>     
+     <pre style="">
+    <div class="output-leap-delay"></div>
+    </pre>
+     <script type="text/javascript">
+        var buttons = document.querySelectorAll("button.leap-delay");
+        var outputoutput_leap_d  = document.querySelector("div.output-leap-delay");
+        var count2   = 0;
+
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function(e){
+                outputoutput_leap_d.innerHTML += count2 + ": Button Clicked</br>";
+                count2++;
+            });
+        };
+
+       
+    </script>   
+  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-click-delay=</span><span class="s">&quot;1000&quot;</span><span class="nt">&gt;</span>Click Delay: 1 second <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-click-delay=</span><span class="s">&quot;3000&quot;</span><span class="nt">&gt;</span>Click Delay: 3 second <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-click-delay=</span><span class="s">&quot;5000&quot;</span><span class="nt">&gt;</span>Click Delay: 5 second <span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>leap-click-delay</td>
+           <td>number</td>
+           <td>1000</td>
+           <td>time to wait until activate click on element (in ms)</td>
+         </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+     <h3 id="basics-multitap">Multitap</h3>
+         <p>Allow an element to be tapped multiple times </p>
+
+     <div class="bs-example">
+    <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
+        <button type="button" class="leap-mtap btn btn-primary btn-lg btn-block leap-interactive" leap-enable-multitap="true" leap-click-delay="500">Allow Multitap</button>
+      
+      </div>      </div>
+       <pre style="">
+    <div class="output-leap-multitap"></div>
+    </pre>
+     <script type="text/javascript">
+        var buttons = document.querySelectorAll("button.leap-mtap");
+        var outputoutput_leap_mt  = document.querySelector("div.output-leap-multitap");
+        var count3   = 0;
+
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function(e){
+                outputoutput_leap_mt.innerHTML += count3 + ": Button Clicked</br>";
+                count3++;
+            });
+        };
+
+       
+    </script>   
+        <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-enable-multitap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Allow Multitap<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>leap-enable-multitap</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>allow element to be tapped by leap more than once</td>
+         </tr>
+
+        </tbody>
+      </table>
+      </div>
+      
+     <h3 id="basics-event-suppression">Event Suppression</h3>
+         <p>Set a click delay on your elements. </p>
+
+     <div class="bs-example">
+     <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
+        <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive"  leap-disable-tap="true">Can't tap me</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive" leap-disable-tap="true" leap-disable-hover="true">Can't tap or hover me</button>
+        
+      </div>      </div>
+        <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Can&#39;t tap me<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span> <span class="na">leap-disable-hover=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Can&#39;t tap or hover me<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>leap-disable-tap</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>don't allow leap tap</td>
+         </tr>
+		 <tr>
+           <td>leap-disable-hover</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>don't allow leap hover</td>
+         </tr>
+        </tbody>
+      </table>
+      </div>
+       <h3 id="basics-attractors">Attractors</h3>
+           <p>Set a click delay on your elements. </p>
+
+       <div class="bs-example">
+        <div class="well" style="max-width: 400px; margin: 0 auto 10px;"> <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive" leap-attractor="true">Standard Attraction</button><hr/>
+        <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive"  leap-attractor-x-padding="10">10px wide</button><hr/>
+        <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive" leap-attractor-y-padding="10">10px tall</button><hr/>
+        <button type="button" class="btn btn-primary btn-lg btn-block leap-interactive" leap-attractor-x-padding="30" leap-attractor-y-padding="30">30px wide+tall</button>
+      </div>    
+        </div>
+        <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-attractor=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Standard Attraction<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-attractor-x-padding=</span><span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>10px wide<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-attractor-y-padding=</span><span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>10px tall<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span> <span class="na">leap-attractor-x-padding=</span><span class="s">&quot;30&quot;</span> <span class="na">leap-attractor-y-padding=</span><span class="s">&quot;30&quot;</span><span class="nt">&gt;</span>30px wide+tall<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>leap-attractor</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>activate standard attractor</td>
+         </tr>
+           <tr>
+           <td>leap-attractor-x-padding</td>
+           <td>number</td>
+           <td>0</td>
+           <td>add horizontal attractor padding (in px)</td>
+         </tr>
+           <tr>
+           <td>leap-attractor-y-padding</td>
+           <td>number</td>
+           <td>0</td>
+           <td>add vertical attractor padding px (in px)</td>
+         </tr>
+
+        </tbody>
+      </table>
+      </div>
+     
+
+</div>
+
+  <!-- Basics system
+  ================================================== -->
+<!-- 
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="grid">Finger Gestures</h1>
+    </div>
+    
+    <h3 id="grid-intro">Circle gesture</h3>
+    <p>Make a circle with your finger on this element </p>
+    <div class="bs-example">
+        <div class="well" style="max-width: 600px; margin: 0 auto 10px;">
+        <button type="button" class="catcher btn btn-primary btn-lg btn-block leap-interactive" leap-disable-tap="true" style="min-height:400px;">Make a circle on me</button>
+       
+      </div>
+    </div>  
+    <pre>
+     <div class="outputbs1"></div>
+    </pre>   
+  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;catcher btn leap-interactive&quot;</span><span class="nt">&gt;</span>Make a circle on me<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+    <h3 id="grid-intro">Tap gesture</h3>
+    <p>Tap your finger on this element </p>
+    <div class="bs-example">
+        <div class="well" style="max-width: 600px; margin: 0 auto 10px;">
+        <button type="button" class="tapper btn btn-primary btn-lg btn-block leap-interactive" leap-disable-tap="true"  style="min-height:400px;">Make a tap on me</button>
+       
+      </div>
+    </div>   
+     <pre>
+     <div class="outputbs2"></div>
+    </pre>   
+  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;tapper btn leap-interactive&quot;</span><span class="nt">&gt;</span>Make a tap on me<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+  <div class="highlight"><pre><code class="js">        <span class="kd">var</span> <span class="nx">circleAreas</span>     <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;div.catcher&quot;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">tapAreas</span>        <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;div.tapper&quot;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">outputbs1</span>          <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;div.outputbs1&quot;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">outputbs2</span>          <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;div.outputbs2&quot;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">circleCount</span>     <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">tapCount</span>        <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">circleAreas</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">circleAreas</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;leap-circle-stop&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+                <span class="nx">outputbs1</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">+=</span> <span class="nx">circleCount</span> <span class="o">+</span> <span class="s2">&quot;: Circled Gesture&lt;/br&gt;&quot;</span><span class="p">;</span>
+                <span class="nx">circleCount</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">});</span>
+        <span class="p">};</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">tapAreas</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="c1">//Stop state could also be used, though screenTap only has one state</span>
+            <span class="c1">// tapAreas[i].addEventListener(&quot;leap-screenTap-stop&quot;, function(e){</span>
+            
+            <span class="nx">tapAreas</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;leap-screenTap&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+                <span class="nx">outputbs2</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">+=</span> <span class="nx">tapCount</span> <span class="o">+</span> <span class="s2">&quot;: ScreenTap Gesture&lt;/br&gt;&quot;</span><span class="p">;</span>
+                <span class="nx">tapCount</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">});</span>
+        <span class="p">};</span>
+</code></pre></div>
+<script type="text/javascript">
+        var circleAreas     = document.querySelectorAll("div.catcher");
+        var tapAreas        = document.querySelectorAll("div.tapper");
+        var outputbs1          = document.querySelector("div.outputbs1");
+        var outputbs2          = document.querySelector("div.outputbs2");
+        var circleCount     = 0;
+        var tapCount        = 0;
+
+        for (var i = 0; i < circleAreas.length; i++) {
+            circleAreas[i].addEventListener("leap-circle-stop", function(e){
+                outputbs1.innerHTML += circleCount + ": Circled Gesture</br>";
+                circleCount++;
+            });
+        };
+
+        for (var i = 0; i < tapAreas.length; i++) {
+
+            //Stop state could also be used, though screenTap only has one state
+            // tapAreas[i].addEventListener("leap-screenTap-stop", function(e){
+            
+            tapAreas[i].addEventListener("leap-screenTap", function(e){
+                outputbs2.innerHTML += tapCount + ": ScreenTap Gesture</br>";
+                tapCount++;
+            });
+        };
+
+       
+    </script>
+     
+
+</div>
+ -->
+
+  <!-- Hands system
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="hands">Hand Gestures</h1>
+    </div>
+    
+    
+    <p>Move your hand over this box to see actions</p>
+    <div class="bs-example">
+        <div class="well" style="max-width: 90%; margin: 0 auto 10px;">
+        <button type="button" class="catcher btn btn-primary btn-lg btn-block leap-interactive" style="min-height:400px;" leap-disable-tap="true">Swipe your hand over me</button>
+       
+      </div>
+    </div>  
+    <pre>
+     <div class="outputbs3"></div>
+    </pre>  
+    <p>Add leap-interactive to any element and you can use it to detect for gestures.</p>
+  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span><span class="nt">&gt;</span>Make a circle on me<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+    
+     <script type="text/javascript">
+        var outputbs3          = document.querySelector("div.outputbs3");
+
+        document.body.addEventListener("leap-dual-swipe", function(event){
+            var gesture = event.gesture
+            outputbs3.innerHTML += gesture.type + " : " + gesture.direction + "<br/>";
+        })
+
+        
+    </script>
+
+
+</div>
+<!-- 
+
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="hands">Grab Gestures</h1>
+    </div>
+    
+    
+    <p>Use one finger to grab this box, and 2 fingers to release it</p>
+    <div class="bs-example">
+    <style>
+    .grabbale {
+            display: inline-block;
+            
+            
+            position: relative;
+            min-width: 100px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .grabbale.hover {
+            background-color: lightblue;
+        }
+
+        .grabbale.grabbed {
+            background-color: orange;
+        }
+        </style>
+        <div class="well" style="max-width: 90%; min-height:600px; margin: 0 auto 10px;">
+        <div class="grabbale btn btn-primary btn-lg leap-interactive" leap-disable-tap="true">Swipe your hand over me</div>
+       
+      </div>
+    </div>  
+   
+    <p>Use the javascript below.</p>
+  <div class="highlight"><pre><code class="js"><span class="kd">var</span> <span class="nx">grabbale</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;div.grabbale&quot;</span><span class="p">);</span>
+
+<span class="nx">grabbale</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;leap-hand-grab&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">state</span> <span class="o">===</span> <span class="s2">&quot;grab&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// nothing to do here, but maybe you need to?</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;grabbed&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">state</span> <span class="o">===</span> <span class="s2">&quot;release&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// nothing to do here, but maybe you need to?</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;release&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">state</span> <span class="o">===</span> <span class="s2">&quot;move&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">grabbale</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="p">(</span><span class="nx">grabbale</span><span class="p">.</span><span class="nx">offsetWidth</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">;</span>
+        <span class="nx">grabbale</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="p">(</span><span class="nx">grabbale</span><span class="p">.</span><span class="nx">offsetHeight</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">grabbale</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">offsetWidth</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nx">grabbale</span><span class="p">.</span><span class="nx">offsetWidth</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">;</span>
+    <span class="nx">grabbale</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">offsetHeight</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nx">grabbale</span><span class="p">.</span><span class="nx">offsetHeight</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+    
+</code></pre></div>
+             <script type="text/javascript">
+        var grabbale = document.querySelector("div.grabbale");
+
+        grabbale.addEventListener("leap-hand-grab", function(e){
+            if(e.state === "grab") {
+                // nothing to do here, but maybe you need to?
+                console.log("grabbed");
+            } else if(e.state === "release") {
+                // nothing to do here, but maybe you need to?
+                console.log("release");
+            } else if(e.state === "move") {
+                grabbale.style.left = e.x - (grabbale.offsetWidth/2)+ "px";
+                grabbale.style.top = e.y - (grabbale.offsetHeight/2)+ "px";
+            }
+        });
+
+        window.onload = function() {
+            grabbale.style.left = (document.body.offsetWidth/2) - (grabbale.offsetWidth/2)+ "px";
+            grabbale.style.top = (document.body.offsetHeight/2) - (grabbale.offsetHeight/2)+ "px";
+        }
+    </script>
+
+</div>
+ -->
+
+  <!-- Basics system
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="meta-gestures">Meta Gestures</h1>
+    </div>
+    
+    
+    <p>You can enable Meta gestures, like Page Back and Page Forward, if you enable the default on-page Meta actions.</p>
+    <h3 id="browser-meta">Browser History - Sliding / Swipe Gesture</h3>
+   <div class="bs-example bs-example-popover">
+      <div class="popover right">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Swipe Left</h3>
+        <div class="popover-content">
+          <p>Browser should go page back.</p>
+        </div>
+      </div>
+
+      <div class="popover left">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Swipe Right</h3>
+        <div class="popover-content">
+          <p>Browser should go page forward.</p>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+  <div class="highlight"><pre><code class="js"><span class="nx">enableMetaGestures</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">enableDefaultMetaGestureActions</span><span class="o">:</span> <span class="kc">true</span>
+</code></pre></div>
+   <div class="highlight"><pre><code class="html"><span class="nt">&lt;script&gt;</span>
+<span class="nx">LeapManager</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+	<span class="nx">interactiveSelector</span><span class="o">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+	<span class="nx">maxCursors</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span>
+	<span class="nx">enableMetaGestures</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="nx">enableDefaultMetaGestureActions</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div> 
+    <h3 id="page-scroll-meta">Page Scroll - Circle Gesture</h3>
+<div class="bs-example">
+        <div class="well" style="background:white;max-width: 90%; margin: 0 auto 10px;text-align:center;">
+        <img src="../docs-assets/img/circlearrow.jpg" width="50%" height="50%" />
+        <p class="lead">Move your finger in a circle to scroll the page</p>
+       
+      </div>
+      <p>To enable page scrolling, attach <code>leap-interactive</code> to your body element. You probably don't need tap or hover on the body, so disable them.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;body</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span> <span class="na">leap-disable-hover=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><code class="js"><span class="nx">enableMetaGestures</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">enableDefaultMetaGestureActions</span><span class="o">:</span> <span class="kc">true</span>
+</code></pre></div>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;script&gt;</span>
+<span class="nx">LeapManager</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+	<span class="nx">interactiveSelector</span><span class="o">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+	<span class="nx">maxCursors</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span>
+	<span class="nx">enableMetaGestures</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="nx">enableDefaultMetaGestureActions</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div> 
+   
+
+</div>
+
+  <!-- Basics system
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="scrolling">Scrolling</h1>
+    </div>
+    
+    
+    <p>Move your finger in a circle over these elements to scroll through them</p>
+    <div class="bs-example">
+        <div class="well" style="max-width: 90%; margin: 0 auto 10px;">
+        <div class="vertical leap-interactive" style="height:300px;overflow:scroll;" leap-disable-tap="true">
+       <div class="vertical-content" style="height:900px;width:100%;overflow:hidden;">Bacon ipsum dolor sit amet doner t-bone shankle brisket ribeye salami. Shankle tail ham chuck swine doner meatloaf kielbasa pig. Ham hock meatball flank pork belly shoulder sausage. Ribeye tenderloin ham pork chop spare ribs ham hock. Biltong pancetta pastrami, andouille ball tip fatback ham rump. Ground round kielbasa capicola pastrami shank brisket jowl meatloaf cow. Shankle beef biltong hamburger pork belly corned beef, tri-tip t-bone pig turkey short ribs filet mignon ball tip jerky brisket.
+
+Swine boudin bacon, andouille hamburger short loin tongue drumstick jerky sirloin spare ribs pancetta. Corned beef ball tip tail strip steak. Cow fatback short loin doner ground round sirloin chuck turducken corned beef prosciutto t-bone. Chuck t-bone spare ribs beef ribs filet mignon strip steak. Pastrami pork loin brisket hamburger, turducken short ribs bresaola t-bone ball tip corned beef. Fatback shoulder filet mignon cow, short ribs strip steak turducken pancetta drumstick venison. Shank turkey sausage tenderloin venison spare ribs ham filet mignon.
+
+Pancetta tenderloin shankle meatloaf pork, pork belly bacon filet mignon jerky brisket. Strip steak meatball sirloin shoulder. Pancetta salami boudin pork turducken hamburger short ribs, pork chop andouille pastrami prosciutto doner shoulder turkey. Tongue hamburger tri-tip, fatback shank chicken tail short ribs spare ribs short loin ground round capicola brisket pork chop. Hamburger frankfurter beef ribs tongue boudin sausage pancetta meatball, pork chop bacon jerky kielbasa cow.
+
+Swine fatback tail t-bone venison pig biltong pork chop pancetta salami rump. Bacon pork pancetta frankfurter pork belly flank sirloin ball tip prosciutto short ribs. Boudin salami ball tip turducken jerky fatback leberkas bacon chuck pig ground round strip steak. Ribeye turducken doner shankle tenderloin beef beef ribs corned beef. Corned beef leberkas sirloin, short ribs salami chuck pork chop turducken. Shankle flank spare ribs tri-tip turkey. Short ribs strip steak pork loin, cow pork belly pastrami filet mignon turkey.
+
+Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swine beef t-bone shankle short loin frankfurter corned beef sausage meatball. Beef sausage capicola drumstick bresaola tail bacon chuck chicken ham hock pork pork belly ground round venison. Salami turkey meatball, tri-tip ham drumstick short loin chuck brisket beef bacon.
+
+Bacon ipsum dolor sit amet doner t-bone shankle brisket ribeye salami. Shankle tail ham chuck swine doner meatloaf kielbasa pig. Ham hock meatball flank pork belly shoulder sausage. Ribeye tenderloin ham pork chop spare ribs ham hock. Biltong pancetta pastrami, andouille ball tip fatback ham rump. Ground round kielbasa capicola pastrami shank brisket jowl meatloaf cow. Shankle beef biltong hamburger pork belly corned beef, tri-tip t-bone pig turkey short ribs filet mignon ball tip jerky brisket.
+
+Swine boudin bacon, andouille hamburger short loin tongue drumstick jerky sirloin spare ribs pancetta. Corned beef ball tip tail strip steak. Cow fatback short loin doner ground round sirloin chuck turducken corned beef prosciutto t-bone. Chuck t-bone spare ribs beef ribs filet mignon strip steak. Pastrami pork loin brisket hamburger, turducken short ribs bresaola t-bone ball tip corned beef. Fatback shoulder filet mignon cow, short ribs strip steak turducken pancetta drumstick venison. Shank turkey sausage tenderloin venison spare ribs ham filet mignon.
+
+Pancetta tenderloin shankle meatloaf pork, pork belly bacon filet mignon jerky brisket. Strip steak meatball sirloin shoulder. Pancetta salami boudin pork turducken hamburger short ribs, pork chop andouille pastrami prosciutto doner shoulder turkey. Tongue hamburger tri-tip, fatback shank chicken tail short ribs spare ribs short loin ground round capicola brisket pork chop. Hamburger frankfurter beef ribs tongue boudin sausage pancetta meatball, pork chop bacon jerky kielbasa cow.
+
+Swine fatback tail t-bone venison pig biltong pork chop pancetta salami rump. Bacon pork pancetta frankfurter pork belly flank sirloin ball tip prosciutto short ribs. Boudin salami ball tip turducken jerky fatback leberkas bacon chuck pig ground round strip steak. Ribeye turducken doner shankle tenderloin beef beef ribs corned beef. Corned beef leberkas sirloin, short ribs salami chuck pork chop turducken. Shankle flank spare ribs tri-tip turkey. Short ribs strip steak pork loin, cow pork belly pastrami filet mignon turkey.
+
+Beef ribs pork chop pork loin hamburger turkey cow t-bone venison. Bresaola swine beef t-bone shankle short loin frankfurter corned beef sausage meatball. Beef sausage capicola drumstick bresaola tail bacon chuck chicken ham hock pork pork belly ground round venison. Salami turkey meatball, tri-tip ham drumstick short loin chuck brisket beef bacon.
+
+</div>
+       </div>
+      </div>
+    </div>  
+  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;catcher btn leap-interactive&quot;</span><span class="nt">&gt;</span>Make a circle on me<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+    
+   
+
+</div>
+
+<!-- Setup
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="initialising">Initialising Leap</h1>
+    </div>
+      <p>
+     Use the built-in LeapManager to get started with Leap on your page. Each page needs to use LeapManager to initialise Leap. You just include some Javascript, typically defining the maximum amount of fingers you want the page to use.
+      </p>
+<h3>LeapManager.init()</h3>
+   <div class="bs-callout bs-callout-danger">
+      <h4>Use <b>interactiveSelector</b> wisely</h4>
+      <p>We show <code>interactiveSelector: "a"</code> in our examples, but you shouldn't use it. It typically makes Leap slower, especially if you've got lots of links on the page (dropdown menus, navigation, options etc). Leapstrap will apply Leap interaction to any element with a class of <code>leap-interactive</code> - you should use that instead if you can.</p>
+    </div>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;script&gt;</span>
+<span class="nx">LeapManager</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+	<span class="nx">interactiveSelector</span><span class="o">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+	<span class="nx">maxCursors</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><code class="js"><span class="nx">LeapManager</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+	<span class="nx">interactiveSelector</span><span class="o">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+	<span class="nx">enableMetaGestures</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="nx">enableDefaultMetaGestureActions</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+	<span class="nx">maxCursors</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span>
+	<span class="nx">enableHoverTap</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="nx">enablePressDown</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="nx">enableTouchScrolling</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+	<span class="nx">enableScrollbarScrolling</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="nx">simulateWithMouse</span><span class="o">:</span><span class="kc">false</span><span class="p">,</span>
+	<span class="nx">mouseCursorConfig</span><span class="o">:</span> <span class="p">{</span>
+	<span class="nx">easing</span><span class="o">:</span><span class="p">.</span><span class="mi">2</span>
+	<span class="p">},</span>
+	<span class="nx">greedySelector</span><span class="o">:</span> <span class="s2">&quot;body&quot;</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+          <tr>
+           <td>interactiveSelector</td>
+           <td>string</td>
+           <td>-</td>
+           <td><i><strong>Not recommended</strong> for production use due to slow performance.</i><br/> Automatically set element types to be leap-interactive. Comma separated list of element types, classes or ids. <code>interactiveSelector: "a, .btn, input, #myLeapBtn",</code></td>
+         </tr>
+         <tr>
+           <td>enableMetaGestures</td>
+           <td>boolean</td>
+           <td></td>
+           <td></td>
+         </tr>
+ <tr>
+           <td>enableDefaultMetaGestureActions</td>
+           <td>boolean</td>
+           <td></td>
+           <td></td>
+         </tr>
+          <tr>
+           <td>maxCursors</td>
+           <td>number</td>
+           <td>-</td>
+           <td></td>
+         </tr>
+          <tr>
+           <td>enableHoverTap</td>
+           <td>boolean</td>
+           <td></td>
+           <td></td>
+         </tr>
+          <tr>
+           <td>enablePressDown</td>
+           <td>boolean</td>
+           <td></td>
+           <td></td>
+         </tr>
+           <tr>
+           <td>enableTouchScrolling</td>
+           <td>boolean</td>
+           <td></td>
+           <td></td>
+         </tr>
+           <tr>
+           <td>enableScrollbarScrolling</td>
+           <td>boolean</td>
+           <td></td>
+           <td></td>
+         </tr>
+         <tr>
+           <td>simulateWithMouse</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td></td>
+         </tr>
+         <tr>
+           <td>mouseCursorConfig</td>
+           <td>options</td>
+           <td></td>
+           <td>Configuration for Mouse Cursor<br/><code>mouseCursorConfig: {
+                multitapEnabled: false,
+                clickDelay: 1000
+            }</code></td>
+         </tr>
+         <tr>
+           <td>enableInBackground</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>Register Leap updates in the background</td>
+         </tr>
+         <tr>
+           <td>root</td>
+           <td></td>
+           <td></td>
+           <td>Change the root HTMLElement for all Leap Elements</td>
+         </tr>
+         <tr>
+           <td>gestureCallback</td>
+           <td></td>
+           <td></td>
+           <td>Callback function for globally catching Gestures</td>
+         </tr>
+         <tr>
+           <td>gestureScope</td>
+           <td></td>
+           <td></td>
+           <td>Scope for global gesture callback</td>
+         </tr>
+         <tr>
+           <td>enableSenchaTouch</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>Enable interactivity for a Sencha Touch Application</td>
+         </tr>
+          <tr>
+           <td>loopConfig</td>
+           <td></td>
+           <td></td>
+           <td>Configs to pass into the Loop function for the leap (see leap library docs for more info)<br/><code>loopConfig: {
+                enableGestures: true
+            }</code></td>
+         </tr>
+          <tr>
+           <td>boundary</td>
+           <td></td>
+           <td></td>
+           <td>Virtual Boundary inwhich to move your fingers around. Translates into screen space<br/><code>boundary: {
+                top: 350,
+                left: -100,
+                right: 100,
+                bottom: 150
+            }</code></td>
+         </tr>
+         
+          <tr>
+           <td>cursorConfig</td>
+           <td></td>
+           <td></td>
+           <td>Configuration for cursors<br/><code>cursorConfig: {
+                multitapEnabled: false,
+                clickDelay: 1000,
+                easing: .3
+            }</code></td>
+         </tr>
+         <tr>
+           <td>greedySelector</td>
+           <td></td>
+           <td></td>
+           <td></td>
+         </tr>
+        </tbody>
+      </table>
+      </div>
+    
+  </div>
+
+ 
+
+<!-- Setup
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="leap-options">Leap Options</h1>
+    </div>
+     
+
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;a</span>
+<span class="na">class=</span><span class="s">&quot;btn leap-interactive&quot;</span>
+<span class="na">leap-click-delay=</span><span class="s">&quot;5000&quot;</span>
+<span class="na">leap-enable-multitap=</span><span class="s">&quot;true&quot;</span>
+<span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span>
+<span class="na">leap-disable-hover=</span><span class="s">&quot;true&quot;</span>
+<span class="na">leap-attractor=</span><span class="s">&quot;true&quot;</span>
+<span class="na">leap-attractor-x-padding=</span><span class="s">&quot;10&quot;</span>
+<span class="na">leap-attractor-y-padding=</span><span class="s">&quot;10&quot;</span>
+<span class="na">href=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+Your text
+<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+<h4>Options</h4>
+<div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th>Name</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+ <tr>
+           <td>class="leap-interactive"</td>
+           <td>element class</td>
+           <td></td>
+           <td>activate leap interaction on this element</td>
+         </tr>
+         <tr>
+           <td>leap-click-delay</td>
+           <td>number</td>
+           <td>1000</td>
+           <td>time to wait until activate click on element (in ms)</td>
+         </tr>
+          <tr>
+           <td>leap-enable-multitap</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>allow element to be tapped by leap more than once</td>
+         </tr>
+           <tr>
+           <td>leap-disable-tap</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>don't allow leap tap</td>
+         </tr>
+		 <tr>
+           <td>leap-disable-hover</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>don't allow leap hover</td>
+         </tr>
+           <tr>
+           <td>leap-attractor</td>
+           <td>boolean</td>
+           <td>false</td>
+           <td>activate standard attractor</td>
+         </tr>
+           <tr>
+           <td>leap-attractor-x-padding</td>
+           <td>number</td>
+           <td>0</td>
+           <td>add horizontal attractor padding (in px)</td>
+         </tr>
+           <tr>
+           <td>leap-attractor-y-padding</td>
+           <td>number</td>
+           <td>0</td>
+           <td>add vertical attractor padding px (in px)</td>
+         </tr>
+
+        </tbody>
+      </table>
+      </div>
+    
+  </div>
+
+ 
+
+ 
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer
+    ================================================== -->
+     <footer class="bs-footer" role="contentinfo">
+      <div class="container">
+        <div class="bs-social">
+  <ul class="bs-social-buttons">
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
+    </li>
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=fork&amp;count=true" width="102" height="20" title="Fork on GitHub"></iframe>
+    </li>
+       <li class="tweet-btn">
+   <a href="https://twitter.com/share" class="twitter-share-button" data-via="leapstrap">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+    <li class="follow-btn">
+    <a href="https://twitter.com/leapstrap" class="twitter-follow-button" data-show-count="false">Follow @leapstrap</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+ 
+  </ul>
+</div>
+
+
+
+        <p>Maintained by <a class="leap-interactive" href="http://www.alex-wilkes.com" target="_blank">Alex Wilkes</a>.</p>
+
+        <ul class="footer-links">
+          <li>Currently v1.1.0</li>
+          <li class="muted">&middot;</li>
+          <li><a class="leap-interactive" href="http://www.amazon.co.uk/gp/product/B00C66Z9ZC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00C66Z9ZC&linkCode=as2&tag=eosmnet-21">Buy Leap Controller</a><img src="http://ir-uk.amazon-adsystem.com/e/ir?t=eosmnet-21&l=as2&o=2&a=B00C66Z9ZC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+          
+        </ul>
+      </div>
+    </footer>
+
+    <!-- JS and analytics only. -->
+    <img class="sr-only" src="../docs-assets/img/Leapstrap.jpg" />
+<script src="../docs-assets/js/holder.js"></script>
+<script src="../docs-assets/js/application.js"></script>
+<script>
+ 
+        LeapManager.init({
+            
+            enableMetaGestures: true,
+            enableDefaultMetaGestureActions: true,
+            maxCursors:2,
+            enableHoverTap: true,
+            enablePressDown: true,
+            enableTouchScrolling: false,
+            enableScrollbarScrolling: true,
+           
+            });
+    
+</script>
+<!-- Analytics
+================================================== -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45024155-1', 'wilkesalex.github.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

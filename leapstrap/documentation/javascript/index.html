@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Leapstrap - Leap Motion web framework">
+<meta name="author" content="Alex Wilkes">
+<meta property="og:title" content="Leapstrap" />
+<meta property="og:url" content="http://wilkesalex.github.io/leapstrap/" />
+<meta property="og:image" content="http://wilkesalex.github.io/leapstrap/docs-assets/img/Leapstrap.jpg" />
+
+<title>
+  
+    JavaScript &middot; Leapstrap
+  
+</title>
+
+<link href="../dist/css/leapstrap.css" rel="stylesheet">
+<link href="../docs-assets/css/docs.css" rel="stylesheet">
+<link href="../docs-assets/css/pygments-manni.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script>window.jQuery || document.write('<script src="/dist/js/jquery.js">\x3C/script>')</script>
+<script src="//js.leapmotion.com/0.3.0-beta3/leap.js"></script>
+<!-- need to find code to localise -->
+<!-- <script>window.BaseConnection || document.write('<script src="/dist/js/leap.js">\x3C/script>')</script> -->
+<script src="../dist/js/leapstrap.js"></script>
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../docs-assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="../docs-assets/ico/favicon.png">
+  </head>
+  <body class="leap-interactive" leap-disable-tap="true" leap-disable-hover="true">
+    <a class="sr-only" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="../" class="navbar-brand">Leapstrap</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a class="leap-interactive" href="../getting-started">Get Started</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../leap">Leap</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../basics">Basics</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../components">Components 1</a>
+        </li>
+         <li>
+          <a class="leap-interactive" href="../more">Components 2</a>
+        </li>
+        <li class="active">
+          <a class="leap-interactive" href="../javascript">JavaScript</a>
+        </li>
+      
+       
+       
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a class="leap-interactive" href="../about">About</a>
+        </li>
+       <!-- 
+  <li>
+          <a class="leap-interactive" href="../data">Data</a>
+        </li>
+ -->
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-header" id="content">
+      <div class="container container-fluid">
+        <h1>JavaScript</h1>
+        <p>Bring Leapstrap's components to life with over a dozen custom jQuery plugins. Easily include them all, or one by one.</p>
+      
+      </div>
+    </div>
+
+    <!-- Callout for the old docs link -->
+   
+
+    <div class="container container-fluid bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-sidebar hidden-xs hidden-print" role="complementary">
+            <ul class="nav bs-sidenav">
+              
+                <li>
+  <a class="leap-interactive" href="#js-overview">Overview</a>
+  <ul class="nav">
+    <li><a class="leap-interactive" href="#js-individual-compiled">Individual or compiled</a></li>
+    <li><a class="leap-interactive" href="#js-data-attrs">Data attributes</a></li>
+
+  </ul>
+</li>
+<li>
+  <a class="leap-interactive" href="#modals">Modal</a>
+  <ul class="nav">
+    <li><a class="leap-interactive" href="#modals-examples">Examples</a></li>
+    <li><a class="leap-interactive" href="#modals-usage">Usage</a></li>
+  </ul>
+</li>
+<li>
+  <a class="leap-interactive" href="#dropdowns">Dropdown</a>
+  <ul class="nav">
+    <li><a class="leap-interactive" href="#dropdowns-examples">Examples</a></li>
+    <li><a class="leap-interactive" href="#dropdowns-usage">Usage</a></li>
+  </ul>
+</li>
+<li>
+  <a class="leap-interactive" href="#scrollspy">Scrollspy</a>
+  <ul class="nav">
+    <li><a class="leap-interactive" href="#scrollspy-examples">Examples</a></li>
+    <li><a class="leap-interactive" href="#scrollspy-usage">Usage</a></li>
+  </ul>
+</li>
+<li>
+  <a class="leap-interactive" href="#tabs">Tab</a>
+  <ul class="nav">
+    <li><a class="leap-interactive" href="#tabs-examples">Examples</a></li>
+    <li><a class="leap-interactive" href="#tabs-usage">Usage</a></li>
+  </ul>
+</li>
+<li>
+  <a class="leap-interactive" href="#tooltips">Tooltip</a>
+  <ul class="nav">
+    <li><a class="leap-interactive" href="#tooltips-examples">Examples</a></li>
+    <li><a class="leap-interactive" href="#tooltips-usage">Usage</a></li>
+  </ul>
+</li>
+<li>
+  <a class="leap-interactive" href="#popovers">Popover</a>
+  <ul class="nav">
+    <li><a class="leap-interactive" href="#popovers-examples">Examples</a></li>
+    <li><a class="leap-interactive" href="#popovers-usage">Usage</a></li>
+  </ul>
+</li>
+<li>
+  <a class="leap-interactive" href="#alerts">Alert</a>
+  <ul class="nav">
+    <li><a class="leap-interactive" href="#alerts-examples">Examples</a></li>
+    <li><a class="leap-interactive" href="#alerts-usage">Usage</a></li>
+  </ul>
+</li>
+<li>
+  <a class="leap-interactive" href="#buttons">Button</a>
+  <ul class="nav">
+    <li><a class="leap-interactive" href="#buttons-examples">Examples</a></li>
+    <li><a class="leap-interactive" href="#buttons-usage">Usage</a></li>
+  </ul>
+</li>
+<li>
+  <a class="leap-interactive" href="#collapse">Collapse</a>
+  <ul class="nav">
+    <li><a class="leap-interactive" href="#collapse-examples">Examples</a></li>
+    <li><a class="leap-interactive" href="#collapse-usage">Usage</a></li>
+  </ul>
+</li>
+<li>
+  <a class="leap-interactive" href="#carousel">Carousel</a>
+  <ul class="nav">
+    <li><a class="leap-interactive" href="#carousel-examples">Examples</a></li>
+    <li><a class="leap-interactive" href="#carousel-usage">Usage</a></li>
+  </ul>
+</li>
+
+              
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9" role="main">
+            <!-- Overview
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="js-overview">Overview</h1>
+    </div>
+
+    <h3 id="js-individual-compiled">Individual or compiled</h3>
+    <p>Leapstrap is a Leap-first framework built on top of Leap.js, Bootstrap.js and other popular web components. In this guide we will detail the Leap-focused Javascript plugins, whilst considering other documentation for other plugins.</p>
+    
+    <p>Much of Leapstrap will require you to have jQuery and Leap.js (this means jQuery and Leap must be included <strong>before</strong> the plugin files in your project/web pages).</p>
+    
+    <p>Leapstrap Plugins can be included <em>individually</em> (using Leapstraps's individual <code>leap-*.js</code> files), or <em>all at once</em> (using the uncompressed <code>leapstrap.js</code> or the minified <code>leapstrap.min.js</code>).</p>
+    
+           
+
+ <div class="bs-callout bs-callout-danger">
+      <h4>See Bootstrap Documentation</h4>
+     <p>A lot of information on the non-Leap-focused Javascript plugins (which are sometimes the basis for many Leap-focused plugins) can be found on the <a href="http://getbootstrap.com/javascript/">Bootstrap Javascript</a> page. It is worth reading if you are not familiar with Bootstrap.</p>
+    </div>
+    
+    <div class="bs-callout bs-callout-danger">
+      <h4>Dependencies and file versions</h4>
+      <p>Some plugins and CSS components depend on other plugins. If you include plugins individually, check for it's dependencies. </p>
+      
+      <p>Both <code>leapstrap.js</code> and <code>leapstrap.min.js</code> contain all Leapstrap plugins in a single file.</p>
+      
+      <p>You do not need to include both and if you include leapstrap.js or leapstrap.min.js you probably won't need the individual plugin or any of it's dependencies (as they're all in leapstrap.js/.min.js)</p>
+    </div>
+    
+
+    <h3 id="js-data-attrs">Data attributes</h3>
+    <p>You can use many Leapstrap plugins through the markup API without writing a single line of JavaScript. This is Leapstrap's first-class API and should be your first consideration when using a plugin. Try not to use <code>href="#helloWorld"</code> where <code>data-hello="world"</code> is available.</p>
+
+
+
+  </div>
+
+
+
+
+  <!-- Modal
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="modals">Modals <small>modal.js</small></h1>
+    </div>
+
+    <h2 id="modals-examples">Examples</h2>
+    <p>Modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults.</p>
+
+    <div class="bs-callout bs-callout-warning" id="callout-stacked-modals">
+      <h4>Overlapping modals not supported</h4>
+      <p>Be sure not to open a modal while another is still visible. Showing more than one modal at a time requires custom code.</p>
+    </div>
+    
+
+    <h3>Static example</h3>
+    <p>A rendered modal with header, body, and set of actions in the footer.</p>
+    <div class="bs-example bs-example-modal">
+      <div class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close leap-interactive" data-dismiss="modal" aria-hidden="true" leap-attractor="true">&times;</button>
+              <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+             <button type="button" class="btn btn-default leap-interactive" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary leap-interactive" data-dismiss="modal">Save changes</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+    </div><!-- /example -->
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal fade&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal-dialog&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal-content&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal-header&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;close leap-interactive&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;modal&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span> <span class="na">leap-attractor=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">&quot;modal-title&quot;</span><span class="nt">&gt;</span>Modal title<span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal-body&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>One fine body<span class="ni">&amp;hellip;</span><span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal-footer&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default leap-interactive&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;modal&quot;</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary leap-interactive&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;modal&quot;</span><span class="nt">&gt;</span>Save changes<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.modal-content --&gt;</span>
+  <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.modal-dialog --&gt;</span>
+<span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.modal --&gt;</span>
+</code></pre></div>
+
+    <h3>Live demo</h3>
+    <p>Toggle a modal via JavaScript by clicking the button below. It will slide down and fade in from the top of the page.</p>
+    <!-- sample modal content -->
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+             <button type="button" class="close leap-interactive" data-dismiss="modal" aria-hidden="true" leap-attractor="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
+          </div>
+          <div class="modal-body">
+            <h4>Text in a modal</h4>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+
+            <h4>Popover in a modal</h4>
+            <p>This <a href="#" role="button" class="btn btn-default popover-test" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">button</a> should trigger a popover on click.</p>
+
+            <h4>Tooltips in a modal</h4>
+            <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> should have tooltips on hover.</p>
+
+            <hr>
+
+            <h4>Overflowing text to show scroll behavior</h4>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            
+          </div>
+          <div class="modal-footer">
+           <button type="button" class="btn btn-default leap-interactive" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary leap-interactive" data-dismiss="modal">Save changes</button>
+          </div>
+
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="bs-example" style="padding-bottom: 24px;">
+      <a class="btn btn-primary btn-lg leap-interactive" data-toggle="modal" data-target="#myModal">
+        Launch demo modal
+      </a>
+    </div><!-- /example -->
+<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Button trigger modal --&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary btn-lg leap-interactive&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;modal&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#myModal&quot;</span><span class="nt">&gt;</span>
+  Launch demo modal
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="c">&lt;!-- Modal --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal fade&quot;</span> <span class="na">id=</span><span class="s">&quot;myModal&quot;</span> <span class="na">tabindex=</span><span class="s">&quot;-1&quot;</span> <span class="na">role=</span><span class="s">&quot;dialog&quot;</span> <span class="na">aria-labelledby=</span><span class="s">&quot;myModalLabel&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal-dialog&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal-content&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal-header&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;close&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;modal&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span> <span class="na">leap-attractor=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">&quot;modal-title&quot;</span> <span class="na">id=</span><span class="s">&quot;myModalLabel&quot;</span><span class="nt">&gt;</span>Modal title<span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal-body&quot;</span><span class="nt">&gt;</span>
+        ...
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal-footer&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;modal&quot;</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;modal&quot;</span><span class="nt">&gt;</span>Save changes<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.modal-content --&gt;</span>
+  <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.modal-dialog --&gt;</span>
+<span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.modal --&gt;</span>
+</code></pre></div>
+
+
+    <div class="bs-callout bs-callout-warning">
+      <h4>Make modals accessible</h4>
+      <p>Be sure to add <code>role="dialog"</code> to <code>.modal</code>, <code>aria-labelledby="myModalLabel"</code> attribute to reference the modal title, and <code>aria-hidden="true"</code> to tell assistive technologies to skip the modal's DOM elements.</p>
+      <p>Additionally, you may give a description of your modal dialog with <code>aria-describedby</code> on <code>.modal</code>.</p>
+    </div>
+
+    <h2 id="modals-usage">Usage</h2>
+    <p>The modal plugin toggles your hidden content on demand, via data attributes or JavaScript. It also adds <code>.model-open</code> to the <code>&lt;body&gt;</code> to override default scrolling behavior and generates a <code>.modal-backdrop</code> to provide a click area for dismissing shown modals when clicking outside the modal.</p>
+
+    <h3>Via data attributes</h3>
+    <p>Activate a modal without writing JavaScript. Set <code>data-toggle="modal"</code> on a controller element, like a button, along with a <code>data-target="#foo"</code> or <code>href="#foo"</code> to target a specific modal to toggle.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;modal&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#myModal&quot;</span><span class="nt">&gt;</span>Launch modal<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+
+    <h3>Via JavaScript</h3>
+    <p>Call a modal with id <code>myModal</code> with a single line of JavaScript:</p>
+    <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#myModal&#39;</span><span class="p">).</span><span class="nx">modal</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+</code></pre></div>
+
+  </div>
+
+
+
+  <!-- Dropdowns
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="dropdowns">Dropdowns <small>dropdown.js</small></h1>
+    </div>
+
+    <h2 id="dropdowns-examples">Examples</h2>
+    <p>Add dropdown menus to nearly anything with this simple plugin, including the navbar, tabs, and pills.</p>
+
+    <h3>Within a navbar</h3>
+    <div class="bs-example">
+      <nav id="navbar-example" class="navbar navbar-default navbar-static" role="navigation">
+        <div class="navbar-header">
+          <button class="navbar-toggle leap-interactive" type="button" data-toggle="collapse" data-target=".bs-js-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand leap-interactive" href="javascript:void(0);">Project Name</a>
+        </div>
+        <div class="collapse navbar-collapse bs-js-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a id="drop1" role="button" class="dropdown-toggle leap-interactive" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                <li role="presentation"><a class="leap-interactive" role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+                <li role="presentation"><a class="leap-interactive" role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+                <li role="presentation"><a class="leap-interactive" role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something else here</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a class="leap-interactive" role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a id="drop2" role="button" class="dropdown-toggle leap-interactive" data-toggle="dropdown">Dropdown 2 <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                <li role="presentation"><a class="leap-interactive" role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+                <li role="presentation"><a class="leap-interactive" role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+                <li role="presentation"><a class="leap-interactive" role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something else here</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a class="leap-interactive" role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li id="fat-menu" class="dropdown">
+              <a id="drop3" role="button" class="dropdown-toggle leap-interactive" data-toggle="dropdown">Dropdown 3 <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                <li role="presentation"><a class="leap-interactive" role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+                <li role="presentation"><a class="leap-interactive" role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+                <li role="presentation"><a class="leap-interactive" role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something else here</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a class="leap-interactive" role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </nav> <!-- /navbar-example -->
+    </div> <!-- /example -->
+
+
+    <h2 id="dropdowns-usage">Usage</h2>
+    <p>Via data attributes or JavaScript, the dropdown plugin toggles hidden content (dropdown menus) by toggling the <code>.open</code> class on the parent list item. When opened, the plugin also adds <code>.dropdown-backdrop</code> as a click area for closing dropdown menus when clicking outside the menu.</p>
+
+    <h3>Via data attributes</h3>
+    <p>Add <code>data-toggle="dropdown"</code> to a link or button to toggle a dropdown.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;dropdown&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">&quot;dropdown&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Dropdown trigger<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;dropdown-menu&quot;</span> <span class="na">role=</span><span class="s">&quot;menu&quot;</span> <span class="na">aria-labelledby=</span><span class="s">&quot;dLabel&quot;</span><span class="nt">&gt;</span>
+    ...
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+          <p>To keep URLs intact, use the <code>data-target</code> attribute instead of <code>href="#"</code>.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;dropdown&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">&quot;dLabel&quot;</span> <span class="na">role=</span><span class="s">&quot;button&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;dropdown&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#&quot;</span> <span class="na">href=</span><span class="s">&quot;/page.html&quot;</span><span class="nt">&gt;</span>
+    Dropdown <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;caret&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+
+
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;dropdown-menu&quot;</span> <span class="na">role=</span><span class="s">&quot;menu&quot;</span> <span class="na">aria-labelledby=</span><span class="s">&quot;dLabel&quot;</span><span class="nt">&gt;</span>
+    ...
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+    <h3>Via JavaScript</h3>
+    <p>Call the dropdowns via JavaScript:</p>
+<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.dropdown-toggle&#39;</span><span class="p">).</span><span class="nx">dropdown</span><span class="p">()</span>
+</code></pre></div>
+
+  </div>
+
+  <!-- ScrollSpy
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="scrollspy">ScrollSpy <small>scrollspy.js</small></h1>
+    </div>
+
+
+    <h2 id="scrollspy-examples">Example in navbar</h2>
+    <p>The ScrollSpy plugin is for automatically updating nav targets based on scroll position. Scroll the area below the navbar and watch the active class change. The dropdown sub items will be highlighted as well.</p>
+    <div class="bs-example">
+      <nav id="navbar-example2" class="navbar navbar-default navbar-static" role="navigation">
+        <div class="navbar-header">
+          <button class="navbar-toggle leap-interactive" type="button" data-toggle="collapse" data-target=".bs-js-navbar-scrollspy">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand leap-interactive" href="#">Project Name</a>
+        </div>
+        <div class="collapse navbar-collapse bs-js-navbar-scrollspy">
+          <ul class="nav navbar-nav">
+            <li><a class="leap-interactive" href="#fat">@fat</a></li>
+            <li><a class="leap-interactive" href="#mdo">@mdo</a></li>
+            <li class="dropdown">
+              <a href="javascript:void(0);" id="navbarDrop1" class="dropdown-toggle leap-interactive" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDrop1">
+                <li><a class="leap-interactive" href="#one" tabindex="-1">one</a></li>
+                <li><a class="leap-interactive" href="#two" tabindex="-1">two</a></li>
+                <li class="divider"></li>
+                <li><a class="leap-interactive" href="#three" tabindex="-1">three</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example leap-interactive" leap-disable-tap="true">
+        <h4 id="fat">@fat</h4>
+        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+        <h4 id="mdo">@mdo</h4>
+        <p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
+        <h4 id="one">one</h4>
+        <p>Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.</p>
+        <h4 id="two">two</h4>
+        <p>In incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.</p>
+        <h4 id="three">three</h4>
+        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+        <p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
+        </p>
+      </div>
+    </div><!-- /example -->
+
+
+    <h2 id="scrollspy-usage">Usage</h2>
+
+    <h3>Via data attributes</h3>
+    <p>To easily add scrollspy behavior to your topbar navigation, add <code>data-spy="scroll"</code> to the element you want to spy on (most typically this would be the <code>&lt;body&gt;</code>). Then add the <code>data-target</code> attribute with the ID or class of the parent element of any Leapstrap <code>.nav</code> component.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;body</span> <span class="na">data-spy=</span><span class="s">&quot;scroll&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#navbar-example&quot;</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+
+    <h3>Via JavaScript</h3>
+    <p>Call the scrollspy via JavaScript:</p>
+<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">scrollspy</span><span class="p">({</span> <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;#navbar-example&#39;</span> <span class="p">})</span>
+</code></pre></div>
+
+    <div class="bs-callout bs-callout-danger">
+      <h4>Resolvable ID targets required</h4>
+      <p>Navbar links must have resolvable id targets. For example, a <code>&lt;a href="#home"&gt;home&lt;/a&gt;</code> must correspond to something in the DOM like <code>&lt;div id="home"&gt;&lt;/div&gt;</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <!-- Tabs
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="tabs">Togglable tabs <small>tab.js</small></h1>
+    </div>
+
+    <h2 id="tabs-examples">Example tabs</h2>
+    <p>Add quick, dynamic tab functionality to transition through panes of local content, even via dropdown menus.</p>
+    <div class="bs-example bs-example-tabs">
+      <ul id="myTab" class="nav nav-tabs leap-interactive" leap-disable-tap="true">
+        <li class="active"><a href="#home" data-toggle="tab" class="leap-interactive">Home</a></li>
+        <li><a href="#profile" data-toggle="tab" class="leap-interactive">Profile</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0);" id="myTabDrop1" class="dropdown-toggle leap-interactive" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu leap-interactive" role="menu" aria-labelledby="myTabDrop1" leap-disable-tap="true">
+            <li><a href="#dropdown1" class="leap-interactive" tabindex="-1" data-toggle="tab">@fat</a></li>
+            <li><a href="#dropdown2" class="leap-interactive" tabindex="-1" data-toggle="tab">@mdo</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="home">
+          <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+        </div>
+        <div class="tab-pane fade" id="profile">
+          <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+        </div>
+        <div class="tab-pane fade" id="dropdown1">
+          <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+        </div>
+        <div class="tab-pane fade" id="dropdown2">
+          <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+        </div>
+      </div>
+    </div><!-- /example -->
+
+   
+
+
+    <h2 id="tabs-usage">Usage</h2>
+    <p>Enable tabbable tabs via JavaScript (each tab needs to be activated individually):</p>
+<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#myTab a&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>
+  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="s1">&#39;show&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+
+          <p>You can activate individual tabs in several ways:</p>
+<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#myTab a[href=&quot;#profile&quot;]&#39;</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="s1">&#39;show&#39;</span><span class="p">)</span> <span class="c1">// Select tab by name</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#myTab a:first&#39;</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="s1">&#39;show&#39;</span><span class="p">)</span> <span class="c1">// Select first tab</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#myTab a:last&#39;</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="s1">&#39;show&#39;</span><span class="p">)</span> <span class="c1">// Select last tab</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#myTab li:eq(2) a&#39;</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="s1">&#39;show&#39;</span><span class="p">)</span> <span class="c1">// Select third tab (0-indexed)</span>
+</code></pre></div>
+
+    <h3>Markup</h3>
+    <p>You can activate a tab or pill navigation without writing any JavaScript by simply specifying <code>data-toggle="tab"</code> or <code>data-toggle="pill"</code> on an element. Adding the <code>nav</code> and <code>nav-tabs</code> classes to the tab <code>ul</code> will apply the Leapstrap <a href="../components#nav-tabs">tab styling</a>, while adding the <code>nav</code> and <code>nav-pills</code> classes will apply <a href="../components#nav-pills">pill styling</a>.</p>
+<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Nav tabs --&gt;</span>
+<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav nav-tabs&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#home&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;tab&quot;</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#profile&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;tab&quot;</span><span class="nt">&gt;</span>Profile<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#messages&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;tab&quot;</span><span class="nt">&gt;</span>Messages<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#settings&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;tab&quot;</span><span class="nt">&gt;</span>Settings<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="c">&lt;!-- Tab panes --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tab-content&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tab-pane active&quot;</span> <span class="na">id=</span><span class="s">&quot;home&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tab-pane&quot;</span> <span class="na">id=</span><span class="s">&quot;profile&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tab-pane&quot;</span> <span class="na">id=</span><span class="s">&quot;messages&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tab-pane&quot;</span> <span class="na">id=</span><span class="s">&quot;settings&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+    <h3>Fade effect</h3>
+    <p>To make tabs fade in, add <code>.fade</code> to each <code>.tab-pane</code>. The first tab pane must also have <code>.in</code> to properly fade in initial content.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tab-content&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tab-pane fade in active&quot;</span> <span class="na">id=</span><span class="s">&quot;home&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tab-pane fade&quot;</span> <span class="na">id=</span><span class="s">&quot;profile&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tab-pane fade&quot;</span> <span class="na">id=</span><span class="s">&quot;messages&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tab-pane fade&quot;</span> <span class="na">id=</span><span class="s">&quot;settings&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+  </div>
+
+
+
+  <!-- Tooltips
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="tooltips">Tooltips <small>tooltip.js</small></h1>
+    </div>
+
+    <h2 id="tooltips-examples">Examples</h2>
+    <p>Inspired by the excellent jQuery.tipsy plugin written by Jason Frame; Tooltips are an updated version, which don't rely on images, use CSS3 for animations, and data-attributes for local title storage.</p>
+     <h3>Four directions</h3>
+    <div class="bs-example tooltip-demo">
+      <div class="bs-example-tooltips">
+        <button type="button" class="btn btn-default leap-interactive" data-toggle="tooltip" data-placement="left" title="Tooltip on left" leap-disable-tap="true">Tooltip on left</button>
+        <button type="button" class="btn btn-default leap-interactive" data-toggle="tooltip" data-placement="top" title="Tooltip on top" leap-disable-tap="true" >Tooltip on top</button>
+        <button type="button" class="btn btn-default leap-interactive" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom" leap-disable-tap="true" >Tooltip on bottom</button>
+        <button type="button" class="btn btn-default leap-interactive" data-toggle="tooltip" data-placement="right" title="Tooltip on right" leap-disable-tap="true" >Tooltip on right</button>
+      </div>
+    </div><!-- /example -->
+  
+    <h3>In text</h3>
+    <div class="bs-example tooltip-demo">
+      <p class="muted" style="margin-bottom: 0;">Tight pants next level keffiyeh <a href="javascript:void(0);" class="leap-interactive" data-toggle="tooltip" title="Default tooltip" leap-disable-tap="true" >you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a class="leap-interactive" href="#" data-toggle="tooltip" title="Another tooltip" leap-disable-tap="true" >have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan <a href="#" class="leap-interactive" data-toggle="tooltip" title="Another one here too" leap-disable-tap="true" >whatever keytar</a>, scenester farm-to-table banksy Austin <a href="#" class="leap-interactive" data-toggle="tooltip" title="The last tip!" leap-disable-tap="true" >twitter handle</a> freegan cred raw denim single-origin coffee viral.
+      </p>
+    </div><!-- /example -->
+
+ 
+ <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default leap-interactive&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;tooltip&quot;</span> <span class="na">data-placement=</span><span class="s">&quot;left&quot;</span> <span class="na">title=</span><span class="s">&quot;Tooltip on left&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Tooltip on left<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>Tight pants next level keffiyeh <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:void(0);&quot;</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;tooltip&quot;</span> <span class="na">title=</span><span class="s">&quot;Default tooltip&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>you probably<span class="nt">&lt;/a&gt;</span> haven&#39;t heard of them.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>
+
+    
+    <div class="bs-callout bs-callout-info">
+      <h4>Tooltips in button groups and input groups require special setting</h4>
+      <p>When using tooltips on elements within a <code>.btn-group</code> or an <code>.input-group</code>, you'll have to specify the option <code>container: 'body'</code> (documented below) to avoid unwanted side effects (such as the element growing wider and/or losing its rounded corners when the tooltip is triggered).</p>
+    </div>
+    <div class="bs-callout bs-callout-info">
+      <h4>Tooltips on disabled elements require wrapper elements</h4>
+      <p>To add a tooltip to a <code>disabled</code> or <code>.disabled</code> element, put the element inside of a <code>&lt;div&gt;</code> and apply the tooltip to that <code>&lt;div&gt;</code> instead.</p>
+    </div>
+
+    <h2 id="tooltips-usage">Usage</h2>
+    <p>The tooltip plugin generates content and markup on demand, and by default places tooltips after their trigger element.</p>
+    <p>Trigger the tooltip via JavaScript:</p>
+<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#example&#39;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+</code></pre></div>
+
+    <h3>Markup</h3>
+    <p>The generated markup of a tooltip is rather simple, though it does require a position (by default, set to <code>top</code> by the plugin).</p>
+<div class="highlight"><pre><code class="html"><span class="lineno">1</span> <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tooltip&quot;</span><span class="nt">&gt;</span>
+<span class="lineno">2</span>   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tooltip-inner&quot;</span><span class="nt">&gt;</span>
+<span class="lineno">3</span>     Tooltip!
+<span class="lineno">4</span>   <span class="nt">&lt;/div&gt;</span>
+<span class="lineno">5</span>   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tooltip-arrow&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="lineno">6</span> <span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;tooltip&quot;</span> <span class="na">title=</span><span class="s">&quot;first tooltip&quot;</span><span class="nt">&gt;</span>Hover over me<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+
+  </div>
+
+  <!-- Popovers
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="popovers">Popovers <small>popover.js</small></h1>
+    </div>
+
+    <h2 id="popovers-examples">Examples</h2>
+    <p>Add small overlays of content, like those on the iPad, to any element for housing secondary information.</p>
+
+    <div class="bs-callout bs-callout-danger">
+      <h4>Plugin dependency</h4>
+      <p>Popovers require the <a href="#tooltips">tooltip plugin</a> to be included in your version of Leapstrap.</p>
+    </div>
+    <div class="bs-callout bs-callout-danger">
+      <h4>Opt-in functionality</h4>
+      <p>For performance reasons, the Tooltip and Popover data-apis are opt-in, meaning <strong>you must initialize them yourself</strong>.</p>
+    </div>
+    <div class="bs-callout bs-callout-info">
+      <h4>Popovers in button groups and input groups require special setting</h4>
+      <p>When using popovers on elements within a <code>.btn-group</code> or an <code>.input-group</code>, you'll have to specify the option <code>container: 'body'</code> (documented below) to avoid unwanted side effects (such as the element growing wider and/or losing its rounded corners when the popover is triggered).</p>
+    </div>
+    <div class="bs-callout bs-callout-info">
+      <h4>Popovers on disabled elements require wrapper elements</h4>
+      <p>To add a popover to a <code>disabled</code> or <code>.disabled</code> element, put the element inside of a <code>&lt;div&gt;</code> and apply the popover to that <code>&lt;div&gt;</code> instead.</p>
+    </div>
+
+   
+    <h3>Live demo</h3>
+    <div class="bs-example" style="padding-bottom: 24px;">
+      <a href="javascript:void(0);" class="btn btn-lg btn-danger leap-interactive" data-toggle="popover" title="A Title" data-content="And here's some amazing content. It's very engaging. right?" role="button" leap-enable-multitap="true">Click to toggle popover</a>
+    </div>
+
+    <h4>Four directions</h4>
+    <div class="bs-example tooltip-demo">
+      <div class="bs-example-tooltips">
+        <button type="button" class="btn btn-default leap-interactive" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." leap-enable-multitap="true">
+          Popover on left
+        </button>
+        <button type="button" class="btn btn-default leap-interactive" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." leap-enable-multitap="true">
+          Popover on top
+        </button>
+        <button type="button" class="btn btn-default leap-interactive" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." leap-enable-multitap="true">
+          Popover on bottom
+        </button>
+        <button type="button" class="btn btn-default leap-interactive" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." leap-enable-multitap="true">
+          Popover on right
+        </button>
+      </div>
+    </div><!-- /example -->
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-lg btn-danger leap-interactive&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;popover&quot;</span> <span class="na">title=</span><span class="s">&quot;A Title&quot;</span> <span class="na">data-content=</span><span class="s">&quot;Some content&quot;</span> <span class="na">role=</span><span class="s">&quot;button&quot;</span> <span class="na">leap-enable-multitap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Click to toggle popover<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+
+    <h2 id="popovers-usage">Usage</h2>
+    <p>Enable popovers via JavaScript:</p>
+    <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#example&#39;</span><span class="p">).</span><span class="nx">popover</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+</code></pre></div>
+
+ 
+  </div>
+
+  <!-- Alert
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="alerts">Alert messages <small>alert.js</small></h1>
+    </div>
+
+
+    <h2 id="alerts-examples">Example alerts</h2>
+    <p>Add dismiss functionality to all alert messages with this plugin.</p>
+    <div class="bs-example">
+      <div class="alert alert-leap alert-warning fade in leap-interactive" leap-disable-tap="true">
+        <button type="button" class="close leap-interactive" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+      </div>
+    </div><!-- /example -->
+
+    <div class="bs-example">
+      <div class="alert alert-leap alert-danger fade in leap-interactive" leap-disable-tap="true">
+        <button type="button" class="close leap-interactive" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4>Oh snap! You got an error!</h4>
+        <p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+        <p>
+          <button type="button" class="btn btn-danger leap-interactive">Take this action</button>
+          <button type="button" class="btn btn-default leap-interactive">Or do this</button>
+        </p>
+      </div>
+    </div><!-- /example -->
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-leap alert-danger fade in leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;close leap-interactive&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;alert&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;h4&gt;</span>Oh snap! You got an error!<span class="nt">&lt;/h4&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;p&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-danger leap-interactive&quot;</span><span class="nt">&gt;</span>Take this action<span class="nt">&lt;/button&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default leap-interactive&quot;</span><span class="nt">&gt;</span>Or do this<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+    <h2 id="alerts-usage">Usage</h2>
+    <p>Enable dismissal of an alert via JavaScript:</p>
+    <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.alert&quot;</span><span class="p">).</span><span class="nx">alert</span><span class="p">()</span>
+</code></pre></div>
+
+    <h3>Markup</h3>
+    <p>Just add <code>data-dismiss="alert"</code> to your close button to automatically give an alert close functionality.</p>
+    <div class="highlight"><pre><code class="html"><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;close leap-interactive&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;alert&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span> <span class="na">leap-attractor=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+
+ 
+  </div>
+
+
+
+  <!-- Buttons
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="buttons">Buttons <small>button.js</small></h1>
+    </div>
+
+    <h2 id="buttons-examples">Example uses</h2>
+    <p>Do more with buttons. Control button states or create groups of buttons for more components like toolbars.</p>
+
+    <h4>Stateful</h4>
+    <p>Add <code>data-loading-text="Loading..."</code> to use a loading state on a button.</p>
+    <div class="bs-example" style="padding-bottom: 24px;">
+      <button type="button" id="fat-btn" data-loading-text="Loading..." class="btn btn-primary leap-interactive">
+        Loading state
+      </button>
+    </div><!-- /example -->
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">data-loading-text=</span><span class="s">&quot;Loading...&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary leap-interactive&quot;</span><span class="nt">&gt;</span>
+  Loading state
+<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+
+    <h4>Single toggle</h4>
+    <p>Add <code>data-toggle="button"</code> to activate toggling on a single button.</p>
+    <div class="bs-example" style="padding-bottom: 24px;">
+      <button type="button" class="btn btn-primary leap-interactive" data-toggle="button">Single toggle</button>
+    </div><!-- /example -->
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary leap-interactive&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>Single toggle<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+
+    <h4>Checkbox</h4>
+    <p>Add <code>data-toggle="buttons"</code> to a group of checkboxes for checkbox style toggling on btn-group.</p>
+    <div class="bs-example" style="padding-bottom: 24px;">
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-primary">
+          <input type="checkbox" class="leap-interactive"> Option 1
+        </label>
+        <label class="btn btn-primary">
+          <input type="checkbox" class="leap-interactive"> Option 2
+        </label>
+        <label class="btn btn-primary">
+          <input type="checkbox" class="leap-interactive"> Option 3
+        </label>
+      </div>
+    </div><!-- /example -->
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;btn-group&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;buttons&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span><span class="nt">&gt;</span> Option 1
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span><span class="nt">&gt;</span> Option 2
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span><span class="nt">&gt;</span> Option 3
+  <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+    <h4>Radio</h4>
+    <p>Add <code>data-toggle="buttons"</code> to a group of radio inputs for radio style toggling on btn-group.</p>
+    <div class="bs-example" style="padding-bottom: 24px;">
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-primary">
+          <input type="radio" name="options" id="option1" class="leap-interactive"> Option 1
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" name="options" id="option2" class="leap-interactive"> Option 2
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" name="options" id="option3" class="leap-interactive"> Option 3
+        </label>
+      </div>
+    </div><!-- /example -->
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;btn-group&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;buttons&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;options&quot;</span> <span class="na">id=</span><span class="s">&quot;option1&quot;</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span><span class="nt">&gt;</span> Option 1
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;options&quot;</span> <span class="na">id=</span><span class="s">&quot;option2&quot;</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span><span class="nt">&gt;</span> Option 2
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;options&quot;</span> <span class="na">id=</span><span class="s">&quot;option3&quot;</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span><span class="nt">&gt;</span> Option 3
+  <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+
+    <h2 id="buttons-usage">Usage</h2>
+    <p>Enable buttons via JavaScript:</p>
+<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.btn-group&#39;</span><span class="p">).</span><span class="nx">button</span><span class="p">()</span>
+</code></pre></div>
+
+
+  </div>
+
+
+
+  <!-- Collapse
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="collapse">Collapse <small>collapse.js</small></h1>
+    </div>
+
+    <h3>About</h3>
+    <p>Get base styles and flexible support for collapsible components like accordions and navigation.</p>
+
+    <div class="bs-callout bs-callout-danger">
+      <h4>Plugin dependency</h4>
+      <p>Collapse requires the <a href="#transitions">transitions plugin</a> to be included in your version of Leapstrap.</p>
+    </div>
+
+    <h2 id="collapse-examples">Example accordion</h2>
+    <p>Using the collapse plugin, we built a simple accordion by extending the panel component.</p>
+
+    <div class="bs-example">
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+           
+              <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" href="javascript:void(0);" class="leap-interactive">
+                <h4 class="panel-title"> Collapsible Group Item #1</h4>
+              </a>
+            
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" href="javascript:void(0);" class="leap-interactive">
+                <h4 class="panel-title"> Collapsible Group Item #2</h4>
+              </a>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+           <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree" href="javascript:void(0);" class="leap-interactive">
+                <h4 class="panel-title"> Collapsible Group Item #3</h4>
+              </a>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /example -->
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-group&quot;</span> <span class="na">id=</span><span class="s">&quot;accordion&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>
+           
+              <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-parent=</span><span class="s">&quot;#accordion&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#collapseOne&quot;</span> <span class="na">href=</span><span class="s">&quot;javascript:void(0);&quot;</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">&quot;panel-title&quot;</span><span class="nt">&gt;</span> Collapsible Group Item #1<span class="nt">&lt;/h4&gt;</span>
+              <span class="nt">&lt;/a&gt;</span>
+            
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;collapseOne&quot;</span> <span class="na">class=</span><span class="s">&quot;panel-collapse collapse in&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#39;t heard of them accusamus labore sustainable VHS.
+            <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-parent=</span><span class="s">&quot;#accordion&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#collapseTwo&quot;</span> <span class="na">href=</span><span class="s">&quot;javascript:void(0);&quot;</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">&quot;panel-title&quot;</span><span class="nt">&gt;</span> Collapsible Group Item #2<span class="nt">&lt;/h4&gt;</span>
+              <span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;collapseTwo&quot;</span> <span class="na">class=</span><span class="s">&quot;panel-collapse collapse&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#39;t heard of them accusamus labore sustainable VHS.
+            <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>
+           <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-parent=</span><span class="s">&quot;#accordion&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#collapseThree&quot;</span> <span class="na">href=</span><span class="s">&quot;javascript:void(0);&quot;</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">&quot;panel-title&quot;</span><span class="nt">&gt;</span> Collapsible Group Item #3<span class="nt">&lt;/h4&gt;</span>
+              <span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;collapseThree&quot;</span> <span class="na">class=</span><span class="s">&quot;panel-collapse collapse&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#39;t heard of them accusamus labore sustainable VHS.
+            <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+    <p>You can also use the plugin without the accordion markup. Make a button toggle the expanding and collapsing of another element.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-danger leap-interactive&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#demo&quot;</span><span class="nt">&gt;</span>
+  simple collapsible
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;demo&quot;</span> <span class="na">class=</span><span class="s">&quot;collapse in&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+
+    <h2 id="collapse-usage">Usage</h2>
+    <p>The collapse plugin utilizes a few classes to handle the heavy lifting:</p>
+    <ul>
+      <li><code>.collapse</code> hides the content</li>
+      <li><code>.collapse.in</code> shows the content</li>
+      <li><code>.collapsing</code> is added when the transition starts, and removed when it finishes</li>
+    </ul>
+    <p>These classes can be found in <code>component-animations.less</code>.</p>
+
+    <h3>Via data attributes</h3>
+    <p>Just add <code>data-toggle="collapse"</code> and a <code>data-target</code> to element to automatically assign control of a collapsible element. The <code>data-target</code> attribute accepts a CSS selector to apply the collapse to. Be sure to add the class <code>collapse</code> to the collapsible element. If you'd like it to default open, add the additional class <code>in</code>.</p>
+    <p>To add accordion-like group management to a collapsible control, add the data attribute <code>data-parent="#selector"</code>. Refer to the demo to see this in action.</p>
+
+    <h3>Via JavaScript</h3>
+    <p>Enable manually with:</p>
+<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.collapse&quot;</span><span class="p">).</span><span class="nx">collapse</span><span class="p">()</span>
+</code></pre></div>
+
+
+  </div>
+
+
+
+  <!-- Carousel
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="carousel">Carousel <small>carousel.js</small></h1>
+    </div>
+
+    <h2 id="carousel-examples">Examples</h2>
+    <p>The slideshow below shows a generic plugin and component for cycling through elements like a carousel.</p> <p>Add captions to your slides easily with the <code>.carousel-caption</code> element within any <code>.item</code>. Place just about any optional HTML within there and it will be automatically aligned and formatted.</p>
+    <div class="bs-example">
+      <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-captions" data-slide-to="0" class="active leap-interactive"></li>
+          <li data-target="#carousel-example-captions" data-slide-to="1" class="leap-interactive"></li>
+          <li data-target="#carousel-example-captions" data-slide-to="2" class="leap-interactive"></li>
+        </ol>
+      <div class="carousel-inner">
+          <div class="item active">
+            <img data-src="holder.js/1400x500/auto/#777:#777" src="data:image/png;base64," alt="First slide image">
+            <div class="carousel-caption">
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img data-src="holder.js/1400x500/auto/#777:#777" src="data:image/png;base64," alt="Second slide image">
+            <div class="carousel-caption">
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img data-src="holder.js/1400x500/auto/#777:#777" src="data:image/png;base64," alt="Third slide image">
+            <div class="carousel-caption">
+              <h3>Third slide label</h3>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+          </div>
+        </div>
+        <a class="left carousel-control leap-interactive" href="#carousel-example-captions" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control leap-interactive" href="#carousel-example-captions" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+    </div><!-- /example -->
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;carousel-example-captions&quot;</span> <span class="na">class=</span><span class="s">&quot;carousel slide&quot;</span> <span class="na">data-ride=</span><span class="s">&quot;carousel&quot;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Indicators --&gt;</span>
+  <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">&quot;carousel-indicators&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">&quot;#carousel-example-captions&quot;</span> <span class="na">data-slide-to=</span><span class="s">&quot;0&quot;</span> <span class="na">class=</span><span class="s">&quot;active leap-interactive&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">&quot;#carousel-example-captions&quot;</span> <span class="na">data-slide-to=</span><span class="s">&quot;1&quot;</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">&quot;#carousel-example-captions&quot;</span> <span class="na">data-slide-to=</span><span class="s">&quot;2&quot;</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ol&gt;</span>
+
+  <span class="c">&lt;!-- Wrapper for slides --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;carousel-inner&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;item active&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;...&quot;</span> <span class="na">alt=</span><span class="s">&quot;...&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;carousel-caption&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h3&gt;</span>...<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;p&gt;</span>...<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    ...
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- Controls --&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;left carousel-control leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#carousel-example-captions&quot;</span> <span class="na">data-slide=</span><span class="s">&quot;prev&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;glyphicon glyphicon-chevron-left&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;right carousel-control leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#carousel-example-captions&quot;</span> <span class="na">data-slide=</span><span class="s">&quot;next&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;glyphicon glyphicon-chevron-right&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<div class="bs-callout bs-callout-warning" id="callout-carousel-transitions">
+  <h4>Transition animations not supported in Internet Explorer 8 &amp; 9</h4>
+  <p>Leapstrap exclusively uses CSS3 for its animations, but Internet Explorer 8 &amp; 9 don't support the necessary CSS properties. Thus, there are no slide transition animations when using these browsers. We have intentionally decided not to include jQuery-based fallbacks for the transitions.</p>
+</div>
+
+   
+<div class="bs-callout bs-callout-danger">
+  <h4>Accessibility issue</h4>
+  <p>The carousel component is generally not compliant with accessibility standards. If you need to be compliant, please consider other options for presenting your content.</p>
+</div>
+
+    <h2 id="carousel-usage">Usage</h2>
+
+    <h3>Via data attributes</h3>
+    <p>Use data attributes to easily control the position of the carousel. <code>data-slide</code> accepts the keywords <code>prev</code> or <code>next</code>, which alters the slide position relative to its current position. Alternatively, use <code>data-slide-to</code> to pass a raw slide index to the carousel <code>data-slide-to="2"</code>, which shifts the slide position to a particular index beginning with <code>0</code>.</p>
+    <p>The <code>data-ride="carousel"</code> attribute is used to mark a carousel as animating starting at page load.</p>
+
+    <h3>Via JavaScript</h3>
+    <p>Call carousel manually with:</p>
+<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.carousel&#39;</span><span class="p">).</span><span class="nx">carousel</span><span class="p">()</span>
+</code></pre></div>
+
+
+  </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer
+    ================================================== -->
+     <footer class="bs-footer" role="contentinfo">
+      <div class="container">
+        <div class="bs-social">
+  <ul class="bs-social-buttons">
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
+    </li>
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=fork&amp;count=true" width="102" height="20" title="Fork on GitHub"></iframe>
+    </li>
+       <li class="tweet-btn">
+   <a href="https://twitter.com/share" class="twitter-share-button" data-via="leapstrap">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+    <li class="follow-btn">
+    <a href="https://twitter.com/leapstrap" class="twitter-follow-button" data-show-count="false">Follow @leapstrap</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+ 
+  </ul>
+</div>
+
+
+
+        <p>Maintained by <a class="leap-interactive" href="http://www.alex-wilkes.com" target="_blank">Alex Wilkes</a>.</p>
+
+        <ul class="footer-links">
+          <li>Currently v1.1.0</li>
+          <li class="muted">&middot;</li>
+          <li><a class="leap-interactive" href="http://www.amazon.co.uk/gp/product/B00C66Z9ZC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00C66Z9ZC&linkCode=as2&tag=eosmnet-21">Buy Leap Controller</a><img src="http://ir-uk.amazon-adsystem.com/e/ir?t=eosmnet-21&l=as2&o=2&a=B00C66Z9ZC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+          
+        </ul>
+      </div>
+    </footer>
+
+    <!-- JS and analytics only. -->
+    <img class="sr-only" src="../docs-assets/img/Leapstrap.jpg" />
+<script src="../docs-assets/js/holder.js"></script>
+<script src="../docs-assets/js/application.js"></script>
+<script>
+ 
+        LeapManager.init({
+            
+            enableMetaGestures: true,
+            enableDefaultMetaGestureActions: true,
+            maxCursors:1,
+            enableHoverTap: true,
+            enablePressDown: true,
+            enableTouchScrolling: false,
+            enableScrollbarScrolling: true,
+           
+            });
+    
+</script>
+<!-- Analytics
+================================================== -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45024155-1', 'wilkesalex.github.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

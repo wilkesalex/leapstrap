@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://wilkesalex.github.io/leapstrap/</loc>
+  <lastmod>2013-10-27T21:28:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://wilkesalex.github.io/leapstrap/getting-started/</loc>
+  <lastmod>2013-10-27T21:28:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://wilkesalex.github.io/leapstrap/basics/</loc>
+  <lastmod>2013-10-27T21:28:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://wilkesalex.github.io/leapstrap/leap/</loc>
+  <lastmod>2013-10-27T21:28:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://wilkesalex.github.io/leapstrap/components/</loc>
+  <lastmod>2013-10-27T21:28:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://wilkesalex.github.io/leapstrap/more/</loc>
+  <lastmod>2013-10-27T21:28:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://wilkesalex.github.io/leapstrap/javascript/</loc>
+  <lastmod>2013-10-27T21:28:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://wilkesalex.github.io/leapstrap/about/</loc>
+  <lastmod>2013-10-27T21:28:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://wilkesalex.github.io/leapstrap/data/</loc>
+  <lastmod>2013-10-27T21:28:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://wilkesalex.github.io/leapstrap/examples/leap-web-site/</loc>
+  <lastmod>2013-10-27T21:28:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+</urlset>

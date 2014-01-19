@@ -9,18 +9,19 @@ maxCursors: "5"
   <div class="container">
     <h1>Leapstrap</h1>
     <p class="lead masttext topp">Leap first HTML5 frontend framework.</p>
-    <p class="lead masttext">Suitable for web sites, web apps and more.</p>
-    <p class="lead masttext bottomp">Now you can touch the web.</p>
+    <p class="lead masttext bottomp">Suitable for web sites, web apps and more.</p>
  <p>
        <a href="{{ page.base_url }}getting-started" class="btn btn-outline btn-lg leap-interactive">Get Started</a>
-      <a href="{{ page.base_url }}leap" class="btn btn-outline btn-lg leap-interactive">Leap Stuff</a>
+      <a href="{{ page.base_url }}leap" class="btn btn-outline btn-lg leap-interactive">Try Leap Stuff</a>
       <a href="{{ site.repo }}" class="btn btn-outline btn-lg leap-interactive">Get Code (Github)</a>
     </p>
   </div>
  
 </main>
  <div class="container">
-<h2>Just plug your Leap in to start</h2>
+<h2>
+Include <a href="{{ page.base_url }}getting-started/#download">the Leapstrap plugin</a> in your pages,<br/>
+And plug your Leap in to start.</h2>
     <div class="well">
     <pre id="initbox">
     Got Leap? Waiting for Leap Controller....
@@ -29,7 +30,7 @@ maxCursors: "5"
      <div class="col-md-6">
       <a class="btn btn-outline btn-lg leap-interactive" href="#" onclick="controller.connect();">Connect</a>
     </div>
-    <div class="col-md-6 text-right">
+    <div class="col-md-6 text-right hide">
      Number of fingers: <canvas id="fingers-canvas"></canvas>
     </div>
     </div>
@@ -114,7 +115,7 @@ maxCursors: "5"
      
        c.clearRect( 0 , 0 , width , height );
  // Gets the number of fingers in each frame
-      var numberOfFingers = frame.fingers.length;
+      var numberOfFingers = Leap.Pointable.length;
 
       // Defines the font shape and size
       c.font = "30px Arial";

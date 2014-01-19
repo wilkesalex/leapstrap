@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Leapstrap - Leap Motion web framework">
+<meta name="author" content="Alex Wilkes">
+<meta property="og:title" content="Leapstrap" />
+<meta property="og:url" content="http://wilkesalex.github.io/leapstrap/" />
+<meta property="og:image" content="http://wilkesalex.github.io/leapstrap/docs-assets/img/Leapstrap.jpg" />
+
+<title>
+  
+    Components &middot; Leapstrap
+  
+</title>
+
+<link href="../dist/css/leapstrap.css" rel="stylesheet">
+<link href="../docs-assets/css/docs.css" rel="stylesheet">
+<link href="../docs-assets/css/pygments-manni.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script>window.jQuery || document.write('<script src="/dist/js/jquery.js">\x3C/script>')</script>
+<script src="//js.leapmotion.com/0.3.0-beta3/leap.js"></script>
+<!-- need to find code to localise -->
+<!-- <script>window.BaseConnection || document.write('<script src="/dist/js/leap.js">\x3C/script>')</script> -->
+<script src="../dist/js/leapstrap.js"></script>
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../docs-assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="../docs-assets/ico/favicon.png">
+  </head>
+  <body class="leap-interactive" leap-disable-tap="true" leap-disable-hover="true">
+    <a class="sr-only" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="../" class="navbar-brand">Leapstrap</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a class="leap-interactive" href="../getting-started">Get Started</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../leap">Leap</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../basics">Basics</a>
+        </li>
+        <li class="active">
+          <a class="leap-interactive" href="../components">Components 1</a>
+        </li>
+         <li>
+          <a class="leap-interactive" href="../more">Components 2</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../javascript">JavaScript</a>
+        </li>
+      
+       
+       
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a class="leap-interactive" href="../about">About</a>
+        </li>
+       <!-- 
+  <li>
+          <a class="leap-interactive" href="../data">Data</a>
+        </li>
+ -->
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-header" id="content">
+      <div class="container container-fluid">
+        <h1>Components</h1>
+        <p>Over a dozen reusable components built to provide Leap users with a decent web browsing experience</p>
+      
+      </div>
+    </div>
+
+    <!-- Callout for the old docs link -->
+   
+
+    <div class="container container-fluid bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-sidebar hidden-xs hidden-print" role="complementary">
+            <ul class="nav bs-sidenav">
+              
+                <li> <a class="leap-interactive" href="#dropdowns">Buttons and Dropdowns</a> 
+<ul class="nav">
+	<li><a class="leap-interactive" href="#dropdowns-example">Example</a></li>
+	<li><a class="leap-interactive" href="#btn-groups-single">Button Groups</a></li>
+	<li><a class="leap-interactive" href="#btn-dropdowns-single">Single button dropdowns</a></li>
+</ul>
+</li>
+<li> <a class="leap-interactive" href="#thumbnails">Thumbnails</a> 
+<ul class="nav">
+	<li><a class="leap-interactive" href="#thumbnails-default">Default example</a></li>
+	<li><a class="leap-interactive" href="#thumbnails-custom-content">Custom content</a></li>
+</ul>
+</li>
+<li> <a class="leap-interactive" href="#media">Media object</a> 
+<ul class="nav">
+	<li><a class="leap-interactive" href="#media-default">Default media</a></li>
+</ul>
+</li>
+
+<li> <a class="leap-interactive" href="#alerts">Alerts</a> 
+<ul class="nav">
+	<li><a class="leap-interactive" href="#alerts-examples">Examples</a></li>
+	<li><a class="leap-interactive" href="#alerts-dismissable">Dismissable alerts</a></li>
+	<li><a class="leap-interactive" href="#alerts-links">Links in alerts</a></li>
+</ul>
+</li>
+
+<li> <a class="leap-interactive" href="#panels">Panels</a> 
+<ul class="nav">
+	<li><a class="leap-interactive" href="#panels-basic">Basic example</a></li>
+	<li><a class="leap-interactive" href="#panels-options">Panel with heading</a></li>
+	<li><a class="leap-interactive" href="#panels-alternatives">Contextual alternatives</a></li>
+</ul>
+</li>
+<li><a class="leap-interactive" href="#wells">Wells</a></li>
+<li><a class="leap-interactive" href="#labels">Labels</a></li>
+<li><a class="leap-interactive" href="#badges">Badges</a></li>
+
+
+
+
+              
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9" role="main">
+          <!-- Dropdowns
+  ================================================== -->
+<div class="bs-docs-section">
+	<div class="page-header">
+		<h1 id="dropdowns">
+			Buttons and Dropdowns
+		</h1>
+	</div>
+	<h3 id="dropdowns-example">
+		Button Dropdowns
+	</h3>
+	<p class="lead">
+		Toggleable, contextual menu for displaying lists of links. Made interactive with the <a href="../javascript/#dropdowns">dropdown JavaScript plugin</a>.
+	</p>
+	<p>
+		Wrap the dropdown's trigger and the dropdown menu within <code>.dropdown</code>, or another element that declares <code>position: relative;</code>. Then add the menu's HTML. Make the button and the menu item anchor links <code>.leap-interactive</code>.
+	</p>
+	<div class="bs-example">
+		<div class="dropdown clearfix">
+			<div class="btn-group">
+			<button type="button" class="btn btn-primary dropdown-toggle leap-interactive" data-toggle="dropdown">Primary <span class="caret"></span></button> 
+			<ul class="dropdown-menu" role="menu">
+				<li><a class="leap-interactive" href="javascript:void(0);">Action</a></li>
+				<li><a class="leap-interactive" href="javascript:void(0);">Another action</a></li>
+				<li><a class="leap-interactive" href="javascript:void(0);">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a class="leap-interactive" href="javascript:void(0);">Separated link</a></li>
+			</ul>
+		</div>
+		</div>
+	</div>
+
+<!-- /example -->
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;dropdown &quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;btn-group&quot;</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary dropdown-toggle leap-interactive&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;dropdown&quot;</span><span class="nt">&gt;</span>Primary <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;caret&quot;</span><span class="nt">&gt;&lt;/span&gt;&lt;/button&gt;</span> 
+			<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;dropdown-menu&quot;</span> <span class="na">role=</span><span class="s">&quot;menu&quot;</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Another action<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Something else here<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+				<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;divider&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Separated link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+			<span class="nt">&lt;/ul&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+</code></pre></div> 
+	<h3 id="btn-groups-single">
+		Button Groups
+	</h3>
+	<p>
+		Wrap a series of buttons with <code>.btn</code> in <code>.btn-group</code>. Make all buttons have the class <code>leap-interactive</code>.
+	</p>
+	<div class="bs-example">
+		<div class="btn-group" style="margin: 9px 0 5px;">
+			<button type="button" class="btn btn-default leap-interactive">Left</button> <button type="button" class="btn btn-default leap-interactive">Middle</button> <button type="button" class="btn btn-default leap-interactive">Right</button> 
+		</div>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;btn-group&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default leap-interactive&quot;</span><span class="nt">&gt;</span>Left<span class="nt">&lt;/button&gt;</span> <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default leap-interactive&quot;</span><span class="nt">&gt;</span>Middle<span class="nt">&lt;/button&gt;</span> <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default leap-interactive&quot;</span><span class="nt">&gt;</span>Right<span class="nt">&lt;/button&gt;</span> 
+	<span class="nt">&lt;/div&gt;</span>
+	
+</code></pre></div> 
+
+</div>
+
+<!-- Thumbnails
+  ================================================== -->
+<div class="bs-docs-section">
+	<div class="page-header">
+		<h1 id="thumbnails">
+			Thumbnails
+		</h1>
+	</div>
+	<p class="lead">
+		Extend Leapstrap's <a class="leap-interactive" href="../css/#grid">grid system</a> with the thumbnail component to easily display grids of images, videos, text, and more.
+	</p>
+	<h3 id="thumbnails-default">
+		Default example
+	</h3>
+	<p>
+		By default, Leapstrap's thumbnails are designed to showcase linked images with minimal required markup. Add CSS class <code>leap-interactive</code> and you'll get a border.
+	</p>
+	<div class="bs-example">
+		<div class="row">
+			<div class="col-sm-6 col-md-3">
+				<a href="javascript:void(0);" class="thumbnail leap-interactive"> <img data-src="holder.js/100%x180" alt="Generic placeholder thumbnail" src="data:image/png;base64,"> </a> 
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<a href="javascript:void(0);" class="thumbnail leap-interactive"> <img data-src="holder.js/100%x180" alt="Generic placeholder thumbnail" src="data:image/png;base64,"> </a> 
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<a href="javascript:void(0);" class="thumbnail leap-interactive"> <img data-src="holder.js/100%x180" alt="Generic placeholder thumbnail" src="data:image/png;base64,"> </a> 
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<a href="javascript:void(0);" class="thumbnail leap-interactive"> <img data-src="holder.js/100%x180" alt="Generic placeholder thumbnail" src="data:image/png;base64,"> </a> 
+			</div>
+		</div>
+	</div>
+
+<!-- /.bs-example -->
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-6 col-md-3&quot;</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;thumbnail leap-interactive&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;img</span> <span class="na">data-src=</span><span class="s">&quot;holder.js/100%x180&quot;</span> <span class="na">alt=</span><span class="s">&quot;...&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/a&gt;</span> 
+		<span class="nt">&lt;/div&gt;</span>
+		... 
+	<span class="nt">&lt;/div&gt;</span>
+	
+</code></pre></div> 
+	<h3 id="thumbnails-custom-content">
+		HTML content
+	</h3>
+	<p>
+		With a bit of extra markup, it's possible to add any kind of HTML content like headings, paragraphs, or buttons into thumbnails.
+	</p>
+	<div class="bs-example">
+		<div class="row">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail leap-thumbnail leap-interactive" leap-disable-tap="true">
+					<img data-src="holder.js/300x200" alt="Generic placeholder thumbnail" src="data:image/png;base64,"> 
+					<div class="caption">
+						<h3>
+							Thumbnail label
+						</h3>
+						<p>
+							Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+						</p>
+						<p>
+						<a href="javascript:void(0);" class="btn btn-primary leap-interactive" role="button">Button</a> <a href="#" class="btn btn-default leap-interactive" role="button">Button</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail leap-thumbnail leap-interactive" leap-disable-tap="true">
+					<img data-src="holder.js/300x200" alt="Generic placeholder thumbnail" src="data:image/png;base64,"> 
+					<div class="caption">
+						<h3>
+							Thumbnail label
+						</h3>
+						<p>
+							Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+						</p>
+						<p>
+						<a href="javascript:void(0);" class="btn btn-primary leap-interactive" role="button">Button</a> <a href="#" class="btn btn-default leap-interactive" role="button">Button</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail leap-thumbnail leap-interactive" leap-disable-tap="true">
+					<img data-src="holder.js/300x200" alt="Generic placeholder thumbnail" src="data:image/png;base64,"> 
+					<div class="caption">
+						<h3>
+							Thumbnail label
+						</h3>
+						<p>
+							Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+						</p>
+						<p>
+						<a href="javascript:void(0);" class="btn btn-primary leap-interactive" role="button">Button</a> <a href="#" class="btn btn-default leap-interactive" role="button">Button</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- /.bs-example -->
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-6 col-md-4&quot;</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;thumbnail leap-thumbnail leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;img</span> <span class="na">data-src=</span><span class="s">&quot;holder.js/300x200&quot;</span> <span class="na">alt=</span><span class="s">&quot;...&quot;</span><span class="nt">&gt;</span> 
+				<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;caption&quot;</span><span class="nt">&gt;</span>
+					<span class="nt">&lt;h3&gt;</span>
+						Thumbnail label
+					<span class="nt">&lt;/h3&gt;</span>
+					<span class="nt">&lt;p&gt;</span>
+						...
+					<span class="nt">&lt;/p&gt;</span>
+					<span class="nt">&lt;p&gt;</span>
+					<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary leap-interactive&quot;</span> <span class="na">role=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default leap-interactive&quot;</span> <span class="na">role=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/a&gt;</span>
+					<span class="nt">&lt;/p&gt;</span>
+				<span class="nt">&lt;/div&gt;</span>
+			<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+</code></pre></div> 
+</div>
+
+<!-- Media object
+  ================================================== -->
+<div class="bs-docs-section">
+	<div class="page-header">
+		<h1 id="media">
+			Media object
+		</h1>
+	</div>
+	<p class="lead">
+		Abstract object styles for building various types of components (like blog comments, Tweets, etc) that feature a left- or right-aligned image alongside textual content.
+	</p>
+	<h3 id="media-default">
+		Default media
+	</h3>
+	<p>
+		The default media allow to float a media object (images, video, audio) to the left or right of a content block. Add CSS classes <code>media-leap leap-interactive</code> to get a border on hover.
+	</p>
+	<div class="bs-example">
+		<div class="media media-leap leap-interactive" leap-disable-tap="true">
+			<a class="pull-left" href="#"> <img class="media-object" data-src="holder.js/64x64" alt="Generic placeholder image" src="data:image/png;base64,"> </a> 
+			<div class="media-body">
+				<h4 class="media-heading">
+					Media heading
+				</h4>
+				Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. 
+			</div>
+		</div>
+		<div class="media media-leap leap-interactive" leap-disable-tap="true">
+			<a class="pull-left" href="#"> <img class="media-object" data-src="holder.js/64x64" alt="Generic placeholder image" src="data:image/png;base64,"> </a> 
+			<div class="media-body">
+				<h4 class="media-heading">
+					Media heading
+				</h4>
+				Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. 
+			</div>
+		</div>
+		<div class="media media-leap leap-interactive" leap-disable-tap="true">
+			<a class="pull-left" href="#"> <img class="media-object" data-src="holder.js/64x64" alt="Generic placeholder image" src="data:image/png;base64,"> </a> 
+			<div class="media-body">
+				<h4 class="media-heading">
+					Media heading
+				</h4>
+				Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. 
+			</div>
+		</div>
+	</div>
+
+<!-- /.bs-example -->
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;media media-leap leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;pull-left&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">&quot;media-object&quot;</span> <span class="na">src=</span><span class="s">&quot;...&quot;</span> <span class="na">alt=</span><span class="s">&quot;...&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/a&gt;</span> 
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;media-body&quot;</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">&quot;media-heading&quot;</span><span class="nt">&gt;</span>
+				Media heading
+			<span class="nt">&lt;/h4&gt;</span>
+			... 
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+</code></pre></div> 
+</div>
+
+<!-- Alerts
+  ================================================== -->
+<div class="bs-docs-section">
+	<div class="page-header">
+		<h1 id="alerts">
+			Alerts
+		</h1>
+	</div>
+	<p class="lead">
+		Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages. For inline dismissal, use the <a class="leap-interactive" href="../javascript/#alerts">alerts jQuery plugin</a>.
+	</p>
+	<h2 id="alerts-examples">
+		Examples
+	</h2>
+	<p>
+		Wrap any text and an optional dismiss button in <code>.alert</code> and one of the four contextual classes (e.g., <code>.alert-success</code>) for basic alert messages.
+	</p>
+	<div class="bs-callout bs-callout-info">
+		<h4>
+			No default class
+		</h4>
+		<p>
+			Alerts don't have default classes, only base and modifier classes. A default gray alert doesn't make too much sense, so you're required to specify a type via contextual class. Choose from success, info, warning, or danger.
+		</p>
+	</div>
+	<h2 id="alerts-dismissable">
+		Dismissable alerts
+	</h2>
+	<p>
+		Build on any alert by adding an optional <code>.alert-dismissable</code> and close button.
+	</p>
+	<div class="bs-example">
+		<div class="alert alert-leap alert-warning alert-dismissable leap-interactive" leap-disable-tap="true">
+			<button type="button" class="close leap-interactive" data-dismiss="alert" aria-hidden="true">&times;</button> <strong>Warning!</strong> Best check yo self, you're not looking too good. 
+		</div>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-leap alert-warning alert-dismissable leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;close leap-interactive&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;alert&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span> <span class="nt">&lt;strong&gt;</span>Warning!<span class="nt">&lt;/strong&gt;</span> Best check yo self, you&#39;re not looking too good. 
+	<span class="nt">&lt;/div&gt;</span>
+	
+</code></pre></div> 
+	<div class="bs-callout bs-callout-warning">
+		<h4>
+			Ensure proper behavior across all devices
+		</h4>
+		<p>
+			Be sure to use the <code>&lt;button&gt;</code> element with the <code>data-dismiss="alert"</code> data attribute.
+		</p>
+	</div>
+	<h2 id="alerts-links">
+		Links in alerts
+	</h2>
+	<p>
+		Use the <code>.alert-link</code> utility class to quickly provide matching colored links within any alert.
+	</p>
+	<div class="bs-example">
+		<div class="alert alert-leap alert-success alert-dismissable leap-interactive" leap-disable-tap="true">
+			<button type="button" class="close leap-interactive" data-dismiss="alert" aria-hidden="true">&times;</button> <strong>Well done!</strong> You successfully read <a href="#" class="alert-link leap-interactive">this important alert message</a>. 
+		</div>
+		<div class="alert alert-leap alert-info alert-dismissable leap-interactive" leap-disable-tap="true">
+			<button type="button" class="close leap-interactive" data-dismiss="alert" aria-hidden="true">&times;</button> <strong>Heads up!</strong> This <a href="#" class="alert-link leap-interactive">alert needs your attention</a>, but it's not super important. 
+		</div>
+		<div class="alert alert-leap alert-warning alert-dismissable leap-interactive" leap-disable-tap="true">
+			<button type="button" class="close leap-interactive" data-dismiss="alert" aria-hidden="true">&times;</button> <strong>Warning!</strong> Best check yo self, you're <a href="#" class="alert-link leap-interactive">not looking too good</a>. 
+		</div>
+		<div class="alert alert-leap alert-danger alert-dismissable leap-interactive" leap-disable-tap="true">
+			<button type="button" class="close leap-interactive" data-dismiss="alert" aria-hidden="true">&times;</button> <strong>Oh snap!</strong> <a href="#" class="alert-link leap-interactive">Change a few things up</a> and try submitting again. 
+		</div>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-leap alert-success alert-dismissable leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;close leap-interactive&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;alert&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;alert-link leap-interactive&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/a&gt;</span> 
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-leap alert-info alert-dismissable leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;close leap-interactive&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;alert&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;alert-link leap-interactive&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/a&gt;</span> 
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-leap alert-warning alert-dismissable leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;close leap-interactive&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;alert&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;alert-link leap-interactive&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/a&gt;</span> 
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-leap alert-danger alert-dismissable leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;close leap-interactive&quot;</span> <span class="na">data-dismiss=</span><span class="s">&quot;alert&quot;</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;alert-link leap-interactive&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/a&gt;</span> 
+	<span class="nt">&lt;/div&gt;</span>
+	
+</code></pre></div> 
+</div>
+
+<!-- Panels
+  ================================================== -->
+<div class="bs-docs-section">
+	<div class="page-header">
+		<h1 id="panels">
+			Panels
+		</h1>
+	</div>
+	<p class="lead">
+		While not always necessary, sometimes you need to put your DOM in a box. For those situations, try the panel component.
+	</p>
+	<h3 id="panels-basic">
+		Leap Panel example
+	</h3>
+	<p>
+		Hovering over a leap-panel gives a basic border outline effect.
+	</p>
+	<div class="bs-example">
+		<div class="panel panel-default panel-leap leap-interactive" leap-disable-tap="true">
+			<div class="panel-body">
+				Leap panel example (hover over me) 
+			</div>
+		</div>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default panel-leap leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+			Leap panel example (hover over me) 
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+</code></pre></div> 
+	<h3 id="panels-options">
+		Panel options
+	</h3>
+	<p>
+		Easily add a heading container to your panel with <code>.panel-heading</code>. You may also include any <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> with a <code>.panel-title</code> class to add a pre-styled heading.
+	</p>
+	<p>
+		Wrap buttons or secondary text in <code>.panel-footer</code>. Note that panel footers <strong>do not</strong> inherit colors and borders when using contextual variations as they are not meant to be in the foreground.
+	</p>
+	<div class="bs-example">
+		<div class="panel panel-default panel-leap leap-interactive" leap-disable-tap="true">
+			<div class="panel-heading">
+				Panel heading without title
+			</div>
+			<div class="panel-body">
+				Panel content 
+			</div>
+		</div>
+		<div class="panel panel-default panel-leap leap-interactive" leap-disable-tap="true">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Panel title
+				</h3>
+			</div>
+			<div class="panel-body">
+				Panel content 
+			</div>
+		</div>
+		<div class="panel panel-default panel-leap leap-interactive" leap-disable-tap="true">
+			<div class="panel-body">
+				Panel content 
+			</div>
+			<div class="panel-footer">
+				Panel footer
+			</div>
+		</div>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default panel-leap leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>
+			Panel heading without title
+		<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+			Panel content 
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default panel-leap leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">&quot;panel-title&quot;</span><span class="nt">&gt;</span>
+				Panel title
+			<span class="nt">&lt;/h3&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+			Panel content 
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default panel-leap leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+			Panel content 
+		<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-footer&quot;</span><span class="nt">&gt;</span>
+			Panel footer
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+</code></pre></div> 
+	<h3 id="panels-alternatives">
+		Contextual alternatives
+	</h3>
+	<p>
+		Like other components, easily make a panel more meaningful to a particular context by adding any of the contextual state classes.
+	</p>
+	<div class="bs-example">
+		<div class="panel panel-primary panel-leap leap-interactive" leap-disable-tap="true">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Panel title
+				</h3>
+			</div>
+			<div class="panel-body">
+				Panel content 
+			</div>
+		</div>
+		<div class="panel panel-success panel-leap leap-interactive" leap-disable-tap="true">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Panel title
+				</h3>
+			</div>
+			<div class="panel-body">
+				Panel content 
+			</div>
+		</div>
+		<div class="panel panel-info panel-leap leap-interactive" leap-disable-tap="true">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Panel title
+				</h3>
+			</div>
+			<div class="panel-body">
+				Panel content 
+			</div>
+		</div>
+		<div class="panel panel-warning panel-leap leap-interactive" leap-disable-tap="true">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Panel title
+				</h3>
+			</div>
+			<div class="panel-body">
+				Panel content 
+			</div>
+		</div>
+		<div class="panel panel-danger panel-leap leap-interactive" leap-disable-tap="true">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Panel title
+				</h3>
+			</div>
+			<div class="panel-body">
+				Panel content 
+			</div>
+		</div>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-primary panel-leap leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		...
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-success panel-leap leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		...
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-info panel-leap leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		...
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-warning panel-leap leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		...
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-danger panel-leap leap-interactive&quot;</span> <span class="na">leap-disable-tap=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+		...
+	<span class="nt">&lt;/div&gt;</span>
+	
+</code></pre></div> 
+</div>
+
+<!-- Wells
+  ================================================== -->
+<div class="bs-docs-section">
+	<div class="page-header">
+		<h1 id="wells">
+			Wells
+		</h1>
+	</div>
+
+	<h3>
+		Leap well
+	</h3>
+	<p>
+		Use the Leap well as a simple effect on an element to give it a general hover effect.
+	</p>
+	<div class="bs-example">
+		<div class="well well-leap leap-interactive">
+			Hover over me, I'm in a well! 
+		</div>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;well well-leap leap-interactive&quot;</span><span class="nt">&gt;</span>
+		...
+	<span class="nt">&lt;/div&gt;</span>
+	
+</code></pre></div> 
+</div>
+
+<!-- Labels
+  ================================================== -->
+<div class="bs-docs-section">
+	<div class="page-header">
+		<h1 id="labels">
+			Labels
+		</h1>
+	</div>
+	<p class="lead">
+	</p>
+	<h3>
+		Example
+	</h3>
+	<div class="bs-example">
+		<h2>
+			Example heading <span class="label label-default">New</span>
+		</h2>
+	</div>
+	<div class="highlight"><pre><code class="html"> 
+	<span class="nt">&lt;h3&gt;</span>
+		Example heading <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;label label-default&quot;</span><span class="nt">&gt;</span>New<span class="nt">&lt;/span&gt;</span>
+	<span class="nt">&lt;/h3&gt;</span>
+	
+</code></pre></div> 
+	<h3>
+		Available variations
+	</h3>
+	<p>
+		Add any of the below mentioned modifier classes to change the appearance of a label.
+	</p>
+	<div class="bs-example">
+		<span class="label label-default">Default</span> <span class="label label-primary">Primary</span> <span class="label label-success">Success</span> <span class="label label-info">Info</span> <span class="label label-warning">Warning</span> <span class="label label-danger">Danger</span> 
+	</div>
+	<div class="highlight"><pre><code class="html"> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;label label-default&quot;</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;label label-primary&quot;</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;label label-success&quot;</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;label label-info&quot;</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;label label-warning&quot;</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;label label-danger&quot;</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/span&gt;</span> 
+</code></pre></div> 
+</div>
+
+<!-- Badges
+  ================================================== -->
+<div class="bs-docs-section">
+	<div class="page-header">
+		<h1 id="badges">
+			Badges
+		</h1>
+	</div>
+	<p class="lead">
+		Easily highlight new or unread items by adding a <code>&lt;span class="badge"&gt;</code> to links, Leapstrap navs, and more.
+	</p>
+	<div class="bs-example">
+		<a class="leap-interactive" href="#">Inbox <span class="badge">42</span></a> 
+	</div>
+	<div class="highlight"><pre><code class="html"> <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;leap-interactive&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Inbox <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;badge&quot;</span><span class="nt">&gt;</span>42<span class="nt">&lt;/span&gt;&lt;/a&gt;</span> 
+</code></pre></div> 
+	<h4>
+		Self collapsing
+	</h4>
+	<p>
+		When there are no new or unread items, badges will simply collapse (via CSS's <code>:empty</code> selector) provided no content exists within.
+	</p>
+	<div class="bs-callout bs-callout-danger">
+		<h4>
+			Cross-browser compatibility
+		</h4>
+		<p>
+			Badges won't self collapse in Internet Explorer 8 because it lacks support for the <code>:empty</code> selector.
+		</p>
+	</div>
+</div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer
+    ================================================== -->
+     <footer class="bs-footer" role="contentinfo">
+      <div class="container">
+        <div class="bs-social">
+  <ul class="bs-social-buttons">
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
+    </li>
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=fork&amp;count=true" width="102" height="20" title="Fork on GitHub"></iframe>
+    </li>
+       <li class="tweet-btn">
+   <a href="https://twitter.com/share" class="twitter-share-button" data-via="leapstrap">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+    <li class="follow-btn">
+    <a href="https://twitter.com/leapstrap" class="twitter-follow-button" data-show-count="false">Follow @leapstrap</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+ 
+  </ul>
+</div>
+
+
+
+        <p>Maintained by <a class="leap-interactive" href="http://www.alex-wilkes.com" target="_blank">Alex Wilkes</a>.</p>
+
+        <ul class="footer-links">
+          <li>Currently v1.1.0</li>
+          <li class="muted">&middot;</li>
+          <li><a class="leap-interactive" href="http://www.amazon.co.uk/gp/product/B00C66Z9ZC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00C66Z9ZC&linkCode=as2&tag=eosmnet-21">Buy Leap Controller</a><img src="http://ir-uk.amazon-adsystem.com/e/ir?t=eosmnet-21&l=as2&o=2&a=B00C66Z9ZC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+          
+        </ul>
+      </div>
+    </footer>
+
+    <!-- JS and analytics only. -->
+    <img class="sr-only" src="../docs-assets/img/Leapstrap.jpg" />
+<script src="../docs-assets/js/holder.js"></script>
+<script src="../docs-assets/js/application.js"></script>
+<script>
+ 
+        LeapManager.init({
+            
+            enableMetaGestures: true,
+            enableDefaultMetaGestureActions: true,
+            maxCursors:1,
+            enableHoverTap: true,
+            enablePressDown: true,
+            enableTouchScrolling: false,
+            enableScrollbarScrolling: true,
+           
+            });
+    
+</script>
+<!-- Analytics
+================================================== -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45024155-1', 'wilkesalex.github.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Leapstrap - Leap Motion web framework">
+<meta name="author" content="Alex Wilkes">
+<meta property="og:title" content="Leapstrap" />
+<meta property="og:url" content="http://wilkesalex.github.io/leapstrap/" />
+<meta property="og:image" content="http://wilkesalex.github.io/leapstrap/docs-assets/img/Leapstrap.jpg" />
+
+<title>
+  
+    Leapstrap
+  
+</title>
+
+<link href="./dist/css/leapstrap.css" rel="stylesheet">
+<link href="./docs-assets/css/docs.css" rel="stylesheet">
+<link href="./docs-assets/css/pygments-manni.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="./docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script>window.jQuery || document.write('<script src="/dist/js/jquery.js">\x3C/script>')</script>
+<script src="//js.leapmotion.com/0.3.0-beta3/leap.js"></script>
+<!-- need to find code to localise -->
+<!-- <script>window.BaseConnection || document.write('<script src="/dist/js/leap.js">\x3C/script>')</script> -->
+<script src="./dist/js/leapstrap.js"></script>
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="./docs-assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="./docs-assets/ico/favicon.png">
+  </head>
+  <body class="bs-docs-home leap-interactive" leap-disable-tap="true" leap-disable-hover="true">
+   
+    <a class="sr-only" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle leap-interactive" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="./" class="navbar-brand leap-interactive">Leapstrap</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a class="leap-interactive" href="./getting-started">Get Started</a>
+        </li>
+                <li>
+          <a class="leap-interactive" href="./leap">Leap</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="./basics">Basics</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="./components">Components 1</a>
+        </li>
+         <li>
+          <a class="leap-interactive" href="./more">Components 2</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="./javascript">JavaScript</a>
+        </li>
+        
+       
+         
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a class="leap-interactive" href="./about">About</a>
+        </li>
+       <!-- 
+  <li>
+          <a class="leap-interactive" href="./data">Data</a>
+        </li>
+ -->
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <!-- Page content of course! -->
+    <main class="bs-masthead" id="content" role="main">
+  <div class="container">
+    <h1>Leapstrap</h1>
+    <p class="lead masttext topp">Leap first HTML5 frontend framework.</p>
+    <p class="lead masttext bottomp">Suitable for web sites, web apps and more.</p>
+ <p>
+       <a href="./getting-started" class="btn btn-outline btn-lg leap-interactive">Get Started</a>
+      <a href="./leap" class="btn btn-outline btn-lg leap-interactive">Try Leap Stuff</a>
+      <a href="https://github.com/wilkesalex/leapstrap" class="btn btn-outline btn-lg leap-interactive">Get Code (Github)</a>
+    </p>
+  </div>
+ 
+</main>
+ <div class="container">
+<h2>
+Include <a href="./getting-started/#download">the Leapstrap plugin</a> in your pages,<br/>
+And plug your Leap in to start.</h2>
+    <div class="well">
+    <pre id="initbox">
+    Got Leap? Waiting for Leap Controller....
+    </pre>
+    <div class="row">
+     <div class="col-md-6">
+      <a class="btn btn-outline btn-lg leap-interactive" href="#" onclick="controller.connect();">Connect</a>
+    </div>
+    <div class="col-md-6 text-right hide">
+     Number of fingers: <canvas id="fingers-canvas"></canvas>
+    </div>
+    </div>
+     
+  
+    </div>
+  
+   
+  </div>
+ <script>
+ var controller = new Leap.Controller();
+   
+   
+    var canvas = document.getElementById('fingers-canvas');
+      // Making sure we have the proper aspect ratio for our canvas
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+
+    // Create the context we will use for drawing
+    var c =  canvas.getContext('2d');
+
+    // Save the canvas width and canvas height
+    // as easily accesible variables
+    var width = canvas.width;
+    var height = canvas.height;
+
+
+    
+
+
+
+   
+    /*
+      
+      The leapToScene function takes a position in leap space 
+      and converts it to the space in the canvas.
+
+      It does this by using the interaction box, in order to 
+      make sure that every part of the canvas is accesible 
+      in the interaction area of the leap
+
+    */
+    function leapToScene( frame , leapPos ){
+
+      // Gets the interaction box of the current frame
+      var iBox = frame.interactionBox;
+
+      // Gets the left border and top border of the box
+      // In order to convert the position to the proper
+      // location for the canvas
+      var left = iBox.center[0] - iBox.size[0]/2;
+      var top = iBox.center[1] + iBox.size[1]/2;
+
+      // Takes our leap coordinates, and changes them so
+      // that the origin is in the top left corner 
+      var x = leapPos[0] - left;
+      var y = leapPos[1] - top;
+
+      // Divides the position by the size of the box
+      // so that x and y values will range from 0 to 1
+      // as they lay within the interaction box
+      x /= iBox.size[0];
+      y /= iBox.size[1];
+
+      // Uses the height and width of the canvas to scale
+      // the x and y coordinates in a way that they 
+      // take up the entire canvas
+      x *= cwidth;
+      y *= cheight;
+
+      // Returns the values, making sure to negate the sign 
+      // of the y coordinate, because the y basis in canvas 
+      // points down instead of up
+      return [ x , -y ];
+
+    }
+    
+     // Tells the controller what to do every time it sees a frame
+    controller.on( 'frame' , function(frame){
+
+	  //Clears the canvas so we are not drawing multiple frames	
+     
+       c.clearRect( 0 , 0 , width , height );
+ // Gets the number of fingers in each frame
+      var numberOfFingers = Leap.Pointable.length;
+
+      // Defines the font shape and size
+      c.font = "30px Arial";
+
+      // Tells Canvas how to align text
+      c.textAlign = 'center';
+      c.textBaseline = 'middle';
+
+      // Tells Canvas to draw the The number of fingers,
+      // at the center of the canvas
+      c.fillText( numberOfFingers , width/2 , height/2 );
+    
+    });
+
+
+     controller.on('ready', function() {
+     document.getElementById('initbox').innerHTML = 'It works!';
+          console.log("It works");
+      });
+      controller.on('connect', function() {
+       document.getElementById('initbox').innerHTML = 'Waiting to connect...';
+          console.log("connect");
+      });
+      controller.on('disconnect', function() {
+       document.getElementById('initbox').innerHTML = 'Leap was disconnected...';
+          console.log("disconnect");
+      });
+      controller.on('focus', function() {
+       document.getElementById('initbox').innerHTML = 'Leapstrap is ready (Leap detected).';
+          console.log("focus");
+      });
+      controller.on('blur', function() {
+       document.getElementById('initbox').innerHTML = 'Leapstrap is not in focus.';
+          console.log("blur");
+      });
+      controller.on('deviceConnected', function() {
+       document.getElementById('initbox').innerHTML = 'A Leap Controller was connected.';
+          console.log("deviceConnected");
+      });
+      controller.on('deviceDisconnected', function() {
+       document.getElementById('initbox').innerHTML = 'The Leap Controller was disconnected.';
+          console.log("deviceDisconnected");
+      });
+       controller.connect();
+  </script>
+  
+   <script>
+ 	
+	// Get the canvas DOM element 
+    
+
+	  
+		
+  </script>
+
+   <footer class="bs-footer" role="contentinfo">
+      <div class="container">
+        <div class="bs-social">
+  <ul class="bs-social-buttons">
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
+    </li>
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=wilkesalex&amp;repo=leapstrap&amp;type=fork&amp;count=true" width="102" height="20" title="Fork on GitHub"></iframe>
+    </li>
+       <li class="tweet-btn">
+   <a href="https://twitter.com/share" class="twitter-share-button" data-via="leapstrap">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+    <li class="follow-btn">
+    <a href="https://twitter.com/leapstrap" class="twitter-follow-button" data-show-count="false">Follow @leapstrap</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+ 
+  </ul>
+</div>
+
+
+
+        <p>Maintained by <a class="leap-interactive" href="http://www.alex-wilkes.com" target="_blank">Alex Wilkes</a>.</p>
+        <ul class="footer-links">
+          <li>Currently v1.1.0</li>
+          <li class="muted">&middot;</li>
+          <li><a class="leap-interactive" href="http://www.amazon.co.uk/gp/product/B00C66Z9ZC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00C66Z9ZC&linkCode=as2&tag=eosmnet-21">Buy Leap Controller</a><img src="http://ir-uk.amazon-adsystem.com/e/ir?t=eosmnet-21&l=as2&o=2&a=B00C66Z9ZC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- JS and analytics only. -->
+    <img class="sr-only" src="./docs-assets/img/Leapstrap.jpg" />
+<script src="./docs-assets/js/holder.js"></script>
+<script src="./docs-assets/js/application.js"></script>
+<script>
+ 
+        LeapManager.init({
+            
+            enableMetaGestures: true,
+            enableDefaultMetaGestureActions: true,
+            maxCursors:5,
+            enableHoverTap: true,
+            enablePressDown: true,
+            enableTouchScrolling: false,
+            enableScrollbarScrolling: true,
+           
+            });
+    
+</script>
+<!-- Analytics
+================================================== -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45024155-1', 'wilkesalex.github.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

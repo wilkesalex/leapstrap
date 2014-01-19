@@ -31,11 +31,18 @@ maxCursors: "5"
           }
         }
       };
+      
+      
+    
+      
       var controller = new Leap.Controller({enableGestures: true});
-      controller.loop(function(frame) {
-        latestFrame = frame;
+      controller.on('deviceFrame', function(frame_instance) {
+        latestFrame = frame_instance;
         document.getElementById('out').innerHTML = (pausedFrame ? "<p><b>PAUSED</b></p>" : "") + "<div>"+(pausedFrame || latestFrame).dump()+"</div>";
       });
+      
+      
+      controller.connect();
       controller.on('ready', function() {
           console.log("ready");
       });
