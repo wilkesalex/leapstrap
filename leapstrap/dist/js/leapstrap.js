@@ -1,6 +1,6 @@
 /*!
  * Leapstrap v1.0.0 by Alex Wilkes
- * Copyright 2013 Alex Wilkes
+ * Copyright 2014 Alex Wilkes
  * Licensed under http://www.apache.org/licenses/LICENSE-2.0
  */
 if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery") }
