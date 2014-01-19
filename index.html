@@ -17,11 +17,7 @@
   
 </title>
 
-<!-- Leapstrap core CSS -->
 <link href="./dist/css/leapstrap.css" rel="stylesheet">
-
-
-<!-- Documentation extras -->
 <link href="./docs-assets/css/docs.css" rel="stylesheet">
 <link href="./docs-assets/css/pygments-manni.css" rel="stylesheet">
 <!--[if lt IE 9]><script src="./docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -62,17 +58,17 @@
         <li>
           <a class="leap-interactive" href="./getting-started">Get Started</a>
         </li>
+                <li>
+          <a class="leap-interactive" href="./leap">Leap</a>
+        </li>
         <li>
           <a class="leap-interactive" href="./basics">Basics</a>
         </li>
         <li>
-          <a class="leap-interactive" href="./leap">Leap</a>
-        </li>
-        <li>
-          <a class="leap-interactive" href="./components">Components</a>
+          <a class="leap-interactive" href="./components">Components 1</a>
         </li>
          <li>
-          <a class="leap-interactive" href="./more">More</a>
+          <a class="leap-interactive" href="./more">Components 2</a>
         </li>
         <li>
           <a class="leap-interactive" href="./javascript">JavaScript</a>
@@ -85,9 +81,11 @@
         <li>
           <a class="leap-interactive" href="./about">About</a>
         </li>
-         <li>
+       <!-- 
+  <li>
           <a class="leap-interactive" href="./data">Data</a>
         </li>
+ -->
       </ul>
     </nav>
   </div>
@@ -99,18 +97,19 @@
   <div class="container">
     <h1>Leapstrap</h1>
     <p class="lead masttext topp">Leap first HTML5 frontend framework.</p>
-    <p class="lead masttext">Suitable for web sites, web apps and more.</p>
-    <p class="lead masttext bottomp">Now you can touch the web.</p>
+    <p class="lead masttext bottomp">Suitable for web sites, web apps and more.</p>
  <p>
        <a href="./getting-started" class="btn btn-outline btn-lg leap-interactive">Get Started</a>
-      <a href="./leap" class="btn btn-outline btn-lg leap-interactive">Leap Stuff</a>
+      <a href="./leap" class="btn btn-outline btn-lg leap-interactive">Try Leap Stuff</a>
       <a href="https://github.com/wilkesalex/leapstrap" class="btn btn-outline btn-lg leap-interactive">Get Code (Github)</a>
     </p>
   </div>
  
 </main>
  <div class="container">
-<h2>Just plug your Leap in to start</h2>
+<h2>
+Include <a href="./getting-started/#download">the Leapstrap plugin</a> in your pages,<br/>
+And plug your Leap in to start.</h2>
     <div class="well">
     <pre id="initbox">
     Got Leap? Waiting for Leap Controller....
@@ -119,7 +118,7 @@
      <div class="col-md-6">
       <a class="btn btn-outline btn-lg leap-interactive" href="#" onclick="controller.connect();">Connect</a>
     </div>
-    <div class="col-md-6 text-right">
+    <div class="col-md-6 text-right hide">
      Number of fingers: <canvas id="fingers-canvas"></canvas>
     </div>
     </div>
@@ -204,7 +203,7 @@
      
        c.clearRect( 0 , 0 , width , height );
  // Gets the number of fingers in each frame
-      var numberOfFingers = frame.fingers.length;
+      var numberOfFingers = Leap.Pointable.length;
 
       // Defines the font shape and size
       c.font = "30px Arial";
@@ -286,7 +285,7 @@
 
         <p>Maintained by <a class="leap-interactive" href="http://www.alex-wilkes.com" target="_blank">Alex Wilkes</a>.</p>
         <ul class="footer-links">
-          <li>Currently v1.0.0</li>
+          <li>Currently v1.1.0</li>
           <li class="muted">&middot;</li>
           <li><a class="leap-interactive" href="http://www.amazon.co.uk/gp/product/B00C66Z9ZC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00C66Z9ZC&linkCode=as2&tag=eosmnet-21">Buy Leap Controller</a><img src="http://ir-uk.amazon-adsystem.com/e/ir?t=eosmnet-21&l=as2&o=2&a=B00C66Z9ZC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
         </ul>
@@ -302,7 +301,7 @@
         LeapManager.init({
             
             enableMetaGestures: true,
-            enableDefaultMetaGestureActions: false,
+            enableDefaultMetaGestureActions: true,
             maxCursors:5,
             enableHoverTap: true,
             enablePressDown: true,

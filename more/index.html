@@ -17,11 +17,7 @@
   
 </title>
 
-<!-- Leapstrap core CSS -->
 <link href="../dist/css/leapstrap.css" rel="stylesheet">
-
-
-<!-- Documentation extras -->
 <link href="../docs-assets/css/docs.css" rel="stylesheet">
 <link href="../docs-assets/css/pygments-manni.css" rel="stylesheet">
 <!--[if lt IE 9]><script src="../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -62,16 +58,16 @@
           <a class="leap-interactive" href="../getting-started">Get Started</a>
         </li>
         <li>
-          <a class="leap-interactive" href="../basics">Basics</a>
-        </li>
-        <li>
           <a class="leap-interactive" href="../leap">Leap</a>
         </li>
         <li>
-          <a class="leap-interactive" href="../components">Components</a>
+          <a class="leap-interactive" href="../basics">Basics</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../components">Components 1</a>
         </li>
          <li class="active">
-          <a class="leap-interactive" href="../more">More</a>
+          <a class="leap-interactive" href="../more">Components 2</a>
         </li>
         <li>
           <a class="leap-interactive" href="../javascript">JavaScript</a>
@@ -84,9 +80,11 @@
         <li>
           <a class="leap-interactive" href="../about">About</a>
         </li>
-         <li>
+       <!-- 
+  <li>
           <a class="leap-interactive" href="../data">Data</a>
         </li>
+ -->
       </ul>
     </nav>
   </div>
@@ -1496,7 +1494,7 @@ List group item heading
         <p>Maintained by <a class="leap-interactive" href="http://www.alex-wilkes.com" target="_blank">Alex Wilkes</a>.</p>
 
         <ul class="footer-links">
-          <li>Currently v1.0.0</li>
+          <li>Currently v1.1.0</li>
           <li class="muted">&middot;</li>
           <li><a class="leap-interactive" href="http://www.amazon.co.uk/gp/product/B00C66Z9ZC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00C66Z9ZC&linkCode=as2&tag=eosmnet-21">Buy Leap Controller</a><img src="http://ir-uk.amazon-adsystem.com/e/ir?t=eosmnet-21&l=as2&o=2&a=B00C66Z9ZC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
           
@@ -1513,7 +1511,7 @@ List group item heading
         LeapManager.init({
             
             enableMetaGestures: true,
-            enableDefaultMetaGestureActions: false,
+            enableDefaultMetaGestureActions: true,
             maxCursors:1,
             enableHoverTap: true,
             enablePressDown: true,

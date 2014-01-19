@@ -1,0 +1,73 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 150px;
+  padding-bottom: 20px;
+  background-color: #222222;
+  color: #ffffff;
+}
+.navbar-brand {
+float: left;
+padding:15px;
+font-size: 23px;
+line-height: 25px;
+}
+.navbar {
+padding-top:30px;
+padding-bottom:30px;
+}
+.navbar .container-fluid {
+padding-right: 60px;
+padding-left: 60px;
+}
+.container-fluid {
+width: 100% !important;
+padding-right: 30px;
+padding-left: 30px;
+}
+.container-fluid > .row {
+margin-left:0px;
+margin-right:0px;
+}
+.container-fluid > .row > .col-md-9[role="main"] {
+padding-left: 30px;
+}
+
+@media screen and (min-width: 768px){
+.jumbotron {
+padding-top: 28px;
+padding-bottom: 48px;
+}
+.jumbotron h1 {
+font-size: 61px;
+margin:0px 0px 20px;
+}
+}
+.jumbotron {
+background-color: #444444;
+}
+
+#page-scroller {
+position: fixed;
+bottom:10%;
+right: 10%;
+z-index: 1030;
+-moz-box-shadow: 0 0 5px 5px #333;
+-webkit-box-shadow: 0 0 5px 5px #333;
+box-shadow: 0 0 5px 5px #333;
+background-color:rgba(255,255,255,0.5);
+}
+.page-scroll-holder{
+text-align:center;
+width:100px;
+height:100px;
+color:#000;
+font-size:40px;
+}
+.page-scroll-holder span {
+position:relative;
+top:30px;
+}
+
+.modal-content{
+color: #000;
+}

@@ -1,5 +1,5 @@
 /*!
- * Leapstrap v1.0.0 by Alex Wilkes
+ * Leapstrap v1.1.0 by Alex Wilkes
  * Copyright 2014 Alex Wilkes
  * Licensed under http://www.apache.org/licenses/LICENSE-2.0
  */

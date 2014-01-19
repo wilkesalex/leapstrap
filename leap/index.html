@@ -17,11 +17,7 @@
   
 </title>
 
-<!-- Leapstrap core CSS -->
 <link href="../dist/css/leapstrap.css" rel="stylesheet">
-
-
-<!-- Documentation extras -->
 <link href="../docs-assets/css/docs.css" rel="stylesheet">
 <link href="../docs-assets/css/pygments-manni.css" rel="stylesheet">
 <!--[if lt IE 9]><script src="../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -61,17 +57,17 @@
         <li>
           <a class="leap-interactive" href="../getting-started">Get Started</a>
         </li>
-        <li>
-          <a class="leap-interactive" href="../basics">Basics</a>
-        </li>
         <li class="active">
           <a class="leap-interactive" href="../leap">Leap</a>
         </li>
         <li>
-          <a class="leap-interactive" href="../components">Components</a>
+          <a class="leap-interactive" href="../basics">Basics</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../components">Components 1</a>
         </li>
          <li>
-          <a class="leap-interactive" href="../more">More</a>
+          <a class="leap-interactive" href="../more">Components 2</a>
         </li>
         <li>
           <a class="leap-interactive" href="../javascript">JavaScript</a>
@@ -84,9 +80,11 @@
         <li>
           <a class="leap-interactive" href="../about">About</a>
         </li>
-         <li>
+       <!-- 
+  <li>
           <a class="leap-interactive" href="../data">Data</a>
         </li>
+ -->
       </ul>
     </nav>
   </div>
@@ -530,6 +528,88 @@
 
 
 </div>
+<!-- 
+
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="hands">Grab Gestures</h1>
+    </div>
+    
+    
+    <p>Use one finger to grab this box, and 2 fingers to release it</p>
+    <div class="bs-example">
+    <style>
+    .grabbale {
+            display: inline-block;
+            
+            
+            position: relative;
+            min-width: 100px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .grabbale.hover {
+            background-color: lightblue;
+        }
+
+        .grabbale.grabbed {
+            background-color: orange;
+        }
+        </style>
+        <div class="well" style="max-width: 90%; min-height:600px; margin: 0 auto 10px;">
+        <div class="grabbale btn btn-primary btn-lg leap-interactive" leap-disable-tap="true">Swipe your hand over me</div>
+       
+      </div>
+    </div>  
+   
+    <p>Use the javascript below.</p>
+  <div class="highlight"><pre><code class="js"><span class="kd">var</span> <span class="nx">grabbale</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;div.grabbale&quot;</span><span class="p">);</span>
+
+<span class="nx">grabbale</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;leap-hand-grab&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">state</span> <span class="o">===</span> <span class="s2">&quot;grab&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// nothing to do here, but maybe you need to?</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;grabbed&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">state</span> <span class="o">===</span> <span class="s2">&quot;release&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// nothing to do here, but maybe you need to?</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;release&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">state</span> <span class="o">===</span> <span class="s2">&quot;move&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">grabbale</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="p">(</span><span class="nx">grabbale</span><span class="p">.</span><span class="nx">offsetWidth</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">;</span>
+        <span class="nx">grabbale</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="p">(</span><span class="nx">grabbale</span><span class="p">.</span><span class="nx">offsetHeight</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">grabbale</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">offsetWidth</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nx">grabbale</span><span class="p">.</span><span class="nx">offsetWidth</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">;</span>
+    <span class="nx">grabbale</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">offsetHeight</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nx">grabbale</span><span class="p">.</span><span class="nx">offsetHeight</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+    
+</code></pre></div>
+             <script type="text/javascript">
+        var grabbale = document.querySelector("div.grabbale");
+
+        grabbale.addEventListener("leap-hand-grab", function(e){
+            if(e.state === "grab") {
+                // nothing to do here, but maybe you need to?
+                console.log("grabbed");
+            } else if(e.state === "release") {
+                // nothing to do here, but maybe you need to?
+                console.log("release");
+            } else if(e.state === "move") {
+                grabbale.style.left = e.x - (grabbale.offsetWidth/2)+ "px";
+                grabbale.style.top = e.y - (grabbale.offsetHeight/2)+ "px";
+            }
+        });
+
+        window.onload = function() {
+            grabbale.style.left = (document.body.offsetWidth/2) - (grabbale.offsetWidth/2)+ "px";
+            grabbale.style.top = (document.body.offsetHeight/2) - (grabbale.offsetHeight/2)+ "px";
+        }
+    </script>
+
+</div>
+ -->
 
   <!-- Basics system
   ================================================== -->
@@ -955,7 +1035,7 @@ Your text
         <p>Maintained by <a class="leap-interactive" href="http://www.alex-wilkes.com" target="_blank">Alex Wilkes</a>.</p>
 
         <ul class="footer-links">
-          <li>Currently v1.0.0</li>
+          <li>Currently v1.1.0</li>
           <li class="muted">&middot;</li>
           <li><a class="leap-interactive" href="http://www.amazon.co.uk/gp/product/B00C66Z9ZC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00C66Z9ZC&linkCode=as2&tag=eosmnet-21">Buy Leap Controller</a><img src="http://ir-uk.amazon-adsystem.com/e/ir?t=eosmnet-21&l=as2&o=2&a=B00C66Z9ZC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
           
@@ -972,8 +1052,8 @@ Your text
         LeapManager.init({
             
             enableMetaGestures: true,
-            enableDefaultMetaGestureActions: false,
-            maxCursors:1,
+            enableDefaultMetaGestureActions: true,
+            maxCursors:2,
             enableHoverTap: true,
             enablePressDown: true,
             enableTouchScrolling: false,

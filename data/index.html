@@ -17,11 +17,7 @@
   
 </title>
 
-<!-- Leapstrap core CSS -->
 <link href="../dist/css/leapstrap.css" rel="stylesheet">
-
-
-<!-- Documentation extras -->
 <link href="../docs-assets/css/docs.css" rel="stylesheet">
 <link href="../docs-assets/css/pygments-manni.css" rel="stylesheet">
 <!--[if lt IE 9]><script src="../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -62,16 +58,16 @@
           <a class="leap-interactive" href="../getting-started">Get Started</a>
         </li>
         <li>
-          <a class="leap-interactive" href="../basics">Basics</a>
-        </li>
-        <li>
           <a class="leap-interactive" href="../leap">Leap</a>
         </li>
         <li>
-          <a class="leap-interactive" href="../components">Components</a>
+          <a class="leap-interactive" href="../basics">Basics</a>
+        </li>
+        <li>
+          <a class="leap-interactive" href="../components">Components 1</a>
         </li>
          <li>
-          <a class="leap-interactive" href="../more">More</a>
+          <a class="leap-interactive" href="../more">Components 2</a>
         </li>
         <li>
           <a class="leap-interactive" href="../javascript">JavaScript</a>
@@ -84,9 +80,11 @@
         <li>
           <a class="leap-interactive" href="../about">About</a>
         </li>
-         <li class="active">
+       <!-- 
+  <li class="active">
           <a class="leap-interactive" href="../data">Data</a>
         </li>
+ -->
       </ul>
     </nav>
   </div>
@@ -132,11 +130,18 @@
           }
         }
       };
+      
+      
+    
+      
       var controller = new Leap.Controller({enableGestures: true});
-      controller.loop(function(frame) {
-        latestFrame = frame;
+      controller.on('deviceFrame', function(frame_instance) {
+        latestFrame = frame_instance;
         document.getElementById('out').innerHTML = (pausedFrame ? "<p><b>PAUSED</b></p>" : "") + "<div>"+(pausedFrame || latestFrame).dump()+"</div>";
       });
+      
+      
+      controller.connect();
       controller.on('ready', function() {
           console.log("ready");
       });
@@ -193,7 +198,7 @@
         <p>Maintained by <a class="leap-interactive" href="http://www.alex-wilkes.com" target="_blank">Alex Wilkes</a>.</p>
         <p>Code licensed under <a class="leap-interactive" href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a class="leap-interactive" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
         <ul class="footer-links">
-          <li>Currently v1.0.0</li>
+          <li>Currently v1.1.0</li>
           <li class="muted">&middot;</li>
           <li><a class="leap-interactive" href="https://www.twitter.com/leapstrap">Get help on Twitter</a></li>
           <li class="muted">&middot;</li>
@@ -213,7 +218,7 @@
         LeapManager.init({
             
             enableMetaGestures: true,
-            enableDefaultMetaGestureActions: false,
+            enableDefaultMetaGestureActions: true,
             maxCursors:5,
             enableHoverTap: true,
             enablePressDown: true,
