@@ -1,6 +1,6 @@
 /*!
  * Leapstrap v1.0.0 by Alex Wilkes
- * Copyright 2013 Alex Wilkes
+ * Copyright 2014 Alex Wilkes
  * Licensed under http://www.apache.org/licenses/LICENSE-2.0
  */
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
@@ -2532,6 +2532,51 @@ fieldset[disabled] .btn-info:active,
 fieldset[disabled] .btn-info.active {
   background-color: #5bc0de;
   border-color: #46b8da;
+}
+
+.btn-sd {
+  color: #ffffff;
+  background-color: #eb008b;
+  border-color: #c5c5c5;
+}
+
+.btn-sd.hover,
+.btn-sd:hover,
+.btn-sd:focus,
+.btn-sd:active,
+.btn-sd.active,
+.open .dropdown-toggle.btn-sd {
+  color: #ffffff;
+  background-color: #c20073;
+  border-color: #a6a6a6;
+}
+
+.btn-sd:active,
+.btn-sd.active,
+.open .dropdown-toggle.btn-sd {
+  background-image: none;
+}
+
+.btn-sd.disabled,
+.btn-sd[disabled],
+fieldset[disabled] .btn-sd,
+.btn-sd.disabled.hover,
+.btn-sd[disabled].hover,
+fieldset[disabled] .btn-sd.hover,
+.btn-sd.disabled:hover,
+.btn-sd[disabled]:hover,
+fieldset[disabled] .btn-sd:hover,
+.btn-sd.disabled:focus,
+.btn-sd[disabled]:focus,
+fieldset[disabled] .btn-sd:focus,
+.btn-sd.disabled:active,
+.btn-sd[disabled]:active,
+fieldset[disabled] .btn-sd:active,
+.btn-sd.disabled.active,
+.btn-sd[disabled].active,
+fieldset[disabled] .btn-sd.active {
+  background-color: #eb008b;
+  border-color: #c5c5c5;
 }
 
 .btn-link {
@@ -5360,6 +5405,11 @@ a.thumbnail.active {
 .thumbnail:focus,
 .thumbnail.active {
   border-color: #428bca;
+}
+
+.thumbnail.leap-thumbnail.hover,
+.thumbnail.leap-thumbnail:hover {
+  background-color: #dbdbdb;
 }
 
 .alert {
