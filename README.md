@@ -52,3 +52,7 @@ Keep track of development and community news.
 ## Copyright and license
 
 Copyright 2013 Alex Wilkes www.alex-wilkes.com
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/wilkesalex/leapstrap/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
