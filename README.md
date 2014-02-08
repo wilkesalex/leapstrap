@@ -42,8 +42,8 @@ Keep track of development and community news.
 
 ## With Thanks
 
-**Twitter Leapstrap**
-+ <http://getLeapstrap.com/>
+**Twitter Bootstrap**
++ <http://getbootstrap.com/>
 
 **Leap JS**
 + <http://js.leapmotion.com/>
